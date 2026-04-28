@@ -4,7 +4,7 @@ project:
 
 book:
   title: "CristalesdeTiempodeFloquet"
-  author: "Norah Jones"
+  author: "Mario sebastián Torres Rubio"
   date: "28/4/2026"
   chapters:
     - index.qmd
