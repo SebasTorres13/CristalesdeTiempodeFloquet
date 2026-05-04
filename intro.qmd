@@ -1,0 +1,13 @@
+# Introducción
+
+Para comprender los cristales de tiempo de Floquet, es esencial primero entender el concepto de sistemas periódicamente impulsados. Estos sistemas son aquellos que están sujetos a una fuerza o perturbación que varía de manera periódica en el tiempo.
+
+El concepto de los cristales de tiempo representa un cambio de paradigma en la mecánica estadística cuántica, al describir una fase de la materia intrinsecamente fuera del equilibrio que carece de un análogo en sistemas en equilibrio.
+
+En términos generales, un cristal de timpo se define por la ruptura de la **simetría de traslación temporal** (TTS). Mientras que los cristales espaciales ordinarios rompen la simetría detraslación espacial al organizar sus átomos en una red periódica, los cristales de tiempo manifiestan la aparición espontánea de un "reloj" o periodicidad temporal dentro de un sistema que originalmente es invariante en el tiempo. 
+
+:::{.callout-note appearance="simple" icon="false" collapse="false"}
+## Evolución histórica
+  Aunque el interés por evadir la termalización se remonta a la antiguas propuestas del *perpetuum mobile* (movimiento perpetuo), la encarnación moderna del tema nació en 2012 con la prupuesta de Frank Wilczek. Wilczek sugirió que sistema macroscópicos podrían exhibir rupturas de simetría de traslación temporal en sus estados base; sin embargo, teoremas posteriores (Watanabe y Oshikawa, 2015) descartaron esta posibilidad para sistemas gobernados por Hamiltonianos estáticos con interacciones de corto alcance.
+:::
+

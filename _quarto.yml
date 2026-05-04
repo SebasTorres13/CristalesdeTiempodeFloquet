@@ -1,0 +1,35 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Cristales de Tiempo de Floquet"
+  author: "Mario sebastián Torres Rubio"
+  date: 28/4/2026
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - teoria.qmd
+    - metodos.qmd
+    - simulaciones.qmd 
+    - summary.qmd
+    - references.qmd
+    
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      light: superhero
+      dark: superhero
+    fontsize: 0.8em
+    css: styles.css
+    code-fold: true
+    code-summary: "Mostrar código"
+    code-line-numbers: true
+    code-copy: true
+  pdf:
+    documentclass: scrreprt
+
+
+
