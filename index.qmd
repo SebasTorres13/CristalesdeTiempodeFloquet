@@ -2,4 +2,4 @@
 
 En el presente repositorio se encuentra el trabajo desarrollado durante el servicio social en el Facultad de Química de la UNAM, bajo la supervisión del Dr. José Eduardo Barrios Vargas. El objetivo principal de este trabajo es la elaboración de un libro que sirva como introducción a los cristales de tiempo de Floquet, un tema de gran interés en la física contemporánea.
 
-LA estructura del trabajo se divide en varios capítulos donde se abordan los conceptos fundamentales de la física de sistemas periódicamente impulsados, la teoría de Floquet, y las propiedades únicas de los cristales de tiempo. Además, se incluyen ejemplos y simulaciones para ilustrar los conceptos teóricos presentados.
+La estructura del trabajo se divide en varios capítulos donde se abordan los conceptos fundamentales de la física de sistemas periódicamente impulsados, la teoría de Floquet, y las propiedades únicas de los cristales de tiempo. Además, se incluyen ejemplos y simulaciones para ilustrar los conceptos teóricos presentados.
