@@ -3,15 +3,18 @@ project:
   output-dir: docs
 
 book:
-  title: "CristalesdeTiempodeFloquet"
+  title: "Cristales de Tiempo de Floquet"
   author: "Mario sebastián Torres Rubio"
-  date: "28/4/2026"
+  date: today
   chapters:
     - index.qmd
     - intro.qmd
+    - teoria.qmd
+    - metodos.qmd
+    - simulaciones.qmd 
     - summary.qmd
     - references.qmd
-
+    
 bibliography: references.bib
 
 format:
