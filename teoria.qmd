@@ -1,1 +1,47 @@
 En esta sección, exploraremos los temas fundamentales para el estudio y simulación de los cristales de tiempo de Floquet en sistemas de muchos cuerpos. 
+
+## Definición de Ruputura de Simetría de Traslación Temporal (*TTSB*)
+
+
+ :::{.callout-note appearance="simple" icon="false" collapse="false"}
+  ### Ruptura espontánea de simetría 
+  La ruptura espontánea de simetría ocurre cuando el estado base (o los estados de baja temperatura) de un sistema no es invariante bajo las simetrías del Hamiltoniano que rige dicho sistema. Es decir, cuando el estado base no respeta la simetría de las leyes dinámicas (el Hamiltoniano), el sistema desarrolla un orden que antes no tenía.
+
+  Un ejemplo es el modelo de Ising, donde la simetría consiste en un giro simultáneo de todos los espines, lo cual deja inalterada la energía del sistema. Sin embargo, en la fase ferromagnética, se forman estados de baja energía con una magnetización distinta de cero, rompiendo dicha simetría. En sistemas cuánticos, esto se traduce en una ruptura de la ergodicidad, donde el tiempo necesario para alcanzar un estado estacionario independiente del tiempo diverge exponencialmente con el tamaño del sistema.  
+ :::
+
+Históricamente, la simetría de traslación temporal fue la excepción a esta regla (*SSB*), ya que se pensaba que el estado base siempre debía ser invariante en el tiempo (estático) . Sin embargo, el concepto de cristal de tiempo propone que es posible tener sistemas donde el estado base (o los estados propios de Floquet) no sean invariantes bajo traslaciones temporales, lo que implica que el sistema manifiesta una periodicidad u oscilación espontánea incluso en su estado de menor energía o en regímenes estables fuera del equilibrio.
+
+Se propone que la **TTSB** ocurre cuando el sistema no logra alcanzar un estado estacionario en el límite termodinámico. Para ello, se proponen dos definiciones equivalentes: 
+
+1) TTSB-1 (Basada en Observables y Evolución): Esta definición se centra en la dependencia temporal y es la más cercana a la observación experimental. Establece que la TTSB ocurre si, para cualquier tiempo inicial $t_1$ y para cada estado $|\psi(t_1)\rangle$ que tenga correlaciones de corto alcance, existe un observable $\Phi$ tal que su valor esperado después de un periodo de evolución $T$ ha cambiado. En términos simples: si preparas el sistema en un estado físico "normal" (correlacionado localmente), observarás que su evolución posterior no es invariante bajo la simetría de traslación temporal del operador de evolución. En un sistema impulsado, esto se manifiesta cuando los observables responden a una fracción de la frecuencia del impulso (por ejemplo, oscilando cada $2T$).  
+
+2) TTSB-2 (Basada en Eigenestados): Esta definición es técnica y útil para el análisis numérico por diagonalización exacta. Establece que la TTSB ocurre si los eigenestados del operador de Floquet ($U_f$) no pueden tener correlaciones de corto alcance. Esto implica que los estados propios del sistema deben ser necesariamente superposiciones de estados ordenados de corto alcance (estados tipo "gato de Schrödinger"), lo cual es una firma de la ruptura de simetría a nivel de la estructura del espectro del sistema.
+  
+
+## Sistemas de Floquet y Simetría Discreta
+
+Los sistemas de Floquet son marcos matemáticos usasos para describir sistemas físicos cuyo Hamiltoniano es periódico en el tiempo, es decir, cumple que $H(t) = H(t + T)$, donde $T$ es el periodo del impulso. Estos sistemas son fundamentales para el estudio de los cristales de tiempo, ya que representan una fase de la materia intrínsecamente fuera del equilibrio. En estos sistemas, la simetría de traslación temporal se vuelve discreta debido a la periodicidad del impulso, lo que permite la posibilidad de ruptura de esta simetría y la formación de cristales de tiempo. 
+
+:::{.callout-note appearance="simple" icon="false" collapse="false"}
+  ### Teorema de Floquet 
+  Establece que para un hamiltoniano periódico, las soluciones de la ecuación de Schrödinger pueden escribirse de la forma $\Psi(r,t) = \Phi(r,t0) e^{\frac{i\epsilon t}{\hbar}}$, donde $\Phi(r,t)$ es una función periódica en el tiempo con el mismo periodo $T$, y $\mathcal{E}$ se denomina cuasi-energía.
+::: 
+
+:::{.callout-note appearance="simple" icon="false" collapse="false"}
+  ### Operador de Floquet 
+ Se define como $\hat{\mathcal{H}}_F \equiv \hat{\mathcal{H}}(t) - i\hbar \frac{\partial}{\partial t}$. Este operador permite transformar un problema dinámico dependiente del tiempo en uno que puede tratarse de forma estacionaria en un espacio extendido conocido como el "espacio de Sambe".
+
+  :::{.callout-note appearance="simple" icon="false" collapse="false"}
+    ### Espacio de Sambe 
+    Es un espacio de Hilbert extendido que incluye tanto las coordenadas espaciales como el tiempo. En este espacio, el operador de Floquet actúa como un Hamiltoniano efectivo, lo que permite analizar la dinámica del sistema de manera más sencilla y entender la estructura de los estados propios de Floquet.
+    Se construye extendiendo el espacio de Hilbert convencional ($\mathcal{H}$) a un espacio más amplio que incluye el promedio temporal sobre el período del campo externo ($\mathcal{H} \otimes \mathcal{T}$).
+  :::
+ ::: 
+ 
+ :::{.callout-note appearance="simple" icon="false" collapse="false"}
+   ### Evolución Unitaria en Sistemas de Floquet
+   La dinámica está gobernada por el operador de evolución de un solo periodo, $U_f \equiv U(T, 0)$, cuyas propiedades determinan el comportamiento a largo plazo del sistema.
+   En particular, la TTSB se manifiesta cuando los eigenestados de $U_f$ no pueden ser estados de corto alcance, lo que implica que el sistema no puede alcanzar un estado estacionario y exhibe oscilaciones persistentes en el tiempo.
+:::
+
