@@ -10,4 +10,3 @@ En términos generales, un cristal de timpo se define por la ruptura de la **sim
 ## Evolución histórica
   Aunque el interés por evadir la termalización se remonta a la antiguas propuestas del *perpetuum mobile* (movimiento perpetuo), la encarnación moderna del tema nació en 2012 con la prupuesta de Frank Wilczek. Wilczek sugirió que sistema macroscópicos podrían exhibir rupturas de simetría de traslación temporal en sus estados base; sin embargo, teoremas posteriores (Watanabe y Oshikawa, 2015) descartaron esta posibilidad para sistemas gobernados por Hamiltonianos estáticos con interacciones de corto alcance.
 :::
-
