@@ -2,7 +2,6 @@ En esta sección, exploraremos los temas fundamentales para el estudio y simulac
 
 ## Definición de Ruputura de Simetría de Traslación Temporal (*TTSB*)
 
-
  :::{.callout-note appearance="simple" icon="false" collapse="false"}
   ### Ruptura espontánea de simetría 
   La ruptura espontánea de simetría ocurre cuando el estado base (o los estados de baja temperatura) de un sistema no es invariante bajo las simetrías del Hamiltoniano que rige dicho sistema. Es decir, cuando el estado base no respeta la simetría de las leyes dinámicas (el Hamiltoniano), el sistema desarrolla un orden que antes no tenía.
@@ -31,17 +30,34 @@ Los sistemas de Floquet son marcos matemáticos usasos para describir sistemas f
 :::{.callout-note appearance="simple" icon="false" collapse="false"}
   ### Operador de Floquet 
  Se define como $\hat{\mathcal{H}}_F \equiv \hat{\mathcal{H}}(t) - i\hbar \frac{\partial}{\partial t}$. Este operador permite transformar un problema dinámico dependiente del tiempo en uno que puede tratarse de forma estacionaria en un espacio extendido conocido como el "espacio de Sambe".
-
-  :::{.callout-note appearance="simple" icon="false" collapse="false"}
+ ::: 
+ 
+:::{.callout-note appearance="simple" icon="false" collapse="false"}
     ### Espacio de Sambe 
     Es un espacio de Hilbert extendido que incluye tanto las coordenadas espaciales como el tiempo. En este espacio, el operador de Floquet actúa como un Hamiltoniano efectivo, lo que permite analizar la dinámica del sistema de manera más sencilla y entender la estructura de los estados propios de Floquet.
     Se construye extendiendo el espacio de Hilbert convencional ($\mathcal{H}$) a un espacio más amplio que incluye el promedio temporal sobre el período del campo externo ($\mathcal{H} \otimes \mathcal{T}$).
   :::
- ::: 
- 
+
+
  :::{.callout-note appearance="simple" icon="false" collapse="false"}
    ### Evolución Unitaria en Sistemas de Floquet
    La dinámica está gobernada por el operador de evolución de un solo periodo, $U_f \equiv U(T, 0)$, cuyas propiedades determinan el comportamiento a largo plazo del sistema.
    En particular, la TTSB se manifiesta cuando los eigenestados de $U_f$ no pueden ser estados de corto alcance, lo que implica que el sistema no puede alcanzar un estado estacionario y exhibe oscilaciones persistentes en el tiempo.
 :::
+
+A diferencia de los sistemas estáticos que poseen una simetría de traslación temporal continua, los sistemas de Floquet solo poseen una simetría de traslación temporal discreta, lo que significa que el sistema solo es invariante bajo traslaciones de tiempo que sean múltiplos enteros del periodo del impulso ($t \rightarrow t + nT$). Esta discreción en la simetría de traslación temporal es lo que permite la posibilidad de ruptura de esta simetría y la formación de cristales de tiempo, ya que el sistema puede manifestar una periodicidad u oscilación espontánea que no coincide con la periodicidad del impulso, como por ejemplo oscilando cada $2T$ o cada $3T$.
+
+:::{.callout-note appearance="simple" icon="false" collapse="false"}
+ ### Ruptura de la Simetría (*dTTSB*)
+ Un cristal de tiempo discreto ocurre cuando el estado del sistema rompe espontáneamente esta simetría dTTS. En lugar de sincronizarse con el periodo del impulso $T$, los observables del sistema muestran una respuesta subarmónica.
+:::
+
+:::{.callout-note appearance="simple" icon="false" collapse="false"}
+ ### Respuesta Subarmónica
+  El sistema responde a una fracción de la frecuencia original ($\Omega/n$), lo que implica que el valor esperado de los observables solo es invariante bajo traslaciones de $nT$ con $n > 1$.
+:::
+
+
+## Localización de muchos cuerpos (many-body localization - *MBL*)
+La Localización de muchos cuerpos representa una generalización de la localización de Anderson —típica de sistemas desordenados no interactuantes— al ámbito de sistemas con interacciones . Es un fenómeno fundamental para la existencia de los cristales de tiempo, ya que permite que un sistema cuántico aislado evite la termalización. 
 
