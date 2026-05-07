@@ -69,4 +69,5 @@ A diferencia de los sistemas ergódicos convencionales, los sistemas MBL son inc
   - **Crecimiento logarítmico**: Tras aplicar un "quench" (se refiere al proceso de preparar un sistema en un estado inicial específico ($|\psi_0\rangle$) y luego cambiar de forma súbita los parámetros del Hamiltoniano para iniciar la evolución temporal), el entrelazamiento crece de manera extremadamente lenta, siguiendo una escala logarítmica con el tiempo, a diferencia del crecimiento exponencial de los sistemas térmicos que hace que pierdan rápidamente la memoria de las condiciones iniciales.
 :::
 
-## Entrelazamiento y Correlaciones de corto alcance
+## Entrelazamiento y Correlaciones de corto alcance 
+
