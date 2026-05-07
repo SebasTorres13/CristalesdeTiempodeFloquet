@@ -59,5 +59,13 @@ A diferencia de los sistemas estáticos que poseen una simetría de traslación 
 
 
 ## Localización de muchos cuerpos (many-body localization - *MBL*)
-La Localización de muchos cuerpos representa una generalización de la localización de Anderson —típica de sistemas desordenados no interactuantes— al ámbito de sistemas con interacciones . Es un fenómeno fundamental para la existencia de los cristales de tiempo, ya que permite que un sistema cuántico aislado evite la termalización. 
+La Localización de muchos cuerpos representa una generalización de la localización de Anderson —típica de sistemas desordenados no interactuantes— al ámbito de sistemas con interacciones. Es un fenómeno fundamental para la existencia de los cristales de tiempo, ya que permite que un sistema cuántico aislado evite la termalización. 
+
+A diferencia de los sistemas ergódicos convencionales, los sistemas MBL son incapaces de actuar como su propio baño térmico, esto implica que el sistema no alcanza el equilibrio térmico localmente, lo que a su vez permite que se retenga la una memoria de las condiciones iniciales locales por tiempo infinito. 
+
+:::{.callout-note appearance="simple" icon="false" collapse="false"}
+  ### Propiedades de los sistemas MBL
+  - **Entropía de entrelazamiento**: MIentras que los sistemas térmicos siguen una "ley de volumen" (el entrelazamiento crece con el tamaño del sistema), los eigenestados MBL siguen una "ley de área", comportándose incluso a altas energías como si fueran estados base.
+  - **Crecimiento logarítmico**: Tras aplicar un "quench" (se refiere al proceso de preparar un sistema en un estado inicial específico ($|\psi_0\rangle$) y luego cambiar de forma súbita los parámetros del Hamiltoniano para iniciar la evolución temporal), el entrelazamiento crece de manera extremadamente lenta, siguiendo una escala logarítmica con el tiempo, a diferencia del crecimiento exponencial de los sistemas térmicos que hace que pierdan rápidamente la memoria de las condiciones iniciales.
+:::
 
