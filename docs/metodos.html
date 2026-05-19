@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Introducción – Cristales de Tiempo de Floquet</title>
+<title>3&nbsp; Métodos Numéricos – Cristales de Tiempo de Floquet</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./teoria.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./simulaciones.html" rel="next">
+<link href="./teoria.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -83,6 +83,35 @@ window.MathJax = {
 };
 </script>  
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -96,7 +125,7 @@ window.MathJax = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./metodos.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Métodos Numéricos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -132,7 +161,7 @@ window.MathJax = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
   </div>
 </li>
@@ -144,7 +173,7 @@ window.MathJax = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./metodos.html" class="sidebar-item-text sidebar-link">
+  <a href="./metodos.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Métodos Numéricos</span></span></a>
   </div>
 </li>
@@ -179,7 +208,7 @@ window.MathJax = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Métodos Numéricos</span></h1>
 </div>
 
 
@@ -196,27 +225,40 @@ window.MathJax = {
 </header>
 
 
-<p>Para comprender los cristales de tiempo de Floquet, es esencial primero entender el concepto de sistemas periódicamente impulsados. Estos sistemas son aquellos que están sujetos a una fuerza o perturbación que varía de manera periódica en el tiempo.</p>
-<p>El concepto de los cristales de tiempo representa un cambio de paradigma en la mecánica estadística cuántica, al describir una fase de la materia intrinsecamente fuera del equilibrio que carece de un análogo en sistemas en equilibrio.</p>
-<p>En términos generales, un cristal de timpo se define por la ruptura de la <strong>simetría de traslación temporal</strong> (TTS). Mientras que los cristales espaciales ordinarios rompen la simetría detraslación espacial al organizar sus átomos en una red periódica, los cristales de tiempo manifiestan la aparición espontánea de un “reloj” o periodicidad temporal dentro de un sistema que originalmente es invariante en el tiempo.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Evolución histórica
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>Aunque el interés por evadir la termalización se remonta a la antiguas propuestas del <em>perpetuum mobile</em> (movimiento perpetuo), la encarnación moderna del tema nació en 2012 con la prupuesta de Frank Wilczek. Wilczek sugirió que sistema macroscópicos podrían exhibir rupturas de simetría de traslación temporal en sus estados base; sin embargo, teoremas posteriores (Watanabe y Oshikawa, 2015) descartaron esta posibilidad para sistemas gobernados por Hamiltonianos estáticos con interacciones de corto alcance.</p>
-</div>
-</div>
-</div>
+<p>El modelo utilizado lo tomamos del artículo de Else et al.&nbsp;(2016), donde se estudia un sistema de espines-1/2 en una cadena unidimensional de longitud <span class="math inline">\(L\)</span> con condiciones periódicas. La dinámica del cristal de tiempo está gobernada por un operador de evolución unitaria que se repite en cada periodo <span class="math inline">\(T\)</span> . Este operador se compone de dos pasos principales:\ <span class="math inline">\(U_f = \exp(-it_0 H_{MBL}) \exp(it_1 \sum_i \sigma_i^x)\)</span>\</p>
+<p>La primera parte del operador <span class="math inline">\(\exp(-it_0 H_{MBL})\)</span> representa la evolución del sistema bajo un Hamiltoniano, de Many-Body Localization, con desorden e interacciones durante un tiempo <span class="math inline">\(t_0\)</span>. El Hamiltoniano <span class="math inline">\(H_{MBL}\)</span> que genera la interacción y permite la localización se define como:</p>
+<p><span class="math inline">\(H_{MBL} = \sum_i (J_i \sigma_i^z \sigma_{i+1}^z + h_i^z \sigma_i^z + h_i^x \sigma_i^x)\)</span>\ :::{.callout-note appearance=“simple” icon=“false” collapse=“false”} ### -Término de Interacción (<span class="math inline">\(J_i \sigma_i^z \sigma_{i+1}^z\)</span>): Representa la interacción de Ising entre espines vecinos. El desorden en los acoplamientos <span class="math inline">\(J_i\)</span> es crucial para estabilizar la fase MBL y evitar que el sistema se caliente.</p>
+<p>### -Campo Longitudinal (<span class="math inline">\(h_i^z \sigma_i^z\)</span>): Es un campo magnético aleatorio en la dirección <span class="math inline">\(z\)</span>. Su función es romper la homogeneidad del sistema y facilitar la localización de MBL.</p>
+<p>### -Campo Transverso (<span class="math inline">\(h_i^x \sigma_i^x\)</span>): Actúa como una perturbación . En el punto soluble este término es cero, pero en simulaciones reales se utiliza un valor pequeño para demostrar que el cristal de tiempo es una fase robusta y no solo un efecto de un “giro perfecto”. :::</p>
+<p>La segunda parte del operador de evolución <span class="math inline">\(\exp(it_1 \sum_i \sigma_i^x)\)</span> representa un impulso de rotación global de todos los espines alrededor del eje <span class="math inline">\(x\)</span> . Si el parámetro <span class="math inline">\(t_1\)</span> es exactamente <span class="math inline">\(\pi/2\)</span>, este término actúa como un operador de paridad que invierte todos los espines (<span class="math inline">\(\sigma^z \rightarrow -\sigma^z\)</span>).</p>
+<p>La simulación numérica de los cristales de tiempo de Floquet requiere un enfoque simultáneo que permita, por un lado, obtener resultados exactos en sistemas pequeños y, por otro, explorar el comportamiento del sistema en el límite termodinámico. El desafío principal radica en que el número de parámetros necesarios para describir un estado cuántico de muchos cuerpos crece exponencialmente con el número de sitios <span class="math inline">\(L\)</span>. Para superar este obstáculo, se han desarrollado dos metodologías fundamentales: la Diagonalización Exacta (ED) mediante matrices dispersas y la evolución de Estados Producto de Matriz (MPS) utilizando el algoritmo TEBD. \</p>
+<p>Para el primer código solo se consideraron los casos casos para cadenas de longitud <span class="math inline">\(L&lt;15\)</span> ya que que el espacio de Hilbert crece exponencialmente con <span class="math inline">\(L\)</span> (<span class="math inline">\(2^L\)</span> estados) por lo que se vuelve computacionalmente costoso, es por eso que se utilizaron operaciones matriciales con funciones especiales de librerías como <em>numpy</em>, <em>scipy.sparse</em> y <em>scipy.sparse.linalg</em>. Las matrices sparce permitieron trabajar con operaciones matriciales directamente al solo almacenar los elementos no nulos de cada matriz, lo que redujo principalmente el uso de memoria y tiempo de cómputo.\</p>
+<p>Para el segundo código se utilizó la librería <em>Quimb</em>, es una biblioteca de Python diseñada para realizar cálculos de información cuántica y sistemas de muchos cuerpos, especializada en el uso de redes tensoriales. Con este nuevo compendio de funciones especializadas se pudo simular cadenas de longitud <span class="math inline">\(L&gt;200\)</span> para poder estudiar la ruptura de la simetría de traslación temporal en el límite termodinámico. Para eso seempleó el método de TEBD (Time-Evolving Block Decimation) que es un algoritmo eficiente para simular la evolución temporal de sistemas cuánticos de muchos cuerpos representados como redes tensoriales, especialmente en una dimensión. Este método se basa en la idea de truncar el espacio de Hilbert manteniendo solo los estados más relevantes, lo que permite simular sistemas más grandes sin sacrificar en un costo computacional excesivo.</p>
+<section id="diagonalización-exacta-ed" class="level4" data-number="3.0.0.1">
+<h4 data-number="3.0.0.1" class="anchored" data-anchor-id="diagonalización-exacta-ed"><span class="header-section-number">3.0.0.1</span> Diagonalización Exacta (ED)</h4>
+<ul>
+<li><p><strong>Estrategia de eficiencia:</strong> -Uso de <em>csc_matrix</em> para definir las matrices de Pauli (<span class="math inline">\(\sigma^x\)</span>,<span class="math inline">\(\sigma^z\)</span>) y la identidad. esto permite realizar operaciones matriciales de manera eficiente sin almacenar elementos nulos.</p></li>
+<li><p><strong>Construcción del espacio de muchos cuerpos:</strong> -Uso de la función <em>kron</em> para expandir los operadores locales a la dimensión total del sistema <span class="math inline">\(2^L\)</span>. Por ejemplo, para un término <span class="math inline">\(\sigma_i^z \sigma_{i+1}^z\)</span> se construye una matriz que es la identidad en toso dlos sitios excepto en <span class="math inline">\(i\)</span> e <span class="math inline">\(i+1\)</span>, donde se coloca el producto de las matrices de Pauli correspondientes.</p></li>
+<li><p><strong>Implementación del Hamiltoniano desordenado:</strong> -El hamiltoniano se construye sumando los términos de interacción, campo longitudinal y campo transverso. -Para la generación de desorden se utilizan generadores de números aleatorios que asignan valores únicos a <span class="math inline">\(J_i\)</span> y <span class="math inline">\(h_i^z\)</span> en cada sitio de la cadena. -Cada término se contsruye como una matriz dispersa y se suma para obtener la matriz final de <span class="math inline">\(H_{MBL}\)</span>.</p></li>
+<li><p><strong>Construcción del operador de evolución de Floquet:</strong> -Se utiliza <em>scipy.sparse.linalg.expm</em> para calcular los operadores de evolución <span class="math inline">\(e^{-it_0 H_{MBL}}\)</span> y la rotación global <span class="math inline">\(e^{it_1 \sum \sigma_i^x}\)</span> -El operador de Floquet total se obtiene multiplicando estas dos matrices en el orden correcto: <span class="math inline">\(U_f = U_{int} \cdot U_{rot}\)</span>.</p></li>
+<li><p><strong>Dinámica y evolución temporal:</strong> -En lugar de una evolución continua, el sistema se observa en pasos discretos de tiempo <span class="math inline">\(T\)</span>. -El estado inicial <span class="math inline">\(|\psi(0)\rangle\)</span> se multipilica sucesivamente por la matriz de Floquet en un ciclo <em>for</em>. -<span class="math inline">\(|\psi(0) (nT)\rangle = (U_f)^n |\psi(0)\rangle\)</span></p></li>
+<li><p><strong>Extracción de observables y análisis:</strong> -Para detectar la fase de del cristal de tiempo, se mide la magnegtización en cada paso. -En cada periodo <span class="math inline">\(n\)</span>, se calcula <span class="math inline">\(\langle \sigma_i^z \rangle\)</span> mediante la proyección del estado actual sobre el operador de magnetización: <span class="math inline">\(\langle \sigma_i^z \rangle = \langle \psi(nT) | \sigma_i^z | \psi(nT) \rangle\)</span> -El programa registra los valores para graficarlos y verificar si la magnetización oscila entre 1 y -1 con un periodo $2T, que es la firma definitiva de la <em>dTTSB</em></p></li>
+</ul>
+</section>
+<section id="evolución-de-estados-producto-de-matriz-mps-con-tebd" class="level4" data-number="3.0.0.2">
+<h4 data-number="3.0.0.2" class="anchored" data-anchor-id="evolución-de-estados-producto-de-matriz-mps-con-tebd"><span class="header-section-number">3.0.0.2</span> Evolución de Estados Producto de Matriz (MPS) con TEBD</h4>
+<ul>
+<li><p><strong>Representación de estados como MPS:</strong> -A diferencia de la diagonalización exacta, este no construye matrices de tamaño <span class="math inline">\(2^{100} \times 2^{100}\)</span>, lo cual sería imposible. Utiliza la librería <em>Quimb</em> para representar el estado cuántico como un MPS. -Se define un estado producto inical donde cada sitio en una superposición local: <span class="math inline">\(cos(\theta)|0\rangle + sin(\theta)|1\rangle\)</span>. -Esta representación permite manejar cadenas de 100 sitios o más de manera eficiente, limitando el entrelazamiento mediante la dimensión de enlace <span class="math inline">\(\chi\)</span>.</p></li>
+<li><p><strong>Implementación del Hamiltoniano MBL unidimensional:</strong> -El código define el Hamiltoniano de interaciión y campo desordenado de forma simbólica para que sea compatible con los algoritmos de evolución de tensores. -Se utiliza la función <em>qtn.LocalHam1D</em> para espeecificar las interacciones de dos cuerpos <span class="math inline">\((Z \otimes Z)\)</span> y los campos locales <span class="math inline">\((Z)\)</span> con coeficientes aleatorios generados uniformemente.</p></li>
+<li><p><strong>Fase 1 de Floquet, Aplicación de compuertas globales:</strong> -En cada ciclo, se aplica el impulso de rotación en el eje <span class="math inline">\(X\)</span> a cada espín. -Se utiliza el método <em>.gate_()</em> con la opción <em>contract=‘swap+split’</em>. esto aplica el operador unitario <span class="math inline">\(U_x\)</span> de forma local a cada tensor de la cadena. -Inmediatamente después del pulso, se ejecuta <em>psi.compress()</em>. Esta es la parte más crítica, ya que trunca los valores singulares (coeficientes de Schmidt) para mantener la dimensión de enlace en <span class="math inline">\(\chi=50\)</span>, evitando que el costo computacional crezca exponencialmente.</p></li>
+<li><p><strong>Fase 2 de Floquet, Algoritmo TEBD (Time-Evolving Block Decimation):</strong> -Se instancia <em>qtn.TEBD</em> sobre el estado actual y el Hamiltoniano. La evolución se realiza en pasos de tiempo discretos <span class="math inline">\(dt = 0.01\)</span> hasta alcanzar <span class="math inline">\(t_0 = 1.0\)</span>.<br>
+-El algoritmo descompone el operador de evolución global en una serie de compuertas de dos sitios (Suzuki-Trotter), actualizando el MPS sitio por sitio.</p></li>
+<li><p><strong>Extracción de observables y entropía:</strong></p>
+<p>-Se calcula <span class="math inline">\(\langle \sigma^z \rangle\)</span> en el sitio central (<span class="math inline">\(L/2\)</span>) mediante el producto interno entre el estado conjugado y el estado gateado: <em>psi.H @ psi.gate(qu.pauli(‘Z’), L // 2)</em> -Se utiliza el método <em>psi.entropy(L // 2)</em> para calcular la entropía de Von Neumann en la mitad de la cadena. Esto permite verificar si el sistema está en la fase MBL (crecimiento logarítmico) o si se está termalizando (crecimiento lineal).</p></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -782,13 +824,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Prefacio">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Prefacio</span>
+      <a href="./teoria.html" class="pagination-link" aria-label="Definición de Ruputura de Simetría de Traslación Temporal (*TTSB*)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Definición de Ruputura de Simetría de Traslación Temporal (<em>TTSB</em>)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./teoria.html" class="pagination-link" aria-label="Definición de Ruputura de Simetría de Traslación Temporal (*TTSB*)">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Definición de Ruputura de Simetría de Traslación Temporal (<em>TTSB</em>)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./simulaciones.html" class="pagination-link" aria-label="Primer código: Diagonalización Exacta (ED)">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Primer código: Diagonalización Exacta (ED)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

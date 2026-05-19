@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; Definición de Ruputura de Simetría de Traslación Temporal (TTSB) – Cristales de Tiempo de Floquet</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./metodos.html" rel="next">
+<link href="./intro.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-69e7ffcaecc2d5c00338d099f1da67c1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-dark-9a4bbcb5d63b8f9a707ee7fdbc8e35ff.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+window.MathJax = {
+  tex: {
+    macros: {
+      ket: ["\\left|{#1}\\right\\rangle", 1],
+      bra: ["\\left\\langle{#1}\\right|", 1],
+      braket: ["\\left\\langle{#1}\\middle|{#2}\\right\\rangle", 2],
+      sigma: "\\sigma"
+    }
+  }
+};
+</script>  
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./teoria.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Definición de Ruputura de Simetría de Traslación Temporal (<em>TTSB</em>)</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Cristales de Tiempo de Floquet</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefacio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./teoria.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Definición de Ruputura de Simetría de Traslación Temporal (<em>TTSB</em>)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./metodos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Métodos Numéricos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./simulaciones.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Primer código: Diagonalización Exacta (ED)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sistemas-de-floquet-y-simetría-discreta" id="toc-sistemas-de-floquet-y-simetría-discreta" class="nav-link active" data-scroll-target="#sistemas-de-floquet-y-simetría-discreta"><span class="header-section-number">2.1</span> Sistemas de Floquet y Simetría Discreta</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Definición de Ruputura de Simetría de Traslación Temporal (<em>TTSB</em>)</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>En esta sección, exploraremos los temas fundamentales para el estudio y simulación de los cristales de tiempo de Floquet en sistemas de muchos cuerpos.</p>
+<p>:::{.callout-note appearance=“simple” icon=“false” collapse=“false”} ### Ruptura espontánea de simetría La ruptura espontánea de simetría ocurre cuando el estado base (o los estados de baja temperatura) de un sistema no es invariante bajo las simetrías del Hamiltoniano que rige dicho sistema. Es decir, cuando el estado base no respeta la simetría de las leyes dinámicas (el Hamiltoniano), el sistema desarrolla un orden que antes no tenía.</p>
+<p>Un ejemplo es el modelo de Ising, donde la simetría consiste en un giro simultáneo de todos los espines, lo cual deja inalterada la energía del sistema. Sin embargo, en la fase ferromagnética, se forman estados de baja energía con una magnetización distinta de cero, rompiendo dicha simetría. En sistemas cuánticos, esto se traduce en una ruptura de la ergodicidad, donde el tiempo necesario para alcanzar un estado estacionario independiente del tiempo diverge exponencialmente con el tamaño del sistema.<br>
+:::</p>
+<p>Históricamente, la simetría de traslación temporal fue la excepción a esta regla (<em>SSB</em>), ya que se pensaba que el estado base siempre debía ser invariante en el tiempo (estático) . Sin embargo, el concepto de cristal de tiempo propone que es posible tener sistemas donde el estado base (o los estados propios de Floquet) no sean invariantes bajo traslaciones temporales, lo que implica que el sistema manifiesta una periodicidad u oscilación espontánea incluso en su estado de menor energía o en regímenes estables fuera del equilibrio.</p>
+<p>Se propone que la <strong>TTSB</strong> ocurre cuando el sistema no logra alcanzar un estado estacionario en el límite termodinámico. Para ello, se proponen dos definiciones equivalentes:</p>
+<ol type="1">
+<li><p>TTSB-1 (Basada en Observables y Evolución): Esta definición se centra en la dependencia temporal y es la más cercana a la observación experimental. Establece que la TTSB ocurre si, para cualquier tiempo inicial <span class="math inline">\(t_1\)</span> y para cada estado <span class="math inline">\(|\psi(t_1)\rangle\)</span> que tenga correlaciones de corto alcance, existe un observable <span class="math inline">\(\Phi\)</span> tal que su valor esperado después de un periodo de evolución <span class="math inline">\(T\)</span> ha cambiado. En términos simples: si preparas el sistema en un estado físico “normal” (correlacionado localmente), observarás que su evolución posterior no es invariante bajo la simetría de traslación temporal del operador de evolución. En un sistema impulsado, esto se manifiesta cuando los observables responden a una fracción de la frecuencia del impulso (por ejemplo, oscilando cada <span class="math inline">\(2T\)</span>).</p></li>
+<li><p>TTSB-2 (Basada en Eigenestados): Esta definición es técnica y útil para el análisis numérico por diagonalización exacta. Establece que la TTSB ocurre si los eigenestados del operador de Floquet (<span class="math inline">\(U_f\)</span>) no pueden tener correlaciones de corto alcance. Esto implica que los estados propios del sistema deben ser necesariamente superposiciones de estados ordenados de corto alcance (estados tipo “gato de Schrödinger”), lo cual es una firma de la ruptura de simetría a nivel de la estructura del espectro del sistema.</p></li>
+</ol>
+<section id="sistemas-de-floquet-y-simetría-discreta" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="sistemas-de-floquet-y-simetría-discreta"><span class="header-section-number">2.1</span> Sistemas de Floquet y Simetría Discreta</h2>
+<p>Los sistemas de Floquet son marcos matemáticos usasos para describir sistemas físicos cuyo Hamiltoniano es periódico en el tiempo, es decir, cumple que <span class="math inline">\(H(t) = H(t + T)\)</span>, donde <span class="math inline">\(T\)</span> es el periodo del impulso. Estos sistemas son fundamentales para el estudio de los cristales de tiempo, ya que representan una fase de la materia intrínsecamente fuera del equilibrio. En estos sistemas, la simetría de traslación temporal se vuelve discreta debido a la periodicidad del impulso, lo que permite la posibilidad de ruptura de esta simetría y la formación de cristales de tiempo.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>### Teorema de Floquet Establece que para un hamiltoniano periódico, las soluciones de la ecuación de Schrödinger pueden escribirse de la forma <span class="math inline">\(\Psi(r,t) = \Phi(r,t0) e^{\frac{i\epsilon t}{\hbar}}\)</span>, donde <span class="math inline">\(\Phi(r,t)\)</span> es una función periódica en el tiempo con el mismo periodo <span class="math inline">\(T\)</span>, y <span class="math inline">\(\mathcal{E}\)</span> se denomina cuasi-energía.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>### Operador de Floquet Se define como <span class="math inline">\(\hat{\mathcal{H}}_F \equiv \hat{\mathcal{H}}(t) - i\hbar \frac{\partial}{\partial t}\)</span>. Este operador permite transformar un problema dinámico dependiente del tiempo en uno que puede tratarse de forma estacionaria en un espacio extendido conocido como el “espacio de Sambe”. :::</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<pre><code>### Espacio de Sambe 
+Es un espacio de Hilbert extendido que incluye tanto las coordenadas espaciales como el tiempo. En este espacio, el operador de Floquet actúa como un Hamiltoniano efectivo, lo que permite analizar la dinámica del sistema de manera más sencilla y entender la estructura de los estados propios de Floquet.
+Se construye extendiendo el espacio de Hilbert convencional ($\mathcal{H}$) a un espacio más amplio que incluye el promedio temporal sobre el período del campo externo ($\mathcal{H} \otimes \mathcal{T}$).</code></pre>
+<p>:::</p>
+<p>:::{.callout-note appearance=“simple” icon=“false” collapse=“false”} ### Evolución Unitaria en Sistemas de Floquet La dinámica está gobernada por el operador de evolución de un solo periodo, <span class="math inline">\(U_f \equiv U(T, 0)\)</span>, cuyas propiedades determinan el comportamiento a largo plazo del sistema. En particular, la TTSB se manifiesta cuando los eigenestados de <span class="math inline">\(U_f\)</span> no pueden ser estados de corto alcance, lo que implica que el sistema no puede alcanzar un estado estacionario y exhibe oscilaciones persistentes en el tiempo.</p>
+</div>
+</div>
+</div>
+<p>A diferencia de los sistemas estáticos que poseen una simetría de traslación temporal continua, los sistemas de Floquet solo poseen una simetría de traslación temporal discreta, lo que significa que el sistema solo es invariante bajo traslaciones de tiempo que sean múltiplos enteros del periodo del impulso (<span class="math inline">\(t \rightarrow t + nT\)</span>). Esta discreción en la simetría de traslación temporal es lo que permite la posibilidad de ruptura de esta simetría y la formación de cristales de tiempo, ya que el sistema puede manifestar una periodicidad u oscilación espontánea que no coincide con la periodicidad del impulso, como por ejemplo oscilando cada <span class="math inline">\(2T\)</span> o cada <span class="math inline">\(3T\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>### Ruptura de la Simetría (<em>dTTSB</em>) Un cristal de tiempo discreto ocurre cuando el estado del sistema rompe espontáneamente esta simetría dTTS. En lugar de sincronizarse con el periodo del impulso <span class="math inline">\(T\)</span>, los observables del sistema muestran una respuesta subarmónica.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>### Respuesta Subarmónica El sistema responde a una fracción de la frecuencia original (<span class="math inline">\(\Omega/n\)</span>), lo que implica que el valor esperado de los observables solo es invariante bajo traslaciones de <span class="math inline">\(nT\)</span> con <span class="math inline">\(n &gt; 1\)</span>.</p>
+</div>
+</div>
+</div>
+<section id="localización-de-muchos-cuerpos-many-body-localization---mbl" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="localización-de-muchos-cuerpos-many-body-localization---mbl"><span class="header-section-number">2.2</span> Localización de muchos cuerpos (many-body localization - <em>MBL</em>)</h2>
+<p>La Localización de muchos cuerpos representa una generalización de la localización de Anderson —típica de sistemas desordenados no interactuantes— al ámbito de sistemas con interacciones. Es un fenómeno fundamental para la existencia de los cristales de tiempo, ya que permite que un sistema cuántico aislado evite la termalización.</p>
+<p>A diferencia de los sistemas ergódicos convencionales, los sistemas MBL son incapaces de actuar como su propio baño térmico, esto implica que el sistema no alcanza el equilibrio térmico localmente, lo que a su vez permite que se retenga la una memoria de las condiciones iniciales locales por tiempo infinito.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>### Propiedades de los sistemas MBL - <strong>Entropía de entrelazamiento</strong>: MIentras que los sistemas térmicos siguen una “ley de volumen” (el entrelazamiento crece con el tamaño del sistema), los eigenestados MBL siguen una “ley de área”, comportándose incluso a altas energías como si fueran estados base. - <strong>Crecimiento logarítmico</strong>: Tras aplicar un “quench” (se refiere al proceso de preparar un sistema en un estado inicial específico (<span class="math inline">\(|\psi_0\rangle\)</span>) y luego cambiar de forma súbita los parámetros del Hamiltoniano para iniciar la evolución temporal), el entrelazamiento crece de manera extremadamente lenta, siguiendo una escala logarítmica con el tiempo, a diferencia del crecimiento exponencial de los sistemas térmicos que hace que pierdan rápidamente la memoria de las condiciones iniciales.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="entrelazamiento-y-correlaciones-de-corto-alcance" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="entrelazamiento-y-correlaciones-de-corto-alcance"><span class="header-section-number">2.3</span> Entrelazamiento y Correlaciones de corto alcance</h2>
+<p>En el estudio de los cristales de tiempo, el entrelazamiento y la estructura de las correlaciones son fundamentales para distinguir las fases de muchos cuerpos fuera del equilibrio. Mientras que los sistemas que se termalizan rápidamente borran la memoria local mediante un crecimiento exponencial del entrelazamiento, los cristales de tiempo basados en la localización de muchos cuerpos (MBL) protegen la información local a través de una propagación extremadamente lenta.</p>
+<p>### Descomposición de Schmidt La descomposición de Schmidt es la herramienta matemática estándar para cuantificar el entrelazamiento en un estado puro <span class="math inline">\(|\psi\rangle\)</span> de un sistema compuesto por dos partes, A y B. Según este teorema, existen bases ortonormales <span class="math inline">\(\{|i_A\rangle\}\)</span> y <span class="math inline">\(\{|i_B\rangle\}\)</span> tales que el estado global se puede escribir como: <span class="math inline">\(|\psi\rangle = \sum_i \lambda_i |i_A\rangle \otimes |i_B\rangle\)</span> donde <span class="math inline">\(\lambda_i\)</span> son números reales no negativos conocidos como los coeficientes de Schmidt, los cuales satisfacen la normalización <span class="math inline">\(\sum_i \lambda_i^2 = 1\)</span>.</p>
+<p>Los cuadrados de estos coeficientes (<span class="math inline">\(\lambda_i^2\)</span>) son los autovalores de los operadores de densidad reducida <span class="math inline">\(\rho^A\)</span> y <span class="math inline">\(\rho^B\)</span>, y su número de valores no nulos define el rango de Schmidt, que es una medida del grado de entrelazamiento entre las partes A y B. Un estado con un rango de Schmidt igual a 1 es un estado no entrelazado (producto), mientras que un rango mayor indica la presencia de entrelazamiento.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>### Ejemplo de Descomposición de Schmidt El estado singlete de un par de partículas de espín 1/2 se define originalmente en la base computacional (<span class="math inline">\(\sigma_z\)</span>) como: <span class="math display">\[\ket{\psi} = \frac{1}{\sqrt{2}} (\ket{0}\ket{1} - \ket{1}\ket{0})\]</span></p>
+<p>Para expresar este estado en la base de eigenvectores de <span class="math inline">\(\sigma_y\)</span>, recordamos que la matriz de Pauli es <span class="math inline">\(\sigma_y = \begin{pmatrix} 0 &amp; -i \\ i &amp; 0 \end{pmatrix}\)</span>, con eigenvectores: <span class="math display">\[\ket{+_y} = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ i \end{pmatrix}, \quad \ket{-_y} = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ -i \end{pmatrix}\]</span></p>
+<p>### 1. Cambio de base Expresamos los estados de la base <span class="math inline">\(z\)</span> en términos de la base <span class="math inline">\(y\)</span>:</p>
+<ul>
+<li><strong>Para <span class="math inline">\(\ket{0}\)</span>:</strong> <span class="math display">\[\ket{0} = \braket{+_y|0}\ket{+_y} + \braket{-_y|0}\ket{-_y} = \frac{1}{\sqrt{2}}\ket{+_y} + \frac{1}{\sqrt{2}}\ket{-_y}\]</span></li>
+<li><strong>Para <span class="math inline">\(\ket{1}\)</span>:</strong> <span class="math display">\[\ket{1} = \braket{+_y|1}\ket{+_y} + \braket{-_y|1}\ket{-_y} = \frac{i}{\sqrt{2}}\ket{+_y} - \frac{i}{\sqrt{2}}\ket{-_y}\]</span></li>
+</ul>
+<p>### 2. Sustitución en el estado singlete Sustituimos estas expresiones en <span class="math inline">\(\ket{\psi}\)</span>:</p>
+<p><span class="math display">\[\begin{aligned}
+   \ket{\psi} = \frac{1}{\sqrt{2}} \bigg[ &amp;\left( \frac{1}{\sqrt{2}}\ket{+_y} + \frac{1}{\sqrt{2}}\ket{-_y} \right) \otimes \left( \frac{i}{\sqrt{2}}\ket{+_y} - \frac{i}{\sqrt{2}}\ket{-_y} \right) \\
+   - &amp;\left( \frac{i}{\sqrt{2}}\ket{+_y} - \frac{i}{\sqrt{2}}\ket{-_y} \right) \otimes \left( \frac{1}{\sqrt{2}}\ket{+_y} + \frac{1}{\sqrt{2}}\ket{-_y} \right) \bigg]
+   \end{aligned}\]</span></p>
+<p>Al expandir los productos tensoriales y factorizar el término <span class="math inline">\(\frac{i}{2\sqrt{2}}\)</span>:</p>
+<p><span class="math display">\[\begin{aligned}
+   \ket{\psi} = \frac{i}{2\sqrt{2}} \Big[ &amp;(\ket{+_y}\ket{+_y} - \ket{+_y}\ket{-_y} + \ket{-_y}\ket{+_y} - \ket{-_y}\ket{-_y}) \\
+   - &amp;(\ket{+_y}\ket{+_y} + \ket{+_y}\ket{-_y} - \ket{-_y}\ket{+_y} - \ket{-_y}\ket{-_y}) \Big]
+   \end{aligned}\]</span></p>
+<p>### 3. Resultado Final Los términos paralelos (<span class="math inline">\(\ket{+_y}\ket{+_y}\)</span> y <span class="math inline">\(\ket{-_y}\ket{-_y}\)</span>) se cancelan, resultando en: <span class="math display">\[\ket{\psi} = \frac{i}{2\sqrt{2}} \left[ -2\ket{+_y}\ket{-_y} + 2\ket{-_y}\ket{+_y} \right] = -i \left[ \frac{1}{\sqrt{2}} (\ket{+_y}\ket{-_y} - \ket{-_y}\ket{+_y}) \right]\]</span></p>
+<p>Esto demuestra que, salvo por una fase global de <span class="math inline">\(-i\)</span> (que no afecta a los observables), el estado singlete mantiene su forma antisimétrica: <span class="math display">\[\ket{\psi} \propto \frac{1}{\sqrt{2}} \left[ \begin{pmatrix} 1 \\ i \end{pmatrix} \otimes \begin{pmatrix} 1 \\ -i \end{pmatrix} - \begin{pmatrix} 1 \\ -i \end{pmatrix} \otimes \begin{pmatrix} 1 \\ i \end{pmatrix} \right]\]</span> :::</p>
+<p>### Estados de Producto de Matrices (MPS)<br>
+El reto de simular cristales de tiempo radica en que el número de parámetros necesarios para describir un estado de <span class="math inline">\(n\)</span> cuerpos crece exponencialmente con <span class="math inline">\(n\)</span>. Los Matrix Product States resuelven este problema ofreciendo una representación eficiente para sistemas unidimensionales. La cantidad de entrelazamiento que puede representar el MPS está controlada por el usuario a través de un hiperparámetro, la llamada dimensión de enlace <span class="math inline">\(\chi\)</span>. Si lo permitimos <span class="math inline">\(\chi\)</span> puede ser <span class="math inline">\(\mathcal{O}(2^\frac{2}{n})\)</span> para un sistema de <span class="math inline">\(n\)</span> qubits, podemos escribir cualquier estado como un estado de producto de matrices exacto. Sin embargo, para evitar recursos exponencialmente grandes, se suele establecer una dimensión de enlace finita <span class="math inline">\(\chi\)</span> a costa de introducir un error de aproximación.</p>
+<p>El algoritmo para construir un MPS utiliza repetidamente la Descomposición en Valores Singulares (SVD) para separar los sitios del sistema, donde los valores singulares obtenidos son precisamente los coeficientes de Schmidt. Al truncar los valores singulares más pequeños, se controla la cantidad de entrelazamiento que se retiene en la representación, lo que permite simular sistemas con un número de cuerpos mucho mayor que el que sería posible con una representación explícita del estado.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>### Descomposición en Valores Singulares (SVD) Para comprender la MPS y la dimensión de enlace, primero debemos entender cómo se puede usar la descomposición en valores singulares (SVD). Cualquier matriz <span class="math inline">\(M= \mathbb{C}^ {M \times N}\)</span> puede descomponerse en valores singulares como: <span class="math display">\[\begin{equation}
+    M= U \Sigma V^\dagger
+   \end{equation}\]</span></p>
+<p>Decimos que las columnas y renglones de <span class="math inline">\(U\)</span> y <span class="math inline">\(V^\dagger\)</span> son los vectores singulares ortonormales por la izquierda y la derecha, respectivamente. En el caso de matrices cuadradas y normales, los valores singulares y los vectores singulares son simplemente los eigenvalores y eigenvectores.\</p>
+<p>Los valores singulares pequeños y sus vectores singulares correspondientes contienen poca información de la matriz. Cuando los valores singulares tienen una cola de valores pequeños, podemos comprimir la matriz descartando tanto estos números como los vectores singulares correspondientes.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>### Ejemplo de SVD Consideremos la matriz <span class="math inline">\(M = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0.1 \end{pmatrix}\)</span>. Al aplicar SVD, obtenemos: - <span class="math inline">\(U = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix}\)</span> (vectores singulares por la izquierda) - <span class="math inline">\(\Sigma = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0.1 \end{pmatrix}\)</span> (valores singulares) - <span class="math inline">\(V^\dagger = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix}\)</span> (vectores singulares por la derecha)</p>
+<pre><code>En este caso, el valor singular más pequeño es $0.1$, lo que indica que la información asociada a este valor es menos significativa. Si establecemos un umbral de corte en $0.5$, podríamos truncar este valor singular y su correspondiente vector singular, resultando en una matriz aproximada:
+$$M' = U \Sigma' V^\dagger = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}$$
+Esta aproximación retiene la información más importante de la matriz original mientras reduce su complejidad.</code></pre>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>### Ejemplo de MPS Consideremos un sistema de 4 qubits en el estado de GHZ: <span class="math inline">\(\ket{\psi} = \frac{1}{\sqrt{2}} (\ket{0000} + \ket{1111})\)</span></p>
+<p>Para construir su representación MPS, comenzamos con la descomposición en valores singulares entre el primer qubit y el resto del sistema. La matriz que representa esta partición es: <span class="math inline">\(M = \begin{pmatrix} \frac{1}{\sqrt{2}} &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; \frac{1}{\sqrt{2}} \end{pmatrix}\)</span></p>
+<p>Al aplicar SVD a esta matriz, obtenemos los valores singulares <span class="math inline">\(\lambda_1 = \lambda_2 = \frac{1}{\sqrt{2}}\)</span> y los vectores singulares correspondientes. Esto nos permite escribir el estado como un producto de matrices, donde cada matriz representa la conexión entre los qubits. En este caso, la dimensión de enlace <span class="math inline">\(\chi\)</span> es 2, lo que refleja el hecho de que el estado GHZ tiene un alto grado de entrelazamiento.</p>
+<section id="algorritmo-de-tebd-time-evolving-block-decimation" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="algorritmo-de-tebd-time-evolving-block-decimation"><span class="header-section-number">2.4</span> Algorritmo de TEBD (Time-Evolving Block Decimation)</h2>
+<p>El algoritmo <strong>TEBD</strong>, propuesto originalmente por Guifré Vidal en 2003, es una de las técnicas más potentes y eficientes para simular la evolución temporal de sistemas cuánticos unidimensionales de muchos cuerpos. Su éxito radica en combinar la representación de estados mediante **Matrix Product States* con una aproximación local de la dinámica global. ### Concepto clave: Descomposición de Suzuki-Trotter El problema fundamental en la dinámica cuántica es calcular el operador evolución <span class="math inline">\(U(t)= \exp(-i H t)\)</span>. para un sistema de muchos cuerpos, el hamiltoniano <span class="math inline">\(H\)</span> es una matriz gigante, lo que hace que su exponenciación sea inviable de manera tradicional como computacionalmente. El algoptirmo TEBD resuelve eso asumiendo que el hamiltoniano consta de de interacciones locales (regularmente a primeros vecinos): \</p>
+<p><span class="math inline">\(\hat{H} = \sum_i \hat{h}_{i,i+1}\)</span>\</p>
+<p>Para aplicar este operador sobre un MPS, el Hamiltoniano se divide en dos partes, <span class="math inline">\(\hat{H}_{par}\)</span> y <span class="math inline">\(\hat{H}_{impar}\)</span>, para sitios pares e impares respectivamente, tales que los términos dentro de cada grupo conmuten entre sí:\ <span class="math inline">\(H = \hat{H}_{par} + \hat{H}_{impar}\)</span> donde <span class="math inline">\(\hat{H} = \sum_{j\epsilon Par} \hat{h}_{j,j+1}\)</span>\</p>
+<p>Utilizando la expansión de Suzuki-Trotter, el operador de evolución para un paso de tiempo pequeño <span class="math inline">\(\delta\)</span> se aproxima como un producto de operadores locales: -<strong>Primer orden</strong> <span class="math inline">\(\hat{U}(\delta) \approx e^{-i \hat{H}_{par} \delta} e^{-i \hat{H}_{impar} \delta} + O(\delta^2)\)</span>\ -<strong>Segundo orden</strong> <span class="math inline">\(\hat{U}(\delta) \approx e^{-i \hat{H}_{par} \delta/2} e^{-i \hat{H}_{impar} \delta} e^{-i \hat{H}_{par} \delta/2} + O(\delta^3)\)</span>\ Esto permite transformar la evolución global en una serie de “compuertas” de dos sitios que se aplican secuencialmente sobre la cadena.</p>
+<p>### Actualización local del MPS y Truncamiento Cada vez que una compuerta local <span class="math inline">\(e^{-i \hat{h}_{j,j+1} \delta}\)</span> actúa sobre dos sitios contiguos del MPS, el enyrelazamiento de estos dos sitios tiende a aumentar. Si no se controla, la complejidad de la simulación crecería exponencialmente. El algoritmo TEBD mantiene la eficiencia mediante los siguientes pasos operativos: 1. <strong>Contracción:</strong> Se combinan los tensores de los sitios <span class="math inline">\(j\)</span> y <span class="math inline">\(j+1\)</span> con la compuerta unitaria para formar un tensor de dos sitios de rango 4. 2. <strong>Descomposición en Valores Singulares (SVD):</strong> Se aplica una SVD para volver a separar los sitios. Matemáticamente:\ <span class="math inline">\(\Theta_{\sigma_{j},\sigma_{j+1}} = \sum_\mu U_{\sigma_j,\mu} S_\mu V^\dagger_{\mu,\sigma_{j+1}}\)</span> Aquí, los valores singu1lares en la matriz <span class="math inline">\(S\)</span> son precisamente los coeficientes de Schmidt <span class="math inline">\(\lambda_i\)</span> que cuantifican el entrelazamiento entre las dos mitades de la cadena. 3. <strong>Decimación (Truncamiento):</strong> Se conservan unicamente los <span class="math inline">\(\chi\)</span> valores singulares más grandes (donde <span class="math inline">\(\chi\)</span> es la dimensión de enlace), descartando los restantes. Esto asegura que el estado siga siendo representable como un MPS de tamaño manejable, introduciendo un error controlado que depende de la magnitud de los valores singulares truncados.</p>
+<p>### Escalamiento del error La precisión del algoritmo <em>TEBD</em> depende de dos factores controlables: el tamaño del paso de tiempo <span class="math inline">\(\delta\)</span> y la dimensión de enlace <span class="math inline">\(\chi\)</span>. El error de Suzuki-Trotter se puede reducir disminuyendo <span class="math inline">\(\delta\)</span>, mientras que el error de truncamiento se controla aumentando <span class="math inline">\(\chi\)</span>. En la práctica, se busca un equilibrio entre estos parámetros para obtener resultados precisos sin caer en costos computacionales excesivos.</p>
+</section>
+<section id="correlaciones-y-ttsb" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="correlaciones-y-ttsb"><span class="header-section-number">2.5</span> Correlaciones y TTSB</h2>
+<p>La ruptura de la simetría de traslación temporal está intrínsecamente relacionada con a la naturaleza de las correlaciones en los estados propios del sistema. Se dice que un estado tiene correlaciones de corto alcance si satisface la descomposición en cúmulos, es decir, si las correlaciones entre operadores locales decaen a cero a medida que aumenta la distancia entre ellos.</p>
+<p>Por otro lado, en un cristal de tiempo, los estados propios del operador de Floquet no pueden tener correlaciones de corto alcance. Deben ser superposiciones de estados con orden de corto alcance (estados tipo “gato de Schrödinger”), lo que permite que los observables oscilen con un periodo mayor al del impulso inicial.</p>
+
+
+</section>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./intro.html" class="pagination-link" aria-label="Introducción">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./metodos.html" class="pagination-link" aria-label="Métodos Numéricos">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Métodos Numéricos</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

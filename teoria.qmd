@@ -70,4 +70,132 @@ A diferencia de los sistemas ergódicos convencionales, los sistemas MBL son inc
 :::
 
 ## Entrelazamiento y Correlaciones de corto alcance 
+En el estudio de los cristales de tiempo, el entrelazamiento y la estructura de las correlaciones son fundamentales para distinguir las fases de muchos cuerpos fuera del equilibrio. Mientras que los sistemas que se termalizan rápidamente borran la memoria local mediante un crecimiento exponencial del entrelazamiento, los cristales de tiempo basados en la localización de muchos cuerpos (MBL) protegen la información local a través de una propagación extremadamente lenta. 
+
+  ### Descomposición de Schmidt 
+   La descomposición de Schmidt es la herramienta matemática estándar para cuantificar el entrelazamiento en un estado puro $|\psi\rangle$ de un sistema compuesto por dos partes, A y B. Según este teorema, existen bases ortonormales $\{|i_A\rangle\}$ y $\{|i_B\rangle\}$ tales que el estado global se puede escribir como: 
+   $|\psi\rangle = \sum_i \lambda_i |i_A\rangle \otimes |i_B\rangle$
+   donde $\lambda_i$ son números reales no negativos conocidos como los coeficientes de Schmidt, los cuales satisfacen la normalización $\sum_i \lambda_i^2 = 1$.
+   
+   Los cuadrados de estos coeficientes ($\lambda_i^2$) son los autovalores de los operadores de densidad reducida $\rho^A$ y $\rho^B$, y su número de valores no nulos define el rango de Schmidt, que es una medida del grado de entrelazamiento entre las partes A y B. Un estado con un rango de Schmidt igual a 1 es un estado no entrelazado (producto), mientras que un rango mayor indica la presencia de entrelazamiento.
+
+:::{.callout-note appearance="simple" icon="false" collapse="false"}
+  ### Ejemplo de Descomposición de Schmidt
+   El estado singlete de un par de partículas de espín 1/2 se define originalmente en la base computacional ($\sigma_z$) como:
+   $$\ket{\psi} = \frac{1}{\sqrt{2}} (\ket{0}\ket{1} - \ket{1}\ket{0})$$
+
+   Para expresar este estado en la base de eigenvectores de $\sigma_y$, recordamos que la matriz de Pauli es $\sigma_y = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}$, con eigenvectores:
+    $$\ket{+_y} = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ i \end{pmatrix}, \quad \ket{-_y} = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ -i \end{pmatrix}$$
+
+   ### 1. Cambio de base
+   Expresamos los estados de la base $z$ en términos de la base $y$:
+
+   * **Para $\ket{0}$:**
+    $$\ket{0} = \braket{+_y|0}\ket{+_y} + \braket{-_y|0}\ket{-_y} = \frac{1}{\sqrt{2}}\ket{+_y} + \frac{1}{\sqrt{2}}\ket{-_y}$$
+   * **Para $\ket{1}$:**
+    $$\ket{1} = \braket{+_y|1}\ket{+_y} + \braket{-_y|1}\ket{-_y} = \frac{i}{\sqrt{2}}\ket{+_y} - \frac{i}{\sqrt{2}}\ket{-_y}$$
+
+   ### 2. Sustitución en el estado singlete
+   Sustituimos estas expresiones en $\ket{\psi}$:
+
+   $$\begin{aligned}
+   \ket{\psi} = \frac{1}{\sqrt{2}} \bigg[ &\left( \frac{1}{\sqrt{2}}\ket{+_y} + \frac{1}{\sqrt{2}}\ket{-_y} \right) \otimes \left( \frac{i}{\sqrt{2}}\ket{+_y} - \frac{i}{\sqrt{2}}\ket{-_y} \right) \\
+   - &\left( \frac{i}{\sqrt{2}}\ket{+_y} - \frac{i}{\sqrt{2}}\ket{-_y} \right) \otimes \left( \frac{1}{\sqrt{2}}\ket{+_y} + \frac{1}{\sqrt{2}}\ket{-_y} \right) \bigg]
+   \end{aligned}$$
+
+   Al expandir los productos tensoriales y factorizar el término $\frac{i}{2\sqrt{2}}$:
+
+   $$\begin{aligned}
+   \ket{\psi} = \frac{i}{2\sqrt{2}} \Big[ &(\ket{+_y}\ket{+_y} - \ket{+_y}\ket{-_y} + \ket{-_y}\ket{+_y} - \ket{-_y}\ket{-_y}) \\
+   - &(\ket{+_y}\ket{+_y} + \ket{+_y}\ket{-_y} - \ket{-_y}\ket{+_y} - \ket{-_y}\ket{-_y}) \Big]
+   \end{aligned}$$
+
+   ### 3. Resultado Final
+   Los términos paralelos ($\ket{+_y}\ket{+_y}$ y $\ket{-_y}\ket{-_y}$) se cancelan, resultando en:
+   $$\ket{\psi} = \frac{i}{2\sqrt{2}} \left[ -2\ket{+_y}\ket{-_y} + 2\ket{-_y}\ket{+_y} \right] = -i \left[ \frac{1}{\sqrt{2}} (\ket{+_y}\ket{-_y} - \ket{-_y}\ket{+_y}) \right]$$
+
+   Esto demuestra que, salvo por una fase global de $-i$ (que no afecta a los observables), el estado singlete mantiene su forma antisimétrica:
+   $$\ket{\psi} \propto \frac{1}{\sqrt{2}} \left[ \begin{pmatrix} 1 \\ i \end{pmatrix} \otimes \begin{pmatrix} 1 \\ -i \end{pmatrix} - \begin{pmatrix} 1 \\ -i \end{pmatrix} \otimes \begin{pmatrix} 1 \\ i \end{pmatrix} \right]$$
+   :::
+
+ 
+  ### Estados de Producto de Matrices (MPS)  
+   El reto de simular cristales de tiempo radica en que el número de parámetros necesarios para describir un estado de $n$ cuerpos crece exponencialmente con $n$. Los Matrix Product States resuelven este problema ofreciendo una representación eficiente para sistemas unidimensionales.
+   La cantidad de entrelazamiento que puede representar el MPS está controlada por el usuario a través de un hiperparámetro, la llamada dimensión de enlace $\chi$. Si lo permitimos $\chi$ puede ser $\mathcal{O}(2^\frac{2}{n})$ para un sistema de $n$ qubits, podemos escribir cualquier estado como un estado de producto de matrices exacto.  Sin embargo, para evitar recursos exponencialmente grandes, se suele establecer una dimensión de enlace finita $\chi$ a costa de introducir un error de aproximación.
+
+   El algoritmo para construir un MPS utiliza repetidamente la Descomposición en Valores Singulares (SVD) para separar los sitios del sistema, donde los valores singulares obtenidos son precisamente los coeficientes de Schmidt. Al truncar los valores singulares más pequeños, se controla la cantidad de entrelazamiento que se retiene en la representación, lo que permite simular sistemas con un número de cuerpos mucho mayor que el que sería posible con una representación explícita del estado.
+
+:::{.callout-note appearance="simple" icon="false" collapse="false"}
+  ### Descomposición en Valores Singulares (SVD)
+   Para comprender la MPS y la dimensión de enlace, primero debemos entender cómo se puede usar la descomposición en valores singulares (SVD). Cualquier matriz $M= \mathbb{C}^ {M \times N}$ puede descomponerse en valores singulares como:
+   \begin{equation}
+    M= U \Sigma V^\dagger
+   \end{equation}
+
+   Decimos que las columnas y renglones de $U$ y $V^\dagger$ son los vectores singulares ortonormales por la izquierda y la derecha, respectivamente. En el caso de matrices cuadradas y normales, los valores singulares y los vectores singulares son simplemente los eigenvalores y eigenvectores.\\
+
+   Los valores singulares pequeños y sus vectores singulares correspondientes contienen poca información de la matriz. Cuando los valores singulares tienen una cola de valores pequeños, podemos comprimir la matriz descartando tanto estos números como los vectores singulares correspondientes.
+:::
+
+:::{.callout-note appearance="simple" icon="false" collapse="false"}
+  ### Ejemplo de SVD 
+    Consideremos la matriz $M = \begin{pmatrix} 1 & 0 \\ 0 & 0.1 \end{pmatrix}$. Al aplicar SVD, obtenemos:
+    - $U = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ (vectores singulares por la izquierda)
+    - $\Sigma = \begin{pmatrix} 1 & 0 \\ 0 & 0.1 \end{pmatrix}$ (valores singulares)
+    - $V^\dagger = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ (vectores singulares por la derecha)
+  
+    En este caso, el valor singular más pequeño es $0.1$, lo que indica que la información asociada a este valor es menos significativa. Si establecemos un umbral de corte en $0.5$, podríamos truncar este valor singular y su correspondiente vector singular, resultando en una matriz aproximada:
+    $$M' = U \Sigma' V^\dagger = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$$
+    Esta aproximación retiene la información más importante de la matriz original mientras reduce su complejidad.
+:::
+
+
+
+:::{.callout-note appearance="simple" icon="false" collapse="false"}
+  ### Ejemplo de MPS
+   Consideremos un sistema de 4 qubits en el estado de GHZ:
+   $\ket{\psi} = \frac{1}{\sqrt{2}} (\ket{0000} + \ket{1111})$
+
+   Para construir su representación MPS, comenzamos con la descomposición en valores singulares entre el primer qubit y el resto del sistema. La matriz que representa esta partición es:
+   $M = \begin{pmatrix} \frac{1}{\sqrt{2}} & 0 & 0 & 0 \\ 0 & 0 & 0 & \frac{1}{\sqrt{2}} \end{pmatrix}$
+
+   Al aplicar SVD a esta matriz, obtenemos los valores singulares $\lambda_1 = \lambda_2 = \frac{1}{\sqrt{2}}$ y los vectores singulares correspondientes. Esto nos permite escribir el estado como un producto de matrices, donde cada matriz representa la conexión entre los qubits. En este caso, la dimensión de enlace $\chi$ es 2, lo que refleja el hecho de que el estado GHZ tiene un alto grado de entrelazamiento.
+
+
+## Algorritmo de TEBD (Time-Evolving Block Decimation)
+El algoritmo **TEBD**, propuesto originalmente por Guifré Vidal en 2003, es una de las técnicas más potentes y eficientes para simular la evolución temporal de sistemas cuánticos unidimensionales de muchos cuerpos. Su éxito radica en combinar la representación de estados mediante **Matrix Product States* con una aproximación local de la dinámica global.
+  ### Concepto clave: Descomposición de Suzuki-Trotter
+   El problema fundamental en la dinámica cuántica es calcular el operador evolución $U(t)= \exp(-i H t)$. para un sistema de muchos cuerpos, el hamiltoniano $H$  es una matriz gigante, lo que hace que su exponenciación sea inviable de manera tradicional como computacionalmente. El algoptirmo TEBD resuelve eso asumiendo que el hamiltoniano consta de de interacciones locales (regularmente a primeros vecinos): \\
+
+   $\hat{H} = \sum_i \hat{h}_{i,i+1}$\\
+
+   Para aplicar este operador sobre un MPS, el Hamiltoniano se divide en dos partes, $\hat{H}_{par}$ y $\hat{H}_{impar}$, para sitios pares e impares respectivamente, tales que los términos dentro de cada grupo conmuten entre sí:\\
+    $H = \hat{H}_{par} + \hat{H}_{impar}$ donde $\hat{H} = \sum_{j\epsilon Par} \hat{h}_{j,j+1}$\\
+
+   Utilizando la expansión de Suzuki-Trotter, el operador de evolución para un paso de tiempo pequeño $\delta$ se aproxima como un producto de operadores locales:
+   -**Primer orden**
+    $\hat{U}(\delta) \approx e^{-i \hat{H}_{par} \delta} e^{-i \hat{H}_{impar} \delta} + O(\delta^2)$\\
+   -**Segundo orden**
+    $\hat{U}(\delta) \approx e^{-i \hat{H}_{par} \delta/2} e^{-i \hat{H}_{impar} \delta} e^{-i \hat{H}_{par} \delta/2} + O(\delta^3)$\\
+   Esto permite transformar la evolución global en una serie de "compuertas" de dos sitios que se aplican secuencialmente sobre la cadena.
+
+ ### Actualización local del MPS y Truncamiento
+   Cada vez que una compuerta local $e^{-i \hat{h}_{j,j+1} \delta}$ actúa sobre dos sitios contiguos del MPS, el enyrelazamiento de estos dos sitios tiende a aumentar. Si no se controla, la complejidad de la simulación crecería exponencialmente. El algoritmo TEBD mantiene la eficiencia mediante los siguientes pasos operativos:
+    1. **Contracción:** Se combinan los tensores de los sitios $j$ y $j+1$ con la compuerta unitaria para formar un tensor de dos sitios de rango 4.
+    2. **Descomposición en Valores Singulares (SVD):** Se aplica una SVD para volver a separar los sitios. Matemáticamente:\\
+     $\Theta_{\sigma_{j},\sigma_{j+1}} = \sum_\mu U_{\sigma_j,\mu} S_\mu V^\dagger_{\mu,\sigma_{j+1}}$
+   Aquí, los valores singu1lares en la matriz $S$ son precisamente los coeficientes de Schmidt $\lambda_i$ que cuantifican el entrelazamiento entre las dos mitades de la cadena. 
+   3. **Decimación (Truncamiento):** Se conservan unicamente los $\chi$ valores singulares más grandes (donde $\chi$ es la dimensión de enlace), descartando los restantes. Esto asegura que el estado siga siendo representable como un MPS de tamaño manejable, introduciendo un error controlado que depende de la magnitud de los valores singulares truncados.
+  
+ ### Escalamiento del error 
+   La precisión del algoritmo *TEBD* depende de dos factores controlables: el tamaño del paso de tiempo $\delta$ y la dimensión de enlace $\chi$. El error de Suzuki-Trotter se puede reducir disminuyendo $\delta$, mientras que el error de truncamiento se controla aumentando $\chi$. En la práctica, se busca un equilibrio entre estos parámetros para obtener resultados precisos sin caer en costos computacionales excesivos.
+
+
+
+## Correlaciones y TTSB
+La ruptura de la simetría de traslación temporal está intrínsecamente relacionada con a la naturaleza de las correlaciones en los estados propios del sistema.
+Se dice que un estado tiene correlaciones de corto alcance si satisface la descomposición en cúmulos, es decir, si las correlaciones entre operadores locales decaen a cero a medida que aumenta la distancia entre ellos.
+
+Por otro lado, en un cristal de tiempo, los estados propios del operador de Floquet no pueden tener correlaciones de corto alcance. Deben ser superposiciones de estados con orden de corto alcance (estados tipo "gato de Schrödinger"), lo que permite que los observables oscilen con un periodo mayor al del impulso inicial.
+
 

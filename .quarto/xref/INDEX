@@ -10,5 +10,14 @@
   },
   "references.qmd": {
     "references.html": "5e2f85aa"
+  },
+  "teoria.qmd": {
+    "teoria.html": "4135a9ce"
+  },
+  "metodos.qmd": {
+    "metodos.html": "f20b8816"
+  },
+  "simulaciones.qmd": {
+    "simulaciones.html": "b5d05d28"
   }
 }

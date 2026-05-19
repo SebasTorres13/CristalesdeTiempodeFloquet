@@ -10,9 +10,8 @@ book:
     - index.qmd
     - intro.qmd
     - teoria.qmd
-    
     - metodos.qmd
-    - simulaciones.qmd 
+    - simulaciones.qmd
     - summary.qmd
     - references.qmd
     
@@ -23,6 +22,21 @@ format:
     theme:
       light: superhero
       dark: superhero
+    
+    include-in-header:
+      text: |
+        <script>
+        window.MathJax = {
+          tex: {
+            macros: {
+              ket: ["\\left|{#1}\\right\\rangle", 1],
+              bra: ["\\left\\langle{#1}\\right|", 1],
+              braket: ["\\left\\langle{#1}\\middle|{#2}\\right\\rangle", 2],
+              sigma: "\\sigma"
+            }
+          }
+        };
+        </script>  
     fontsize: 0.8em
     css: styles.css
     code-fold: true
