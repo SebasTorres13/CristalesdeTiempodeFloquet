@@ -79,3 +79,4 @@ Para el segundo código se utilizó la librería *Quimb*, es una biblioteca de P
      -Se calcula $\langle \sigma^z \rangle$ en el sitio central ($L/2$) mediante el producto interno entre el estado conjugado y el estado gateado: *psi.H @ psi.gate(qu.pauli('Z'), L // 2)*
      -Se utiliza el método *psi.entropy(L // 2)* para calcular la entropía de Von Neumann en la mitad de la cadena. Esto permite verificar si el sistema está en la fase MBL (crecimiento logarítmico) o si se está termalizando (crecimiento lineal).
      
+     

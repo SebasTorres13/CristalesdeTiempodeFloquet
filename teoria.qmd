@@ -1,9 +1,12 @@
+# Teoría de los cristales de tiempo de Floquet
+
 En esta sección, exploraremos los temas fundamentales para el estudio y simulación de los cristales de tiempo de Floquet en sistemas de muchos cuerpos. 
 
 ## Definición de Ruputura de Simetría de Traslación Temporal (*TTSB*)
 
- :::{.callout-note appearance="simple" icon="false" collapse="false"}
-  ### Ruptura espontánea de simetría 
+ :::{.callout-note appearance="simple" icon="false" collapse="true"}
+  ## Ruptura espontánea de simetría 
+
   La ruptura espontánea de simetría ocurre cuando el estado base (o los estados de baja temperatura) de un sistema no es invariante bajo las simetrías del Hamiltoniano que rige dicho sistema. Es decir, cuando el estado base no respeta la simetría de las leyes dinámicas (el Hamiltoniano), el sistema desarrolla un orden que antes no tenía.
 
   Un ejemplo es el modelo de Ising, donde la simetría consiste en un giro simultáneo de todos los espines, lo cual deja inalterada la energía del sistema. Sin embargo, en la fase ferromagnética, se forman estados de baja energía con una magnetización distinta de cero, rompiendo dicha simetría. En sistemas cuánticos, esto se traduce en una ruptura de la ergodicidad, donde el tiempo necesario para alcanzar un estado estacionario independiente del tiempo diverge exponencialmente con el tamaño del sistema.  
