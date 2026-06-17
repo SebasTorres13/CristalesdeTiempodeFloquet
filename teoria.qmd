@@ -155,3 +155,5 @@ La precisión del algoritmo *TEBD* depende de dos factores controlables: el tama
 La ruptura de la simetría de traslación temporal está intrínsecamente relacionada con la naturaleza de las correlaciones en los estados propios del sistema. Se dice que un estado tiene correlaciones de corto alcance si satisface la descomposición en cúmulos, es decir, si las correlaciones entre operadores locales decaen a cero a medida que aumenta la distancia entre ellos.
 
 Por otro lado, en un cristal de tiempo, los estados propios del operador de Floquet no pueden tener correlaciones de corto alcance. Deben ser superposiciones de estados con orden de corto alcance (estados tipo "gato de Schrödinger"), lo que permite que los observables oscilen con un periodo mayor al del impulso inicial.
+
+
