@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Definición de Ruputura de Simetría de Traslación Temporal (TTSB) – Cristales de Tiempo de Floquet</title>
+<title>2&nbsp; Definición de Ruptura de Simetría de Traslación Temporal (TTSB) – Cristales de Tiempo de Floquet</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,7 +125,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./teoria.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Definición de Ruputura de Simetría de Traslación Temporal (<em>TTSB</em>)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./teoria.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Definición de Ruptura de Simetría de Traslación Temporal (<em>TTSB</em>)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -168,7 +168,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./teoria.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Definición de Ruputura de Simetría de Traslación Temporal (<em>TTSB</em>)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Definición de Ruptura de Simetría de Traslación Temporal (<em>TTSB</em>)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -205,7 +205,32 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sistemas-de-floquet-y-simetría-discreta" id="toc-sistemas-de-floquet-y-simetría-discreta" class="nav-link active" data-scroll-target="#sistemas-de-floquet-y-simetría-discreta"><span class="header-section-number">2.1</span> Sistemas de Floquet y Simetría Discreta</a></li>
+  <li><a href="#sistemas-de-floquet-y-simetría-discreta" id="toc-sistemas-de-floquet-y-simetría-discreta" class="nav-link active" data-scroll-target="#sistemas-de-floquet-y-simetría-discreta"><span class="header-section-number">2.1</span> Sistemas de Floquet y Simetría Discreta</a>
+  <ul class="collapse">
+  <li><a href="#teorema-de-floquet" id="toc-teorema-de-floquet" class="nav-link" data-scroll-target="#teorema-de-floquet"><span class="header-section-number">2.1.1</span> Teorema de Floquet</a></li>
+  <li><a href="#operador-de-floquet" id="toc-operador-de-floquet" class="nav-link" data-scroll-target="#operador-de-floquet"><span class="header-section-number">2.1.2</span> Operador de Floquet</a></li>
+  <li><a href="#espacio-de-sambe" id="toc-espacio-de-sambe" class="nav-link" data-scroll-target="#espacio-de-sambe"><span class="header-section-number">2.1.3</span> Espacio de Sambe</a></li>
+  <li><a href="#ruptura-de-la-simetría-dttsb" id="toc-ruptura-de-la-simetría-dttsb" class="nav-link" data-scroll-target="#ruptura-de-la-simetría-dttsb"><span class="header-section-number">2.1.4</span> Ruptura de la Simetría (<em>dTTSB</em>)</a></li>
+  <li><a href="#respuesta-subarmónica" id="toc-respuesta-subarmónica" class="nav-link" data-scroll-target="#respuesta-subarmónica"><span class="header-section-number">2.1.5</span> Respuesta Subarmónica</a></li>
+  </ul></li>
+  <li><a href="#localización-de-muchos-cuerpos-many-body-localization---mbl" id="toc-localización-de-muchos-cuerpos-many-body-localization---mbl" class="nav-link" data-scroll-target="#localización-de-muchos-cuerpos-many-body-localization---mbl"><span class="header-section-number">2.2</span> Localización de muchos cuerpos (Many-Body Localization - <em>MBL</em>)</a>
+  <ul class="collapse">
+  <li><a href="#propiedades-de-los-sistemas-mbl" id="toc-propiedades-de-los-sistemas-mbl" class="nav-link" data-scroll-target="#propiedades-de-los-sistemas-mbl"><span class="header-section-number">2.2.1</span> Propiedades de los sistemas MBL</a></li>
+  </ul></li>
+  <li><a href="#entrelazamiento-y-correlaciones-de-corto-alcance" id="toc-entrelazamiento-y-correlaciones-de-corto-alcance" class="nav-link" data-scroll-target="#entrelazamiento-y-correlaciones-de-corto-alcance"><span class="header-section-number">2.3</span> Entrelazamiento y Correlaciones de corto alcance</a>
+  <ul class="collapse">
+  <li><a href="#descomposición-de-schmidt" id="toc-descomposición-de-schmidt" class="nav-link" data-scroll-target="#descomposición-de-schmidt"><span class="header-section-number">2.3.1</span> Descomposición de Schmidt</a></li>
+  <li><a href="#estados-de-producto-de-matrices-mps" id="toc-estados-de-producto-de-matrices-mps" class="nav-link" data-scroll-target="#estados-de-producto-de-matrices-mps"><span class="header-section-number">2.3.2</span> Estados de Producto de Matrices (MPS)</a></li>
+  <li><a href="#descomposición-en-valores-singulares-svd" id="toc-descomposición-en-valores-singulares-svd" class="nav-link" data-scroll-target="#descomposición-en-valores-singulares-svd"><span class="header-section-number">2.3.3</span> Descomposición en Valores Singulares (SVD)</a></li>
+  <li><a href="#ejemplo-de-mps" id="toc-ejemplo-de-mps" class="nav-link" data-scroll-target="#ejemplo-de-mps"><span class="header-section-number">2.3.4</span> Ejemplo de MPS</a></li>
+  </ul></li>
+  <li><a href="#algoritmo-de-tebd-time-evolving-block-decimation" id="toc-algoritmo-de-tebd-time-evolving-block-decimation" class="nav-link" data-scroll-target="#algoritmo-de-tebd-time-evolving-block-decimation"><span class="header-section-number">2.4</span> Algoritmo de TEBD (Time-Evolving Block Decimation)</a>
+  <ul class="collapse">
+  <li><a href="#concepto-clave-descomposición-de-suzuki-trotter" id="toc-concepto-clave-descomposición-de-suzuki-trotter" class="nav-link" data-scroll-target="#concepto-clave-descomposición-de-suzuki-trotter"><span class="header-section-number">2.4.1</span> Concepto clave: Descomposición de Suzuki-Trotter</a></li>
+  <li><a href="#actualización-local-del-mps-y-truncamiento" id="toc-actualización-local-del-mps-y-truncamiento" class="nav-link" data-scroll-target="#actualización-local-del-mps-y-truncamiento"><span class="header-section-number">2.4.2</span> Actualización local del MPS y Truncamiento</a></li>
+  <li><a href="#escalamiento-del-error" id="toc-escalamiento-del-error" class="nav-link" data-scroll-target="#escalamiento-del-error"><span class="header-section-number">2.4.3</span> Escalamiento del error</a></li>
+  </ul></li>
+  <li><a href="#correlaciones-y-ttsb" id="toc-correlaciones-y-ttsb" class="nav-link" data-scroll-target="#correlaciones-y-ttsb"><span class="header-section-number">2.5</span> Correlaciones y TTSB</a></li>
   </ul>
 </nav>
     </div>
@@ -214,7 +239,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Definición de Ruputura de Simetría de Traslación Temporal (<em>TTSB</em>)</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Definición de Ruptura de Simetría de Traslación Temporal (<em>TTSB</em>)</span></h1>
 </div>
 
 
@@ -232,180 +257,175 @@ window.Quarto = {
 
 
 <p>En esta sección, exploraremos los temas fundamentales para el estudio y simulación de los cristales de tiempo de Floquet en sistemas de muchos cuerpos.</p>
-<p>:::{.callout-note appearance=“simple” icon=“false” collapse=“false”} ### Ruptura espontánea de simetría La ruptura espontánea de simetría ocurre cuando el estado base (o los estados de baja temperatura) de un sistema no es invariante bajo las simetrías del Hamiltoniano que rige dicho sistema. Es decir, cuando el estado base no respeta la simetría de las leyes dinámicas (el Hamiltoniano), el sistema desarrolla un orden que antes no tenía.</p>
-<p>Un ejemplo es el modelo de Ising, donde la simetría consiste en un giro simultáneo de todos los espines, lo cual deja inalterada la energía del sistema. Sin embargo, en la fase ferromagnética, se forman estados de baja energía con una magnetización distinta de cero, rompiendo dicha simetría. En sistemas cuánticos, esto se traduce en una ruptura de la ergodicidad, donde el tiempo necesario para alcanzar un estado estacionario independiente del tiempo diverge exponencialmente con el tamaño del sistema.<br>
-:::</p>
-<p>Históricamente, la simetría de traslación temporal fue la excepción a esta regla (<em>SSB</em>), ya que se pensaba que el estado base siempre debía ser invariante en el tiempo (estático) . Sin embargo, el concepto de cristal de tiempo propone que es posible tener sistemas donde el estado base (o los estados propios de Floquet) no sean invariantes bajo traslaciones temporales, lo que implica que el sistema manifiesta una periodicidad u oscilación espontánea incluso en su estado de menor energía o en regímenes estables fuera del equilibrio.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ruptura espontánea de simetría (SSB)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La ruptura espontánea de simetría ocurre cuando el estado base (o los estados de baja temperatura) de un sistema no es invariante bajo las simetrías del Hamiltoniano que rige dicho sistema. Es decir, cuando el estado base no respeta la simetría de las leyes dinámicas (el Hamiltoniano), el sistema desarrolla un orden que antes no tenía.</p>
+<p>Un ejemplo clásico es el modelo de Ising, donde la simetría consiste en un giro simultáneo de todos los espines (<em>spin flip</em>), lo cual deja inalterada la energía del sistema. Sin embargo, en la fase ferromagnética, se forman estados de baja energía con una magnetización distinta de cero, rompiendo dicha simetría. En sistemas cuánticos, esto se traduce en una ruptura de la ergodicidad, donde el tiempo necesario para alcanzar un estado estacionario independiente del tiempo diverge exponencialmente con el tamaño del sistema.</p>
+</div>
+</div>
+<p>Históricamente, la simetría de traslación temporal fue la excepción a esta regla (<span class="math inline">\(SSB\)</span>), ya que se pensaba que el estado base siempre debía ser invariante en el tiempo (estático). Sin embargo, el concepto de cristal de tiempo propone que es posible tener sistemas donde el estado base (o los estados propios de Floquet) no sean invariantes bajo traslaciones temporales, lo que implica que el sistema manifiesta una periodicidad u oscilación espontánea incluso en su estado de menor energía o en regímenes estables fuera del equilibrio.</p>
 <p>Se propone que la <strong>TTSB</strong> ocurre cuando el sistema no logra alcanzar un estado estacionario en el límite termodinámico. Para ello, se proponen dos definiciones equivalentes:</p>
 <ol type="1">
-<li><p>TTSB-1 (Basada en Observables y Evolución): Esta definición se centra en la dependencia temporal y es la más cercana a la observación experimental. Establece que la TTSB ocurre si, para cualquier tiempo inicial <span class="math inline">\(t_1\)</span> y para cada estado <span class="math inline">\(|\psi(t_1)\rangle\)</span> que tenga correlaciones de corto alcance, existe un observable <span class="math inline">\(\Phi\)</span> tal que su valor esperado después de un periodo de evolución <span class="math inline">\(T\)</span> ha cambiado. En términos simples: si preparas el sistema en un estado físico “normal” (correlacionado localmente), observarás que su evolución posterior no es invariante bajo la simetría de traslación temporal del operador de evolución. En un sistema impulsado, esto se manifiesta cuando los observables responden a una fracción de la frecuencia del impulso (por ejemplo, oscilando cada <span class="math inline">\(2T\)</span>).</p></li>
-<li><p>TTSB-2 (Basada en Eigenestados): Esta definición es técnica y útil para el análisis numérico por diagonalización exacta. Establece que la TTSB ocurre si los eigenestados del operador de Floquet (<span class="math inline">\(U_f\)</span>) no pueden tener correlaciones de corto alcance. Esto implica que los estados propios del sistema deben ser necesariamente superposiciones de estados ordenados de corto alcance (estados tipo “gato de Schrödinger”), lo cual es una firma de la ruptura de simetría a nivel de la estructura del espectro del sistema.</p></li>
+<li><strong>TTSB-1 (Basada en Observables y Evolución):</strong> Esta definición se centra en la dependencia temporal y es la más cercana a la observación experimental. Establece que la TTSB ocurre si, para cualquier tiempo inicial <span class="math inline">\(t_1\)</span> y para cada estado <span class="math inline">\(|\psi(t_1)\rangle\)</span> que tenga correlaciones de corto alcance, existe un observable <span class="math inline">\(\Phi\)</span> tal que su valor esperado después de un periodo de evolución <span class="math inline">\(T\)</span> ha cambiado. En términos simples: si preparas el sistema en un estado físico “normal” (correlacionado localmente), observarás que su evolución posterior no es invariante bajo la simetría de traslación temporal del operador de evolución. En un sistema impulsado, esto se manifiesta cuando los observables responden a una fracción de la frecuencia del impulso (por ejemplo, oscilando cada <span class="math inline">\(2T\)</span>).</li>
+<li><strong>TTSB-2 (Basada en Eigenestados):</strong> Esta definición es técnica y útil para el análisis numérico por diagonalización exacta. Establece que la TTSB ocurre si los eigenestados del operador de Floquet (<span class="math inline">\(U_f\)</span>) no pueden tener correlaciones de corto alcance. Esto implica que los estados propios del sistema deben ser necesariamente superposiciones de estados ordenados de corto alcance (estados tipo “gato de Schrödinger”), lo cual es una firma de la ruptura de simetría a nivel de la estructura del espectro del sistema.</li>
 </ol>
 <section id="sistemas-de-floquet-y-simetría-discreta" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="sistemas-de-floquet-y-simetría-discreta"><span class="header-section-number">2.1</span> Sistemas de Floquet y Simetría Discreta</h2>
-<p>Los sistemas de Floquet son marcos matemáticos usasos para describir sistemas físicos cuyo Hamiltoniano es periódico en el tiempo, es decir, cumple que <span class="math inline">\(H(t) = H(t + T)\)</span>, donde <span class="math inline">\(T\)</span> es el periodo del impulso. Estos sistemas son fundamentales para el estudio de los cristales de tiempo, ya que representan una fase de la materia intrínsecamente fuera del equilibrio. En estos sistemas, la simetría de traslación temporal se vuelve discreta debido a la periodicidad del impulso, lo que permite la posibilidad de ruptura de esta simetría y la formación de cristales de tiempo.</p>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
+<p>Los sistemas de Floquet son marcos matemáticos usados para describir sistemas físicos cuyo Hamiltoniano es periódico en el tiempo, es decir, cumple que <span class="math inline">\(H(t) = H(t + T)\)</span>, donde <span class="math inline">\(T\)</span> es el periodo del impulso. Estos sistemas son fundamentales para el estudio de los cristales de tiempo, ya que representan una fase de la materia intrínsecamente fuera del equilibrio. En estos sistemas, la simetría de traslación temporal se vuelve discreta debido a la periodicidad del impulso, lo que permite la posibilidad de ruptura de esta simetría y la formación de cristales de tiempo.</p>
+<section id="teorema-de-floquet" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="teorema-de-floquet"><span class="header-section-number">2.1.1</span> Teorema de Floquet</h3>
+<p>Establece que para un hamiltoniano periódico, las soluciones de la ecuación de Schrödinger pueden escribirse de la forma <span class="math inline">\(\Psi(r,t) = \Phi(r,t) e^{-\frac{i\mathcal{E} t}{\hbar}}\)</span>, donde <span class="math inline">\(\Phi(r,t)\)</span> es una función periódica en el tiempo con el mismo periodo <span class="math inline">\(T\)</span>, y <span class="math inline">\(\mathcal{E}\)</span> se denomina cuasi-energía.</p>
+</section>
+<section id="operador-de-floquet" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="operador-de-floquet"><span class="header-section-number">2.1.2</span> Operador de Floquet</h3>
+<p>Se define como <span class="math inline">\(\hat{\mathcal{H}}_F \equiv \hat{\mathcal{H}}(t) - i\hbar \frac{\partial}{\partial t}\)</span>. Este operador permite transformar un problema dinámico dependiente del tiempo en uno que puede tratarse de forma estacionaria en un espacio extendido conocido como el “espacio de Sambe”.</p>
+</section>
+<section id="espacio-de-sambe" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="espacio-de-sambe"><span class="header-section-number">2.1.3</span> Espacio de Sambe</h3>
+<p>Es un espacio de Hilbert extendido que incluye tanto las coordenadas espaciales como el tiempo. En este espacio, el operador de Floquet actúa como un Hamiltoniano efectivo, lo que permite analizar la dinámica del sistema de manera más sencilla y entender la estructura de los estados propios de Floquet. Se construye extendiendo el espacio de Hilbert convencional (<span class="math inline">\(\mathcal{H}\)</span>) a un espacio más amplio que incluye el promedio temporal sobre el período del campo externo (<span class="math inline">\(\mathcal{H} \otimes \mathcal{T}\)</span>).</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-body-container">
-<p>### Teorema de Floquet Establece que para un hamiltoniano periódico, las soluciones de la ecuación de Schrödinger pueden escribirse de la forma <span class="math inline">\(\Psi(r,t) = \Phi(r,t0) e^{\frac{i\epsilon t}{\hbar}}\)</span>, donde <span class="math inline">\(\Phi(r,t)\)</span> es una función periódica en el tiempo con el mismo periodo <span class="math inline">\(T\)</span>, y <span class="math inline">\(\mathcal{E}\)</span> se denomina cuasi-energía.</p>
+<div class="callout-title-container flex-fill">
+Evolución Unitaria en Sistemas de Floquet
 </div>
 </div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>### Operador de Floquet Se define como <span class="math inline">\(\hat{\mathcal{H}}_F \equiv \hat{\mathcal{H}}(t) - i\hbar \frac{\partial}{\partial t}\)</span>. Este operador permite transformar un problema dinámico dependiente del tiempo en uno que puede tratarse de forma estacionaria en un espacio extendido conocido como el “espacio de Sambe”. :::</p>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<pre><code>### Espacio de Sambe 
-Es un espacio de Hilbert extendido que incluye tanto las coordenadas espaciales como el tiempo. En este espacio, el operador de Floquet actúa como un Hamiltoniano efectivo, lo que permite analizar la dinámica del sistema de manera más sencilla y entender la estructura de los estados propios de Floquet.
-Se construye extendiendo el espacio de Hilbert convencional ($\mathcal{H}$) a un espacio más amplio que incluye el promedio temporal sobre el período del campo externo ($\mathcal{H} \otimes \mathcal{T}$).</code></pre>
-<p>:::</p>
-<p>:::{.callout-note appearance=“simple” icon=“false” collapse=“false”} ### Evolución Unitaria en Sistemas de Floquet La dinámica está gobernada por el operador de evolución de un solo periodo, <span class="math inline">\(U_f \equiv U(T, 0)\)</span>, cuyas propiedades determinan el comportamiento a largo plazo del sistema. En particular, la TTSB se manifiesta cuando los eigenestados de <span class="math inline">\(U_f\)</span> no pueden ser estados de corto alcance, lo que implica que el sistema no puede alcanzar un estado estacionario y exhibe oscilaciones persistentes en el tiempo.</p>
-</div>
+<div class="callout-body-container callout-body">
+<p>La dinámica está gobernada por el operador de evolución de un solo periodo, <span class="math inline">\(U_f \equiv U(T, 0)\)</span>, cuyas propiedades determinan el comportamiento a largo plazo del sistema. En particular, la TTSB se manifiesta cuando los eigenestados de <span class="math inline">\(U_f\)</span> no pueden ser estados de corto alcance, lo que implica que el sistema no puede alcanzar un estado estacionario y exhibe oscilaciones persistentes en el tiempo.</p>
 </div>
 </div>
 <p>A diferencia de los sistemas estáticos que poseen una simetría de traslación temporal continua, los sistemas de Floquet solo poseen una simetría de traslación temporal discreta, lo que significa que el sistema solo es invariante bajo traslaciones de tiempo que sean múltiplos enteros del periodo del impulso (<span class="math inline">\(t \rightarrow t + nT\)</span>). Esta discreción en la simetría de traslación temporal es lo que permite la posibilidad de ruptura de esta simetría y la formación de cristales de tiempo, ya que el sistema puede manifestar una periodicidad u oscilación espontánea que no coincide con la periodicidad del impulso, como por ejemplo oscilando cada <span class="math inline">\(2T\)</span> o cada <span class="math inline">\(3T\)</span>.</p>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>### Ruptura de la Simetría (<em>dTTSB</em>) Un cristal de tiempo discreto ocurre cuando el estado del sistema rompe espontáneamente esta simetría dTTS. En lugar de sincronizarse con el periodo del impulso <span class="math inline">\(T\)</span>, los observables del sistema muestran una respuesta subarmónica.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>### Respuesta Subarmónica El sistema responde a una fracción de la frecuencia original (<span class="math inline">\(\Omega/n\)</span>), lo que implica que el valor esperado de los observables solo es invariante bajo traslaciones de <span class="math inline">\(nT\)</span> con <span class="math inline">\(n &gt; 1\)</span>.</p>
-</div>
-</div>
-</div>
+</section>
+<section id="ruptura-de-la-simetría-dttsb" class="level3" data-number="2.1.4">
+<h3 data-number="2.1.4" class="anchored" data-anchor-id="ruptura-de-la-simetría-dttsb"><span class="header-section-number">2.1.4</span> Ruptura de la Simetría (<em>dTTSB</em>)</h3>
+<p>Un cristal de tiempo discreto ocurre cuando el estado del sistema rompe espontáneamente esta simetría dTTS. En lugar de sincronizarse con el periodo del impulso <span class="math inline">\(T\)</span>, los observables del sistema muestran una respuesta subarmónica.</p>
+</section>
+<section id="respuesta-subarmónica" class="level3" data-number="2.1.5">
+<h3 data-number="2.1.5" class="anchored" data-anchor-id="respuesta-subarmónica"><span class="header-section-number">2.1.5</span> Respuesta Subarmónica</h3>
+<p>El sistema responde a una fracción de la frecuencia original (<span class="math inline">\(\Omega/n\)</span>), lo que implica que el valor esperado de los observables solo es invariante bajo traslaciones de <span class="math inline">\(nT\)</span> con <span class="math inline">\(n &gt; 1\)</span>.</p>
+</section>
+</section>
 <section id="localización-de-muchos-cuerpos-many-body-localization---mbl" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="localización-de-muchos-cuerpos-many-body-localization---mbl"><span class="header-section-number">2.2</span> Localización de muchos cuerpos (many-body localization - <em>MBL</em>)</h2>
+<h2 data-number="2.2" class="anchored" data-anchor-id="localización-de-muchos-cuerpos-many-body-localization---mbl"><span class="header-section-number">2.2</span> Localización de muchos cuerpos (Many-Body Localization - <em>MBL</em>)</h2>
 <p>La Localización de muchos cuerpos representa una generalización de la localización de Anderson —típica de sistemas desordenados no interactuantes— al ámbito de sistemas con interacciones. Es un fenómeno fundamental para la existencia de los cristales de tiempo, ya que permite que un sistema cuántico aislado evite la termalización.</p>
-<p>A diferencia de los sistemas ergódicos convencionales, los sistemas MBL son incapaces de actuar como su propio baño térmico, esto implica que el sistema no alcanza el equilibrio térmico localmente, lo que a su vez permite que se retenga la una memoria de las condiciones iniciales locales por tiempo infinito.</p>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>### Propiedades de los sistemas MBL - <strong>Entropía de entrelazamiento</strong>: MIentras que los sistemas térmicos siguen una “ley de volumen” (el entrelazamiento crece con el tamaño del sistema), los eigenestados MBL siguen una “ley de área”, comportándose incluso a altas energías como si fueran estados base. - <strong>Crecimiento logarítmico</strong>: Tras aplicar un “quench” (se refiere al proceso de preparar un sistema en un estado inicial específico (<span class="math inline">\(|\psi_0\rangle\)</span>) y luego cambiar de forma súbita los parámetros del Hamiltoniano para iniciar la evolución temporal), el entrelazamiento crece de manera extremadamente lenta, siguiendo una escala logarítmica con el tiempo, a diferencia del crecimiento exponencial de los sistemas térmicos que hace que pierdan rápidamente la memoria de las condiciones iniciales.</p>
-</div>
-</div>
-</div>
+<p>A diferencia de los sistemas ergódicos convencionales, los sistemas MBL son incapaces de actuar como su propio baño térmico, esto implica que el sistema no alcanza el equilibrio térmico localmente, lo que a su vez permite que se retenga una memoria de las condiciones iniciales locales por tiempo infinito.</p>
+<section id="propiedades-de-los-sistemas-mbl" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="propiedades-de-los-sistemas-mbl"><span class="header-section-number">2.2.1</span> Propiedades de los sistemas MBL</h3>
+<ul>
+<li><strong>Entropía de entrelazamiento:</strong> Mientras que los sistemas térmicos siguen una “ley de volumen” (el entrelazamiento crece con el tamaño del sistema), los eigenestados MBL siguen una “ley de área”, comportándose incluso a altas energías como si fueran estados base.</li>
+<li><strong>Crecimiento logarítmico:</strong> Tras aplicar un <em>quench</em> (proceso de preparar un sistema en un estado inicial específico <span class="math inline">\(|\psi_0\rangle\)</span> y luego cambiar de forma súbita los parámetros del Hamiltoniano), el entrelazamiento crece de manera extremadamente lenta, siguiendo una escala logarítmica con el tiempo, a diferencia del crecimiento exponencial de los sistemas térmicos.</li>
+</ul>
+</section>
 </section>
 <section id="entrelazamiento-y-correlaciones-de-corto-alcance" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="entrelazamiento-y-correlaciones-de-corto-alcance"><span class="header-section-number">2.3</span> Entrelazamiento y Correlaciones de corto alcance</h2>
 <p>En el estudio de los cristales de tiempo, el entrelazamiento y la estructura de las correlaciones son fundamentales para distinguir las fases de muchos cuerpos fuera del equilibrio. Mientras que los sistemas que se termalizan rápidamente borran la memoria local mediante un crecimiento exponencial del entrelazamiento, los cristales de tiempo basados en la localización de muchos cuerpos (MBL) protegen la información local a través de una propagación extremadamente lenta.</p>
-<p>### Descomposición de Schmidt La descomposición de Schmidt es la herramienta matemática estándar para cuantificar el entrelazamiento en un estado puro <span class="math inline">\(|\psi\rangle\)</span> de un sistema compuesto por dos partes, A y B. Según este teorema, existen bases ortonormales <span class="math inline">\(\{|i_A\rangle\}\)</span> y <span class="math inline">\(\{|i_B\rangle\}\)</span> tales que el estado global se puede escribir como: <span class="math inline">\(|\psi\rangle = \sum_i \lambda_i |i_A\rangle \otimes |i_B\rangle\)</span> donde <span class="math inline">\(\lambda_i\)</span> son números reales no negativos conocidos como los coeficientes de Schmidt, los cuales satisfacen la normalización <span class="math inline">\(\sum_i \lambda_i^2 = 1\)</span>.</p>
+<section id="descomposición-de-schmidt" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="descomposición-de-schmidt"><span class="header-section-number">2.3.1</span> Descomposición de Schmidt</h3>
+<p>La Descomposición de Schmidt es la herramienta matemática estándar para cuantificar el entrelazamiento en un estado puro <span class="math inline">\(|\psi\rangle\)</span> de un sistema compuesto por dos partes, A y B. Según este teorema, existen bases ortonormales <span class="math inline">\(\{|i_A\rangle\}\)</span> y <span class="math inline">\(\{|i_B\rangle\}\)</span> tales que el estado global se puede escribir como:</p>
+<p><span class="math display">\[|\psi\rangle = \sum_i \lambda_i |i_A\rangle \otimes |i_B\rangle\]</span></p>
+<p>donde <span class="math inline">\(\lambda_i\)</span> son números reales no negativos conocidos como los coeficientes de Schmidt, los cuales satisfacen la normalización <span class="math inline">\(\sum_i \lambda_i^2 = 1\)</span>.</p>
 <p>Los cuadrados de estos coeficientes (<span class="math inline">\(\lambda_i^2\)</span>) son los autovalores de los operadores de densidad reducida <span class="math inline">\(\rho^A\)</span> y <span class="math inline">\(\rho^B\)</span>, y su número de valores no nulos define el rango de Schmidt, que es una medida del grado de entrelazamiento entre las partes A y B. Un estado con un rango de Schmidt igual a 1 es un estado no entrelazado (producto), mientras que un rango mayor indica la presencia de entrelazamiento.</p>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
-<p>### Ejemplo de Descomposición de Schmidt El estado singlete de un par de partículas de espín 1/2 se define originalmente en la base computacional (<span class="math inline">\(\sigma_z\)</span>) como: <span class="math display">\[\ket{\psi} = \frac{1}{\sqrt{2}} (\ket{0}\ket{1} - \ket{1}\ket{0})\]</span></p>
+<div class="callout-title-container flex-fill">
+Ejemplo de Descomposición de Schmidt
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El estado singlete de un par de partículas de espín 1/2 se define originalmente en la base computacional (<span class="math inline">\(\sigma_z\)</span>) como: <span class="math display">\[\ket{\psi} = \frac{1}{\sqrt{2}} (\ket{0}\ket{1} - \ket{1}\ket{0})\]</span></p>
 <p>Para expresar este estado en la base de eigenvectores de <span class="math inline">\(\sigma_y\)</span>, recordamos que la matriz de Pauli es <span class="math inline">\(\sigma_y = \begin{pmatrix} 0 &amp; -i \\ i &amp; 0 \end{pmatrix}\)</span>, con eigenvectores: <span class="math display">\[\ket{+_y} = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ i \end{pmatrix}, \quad \ket{-_y} = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ -i \end{pmatrix}\]</span></p>
-<p>### 1. Cambio de base Expresamos los estados de la base <span class="math inline">\(z\)</span> en términos de la base <span class="math inline">\(y\)</span>:</p>
-<ul>
-<li><strong>Para <span class="math inline">\(\ket{0}\)</span>:</strong> <span class="math display">\[\ket{0} = \braket{+_y|0}\ket{+_y} + \braket{-_y|0}\ket{-_y} = \frac{1}{\sqrt{2}}\ket{+_y} + \frac{1}{\sqrt{2}}\ket{-_y}\]</span></li>
-<li><strong>Para <span class="math inline">\(\ket{1}\)</span>:</strong> <span class="math display">\[\ket{1} = \braket{+_y|1}\ket{+_y} + \braket{-_y|1}\ket{-_y} = \frac{i}{\sqrt{2}}\ket{+_y} - \frac{i}{\sqrt{2}}\ket{-_y}\]</span></li>
-</ul>
-<p>### 2. Sustitución en el estado singlete Sustituimos estas expresiones en <span class="math inline">\(\ket{\psi}\)</span>:</p>
-<p><span class="math display">\[\begin{aligned}
-   \ket{\psi} = \frac{1}{\sqrt{2}} \bigg[ &amp;\left( \frac{1}{\sqrt{2}}\ket{+_y} + \frac{1}{\sqrt{2}}\ket{-_y} \right) \otimes \left( \frac{i}{\sqrt{2}}\ket{+_y} - \frac{i}{\sqrt{2}}\ket{-_y} \right) \\
-   - &amp;\left( \frac{i}{\sqrt{2}}\ket{+_y} - \frac{i}{\sqrt{2}}\ket{-_y} \right) \otimes \left( \frac{1}{\sqrt{2}}\ket{+_y} + \frac{1}{\sqrt{2}}\ket{-_y} \right) \bigg]
-   \end{aligned}\]</span></p>
-<p>Al expandir los productos tensoriales y factorizar el término <span class="math inline">\(\frac{i}{2\sqrt{2}}\)</span>:</p>
-<p><span class="math display">\[\begin{aligned}
-   \ket{\psi} = \frac{i}{2\sqrt{2}} \Big[ &amp;(\ket{+_y}\ket{+_y} - \ket{+_y}\ket{-_y} + \ket{-_y}\ket{+_y} - \ket{-_y}\ket{-_y}) \\
-   - &amp;(\ket{+_y}\ket{+_y} + \ket{+_y}\ket{-_y} - \ket{-_y}\ket{+_y} - \ket{-_y}\ket{-_y}) \Big]
-   \end{aligned}\]</span></p>
-<p>### 3. Resultado Final Los términos paralelos (<span class="math inline">\(\ket{+_y}\ket{+_y}\)</span> y <span class="math inline">\(\ket{-_y}\ket{-_y}\)</span>) se cancelan, resultando en: <span class="math display">\[\ket{\psi} = \frac{i}{2\sqrt{2}} \left[ -2\ket{+_y}\ket{-_y} + 2\ket{-_y}\ket{+_y} \right] = -i \left[ \frac{1}{\sqrt{2}} (\ket{+_y}\ket{-_y} - \ket{-_y}\ket{+_y}) \right]\]</span></p>
-<p>Esto demuestra que, salvo por una fase global de <span class="math inline">\(-i\)</span> (que no afecta a los observables), el estado singlete mantiene su forma antisimétrica: <span class="math display">\[\ket{\psi} \propto \frac{1}{\sqrt{2}} \left[ \begin{pmatrix} 1 \\ i \end{pmatrix} \otimes \begin{pmatrix} 1 \\ -i \end{pmatrix} - \begin{pmatrix} 1 \\ -i \end{pmatrix} \otimes \begin{pmatrix} 1 \\ i \end{pmatrix} \right]\]</span> :::</p>
-<p>### Estados de Producto de Matrices (MPS)<br>
-El reto de simular cristales de tiempo radica en que el número de parámetros necesarios para describir un estado de <span class="math inline">\(n\)</span> cuerpos crece exponencialmente con <span class="math inline">\(n\)</span>. Los Matrix Product States resuelven este problema ofreciendo una representación eficiente para sistemas unidimensionales. La cantidad de entrelazamiento que puede representar el MPS está controlada por el usuario a través de un hiperparámetro, la llamada dimensión de enlace <span class="math inline">\(\chi\)</span>. Si lo permitimos <span class="math inline">\(\chi\)</span> puede ser <span class="math inline">\(\mathcal{O}(2^\frac{2}{n})\)</span> para un sistema de <span class="math inline">\(n\)</span> qubits, podemos escribir cualquier estado como un estado de producto de matrices exacto. Sin embargo, para evitar recursos exponencialmente grandes, se suele establecer una dimensión de enlace finita <span class="math inline">\(\chi\)</span> a costa de introducir un error de aproximación.</p>
-<p>El algoritmo para construir un MPS utiliza repetidamente la Descomposición en Valores Singulares (SVD) para separar los sitios del sistema, donde los valores singulares obtenidos son precisamente los coeficientes de Schmidt. Al truncar los valores singulares más pequeños, se controla la cantidad de entrelazamiento que se retiene en la representación, lo que permite simular sistemas con un número de cuerpos mucho mayor que el que sería posible con una representación explícita del estado.</p>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
+<section id="cambio-de-base" class="level4" data-number="2.3.1.1">
+<h4 data-number="2.3.1.1" class="anchored" data-anchor-id="cambio-de-base"><span class="header-section-number">2.3.1.1</span> 1. Cambio de base</h4>
+<p>Expresamos los estados de la base <span class="math inline">\(z\)</span> en términos de la base <span class="math inline">\(y\)</span>: * <strong>Para <span class="math inline">\(\ket{0}\)</span>:</strong> <span class="math inline">\(\ket{0} = \frac{1}{\sqrt{2}}\ket{+_y} + \frac{1}{\sqrt{2}}\ket{-_y}\)</span> * <strong>Para <span class="math inline">\(\ket{1}\)</span>:</strong> <span class="math inline">\(\ket{1} = \frac{i}{\sqrt{2}}\ket{+_y} - \frac{i}{\sqrt{2}}\ket{-_y}\)</span></p>
+</section>
+<section id="sustitución-en-el-estado-singlete" class="level4" data-number="2.3.1.2">
+<h4 data-number="2.3.1.2" class="anchored" data-anchor-id="sustitución-en-el-estado-singlete"><span class="header-section-number">2.3.1.2</span> 2. Sustitución en el estado singlete</h4>
+<p><span class="math display">\[\ket{\psi} = \frac{1}{\sqrt{2}} \bigg[ \left( \frac{1}{\sqrt{2}}\ket{+_y} + \frac{1}{\sqrt{2}}\ket{-_y} \right) \otimes \left( \frac{i}{\sqrt{2}}\ket{+_y} - \frac{i}{\sqrt{2}}\ket{-_y} \right) - \left( \frac{i}{\sqrt{2}}\ket{+_y} - \frac{i}{\sqrt{2}}\ket{-_y} \right) \otimes \left( \frac{1}{\sqrt{2}}\ket{+_y} + \frac{1}{\sqrt{2}}\ket{-_y} \right) \bigg]\]</span></p>
+<p>Al expandir los productos tensoriales y factorizar el término <span class="math inline">\(\frac{i}{2\sqrt{2}}\)</span>: <span class="math display">\[\ket{\psi} = \frac{i}{2\sqrt{2}} \Big[ (\ket{+_y}\ket{+_y} - \ket{+_y}\ket{-_y} + \ket{-_y}\ket{+_y} - \ket{-_y}\ket{-_y}) - (\ket{+_y}\ket{+_y} + \ket{+_y}\ket{-_y} - \ket{-_y}\ket{+_y} - \ket{-_y}\ket{-_y}) \Big]\]</span></p>
+</section>
+<section id="resultado-final" class="level4" data-number="2.3.1.3">
+<h4 data-number="2.3.1.3" class="anchored" data-anchor-id="resultado-final"><span class="header-section-number">2.3.1.3</span> 3. Resultado Final</h4>
+<p>Los términos paralelos (<span class="math inline">\(\ket{+_y}\ket{+_y}\)</span> y <span class="math inline">\(\ket{-_y}\ket{-_y}\)</span>) se cancelan, resultando en: <span class="math display">\[\ket{\psi} = \frac{i}{2\sqrt{2}} \left[ -2\ket{+_y}\ket{-_y} + 2\ket{-_y}\ket{+_y} \right] = -i \left[ \frac{1}{\sqrt{2}} (\ket{+_y}\ket{-_y} - \ket{-_y}\ket{+_y}) \right]\]</span></p>
+<p>Esto demuestra que, salvo por una fase global de <span class="math inline">\(-i\)</span> (que no afecta a los observables), el estado singlete mantiene su forma de Schmidt.</p>
+</section>
+</div>
+</div>
+</section>
+<section id="estados-de-producto-de-matrices-mps" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="estados-de-producto-de-matrices-mps"><span class="header-section-number">2.3.2</span> Estados de Producto de Matrices (MPS)</h3>
+<p>El reto de simular cristales de tiempo radica en que el número de parámetros necesarios para describir un estado de <span class="math inline">\(n\)</span> cuerpos crece exponencialmente con <span class="math inline">\(n\)</span>. Los <em>Matrix Product States</em> resuelven este problema ofreciendo una representación eficiente para sistemas unidimensionales. La cantidad de entrelazamiento que puede representar el MPS está controlada por el usuario a través de un hiperparámetro, la llamada dimensión de enlace <span class="math inline">\(\chi\)</span>. Si lo permitimos <span class="math inline">\(\chi\)</span> puede ser <span class="math inline">\(\mathcal{O}(2^\frac{2}{n})\)</span> para un sistema de <span class="math inline">\(n\)</span> qubits, podemos escribir cualquier estado como un estado de producto de matrices exacto. Sin embargo, para evitar recursos exponencialmente grandes, se suele establecer una dimensión de enlace finita <span class="math inline">\(\chi\)</span> a costa de introducir un error de aproximación.</p>
+<p>El algoritmo para construir un MPS utiliza repetidamente la Descomposición en Valores Singulares (SVD) para separar los sitios del sistema, donde los valores singulares obtenidos son precisamente los coeficientes de Schmidt. Al truncar los valores singulares más pequeños, se controla la cantidad de entrelazamiento que se retiene en la representación.</p>
+</section>
+<section id="descomposición-en-valores-singulares-svd" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="descomposición-en-valores-singulares-svd"><span class="header-section-number">2.3.3</span> Descomposición en Valores Singulares (SVD)</h3>
+<p>Para comprender la MPS y la dimensión de enlace, primero debemos entender cómo se puede usar la descomposición en valores singulares (SVD). Cualquier matriz <span class="math inline">\(M \in \mathbb{C}^{M \times N}\)</span> puede descomponerse en valores singulares como: <span class="math display">\[M = U \Sigma V^\dagger\]</span></p>
+<p>Decimos que las columnas y renglones de <span class="math inline">\(U\)</span> y <span class="math inline">\(V^\dagger\)</span> son los vectores singulares ortonormales por la izquierda y la derecha, respectivamente. Los valores singulares pequeños contienen poca información de la matriz. Cuando los valores singulares tienen una cola de valores pequeños, podemos comprimir la matriz descartando tanto estos números como los vectores singulares correspondientes.</p>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
-<p>### Descomposición en Valores Singulares (SVD) Para comprender la MPS y la dimensión de enlace, primero debemos entender cómo se puede usar la descomposición en valores singulares (SVD). Cualquier matriz <span class="math inline">\(M= \mathbb{C}^ {M \times N}\)</span> puede descomponerse en valores singulares como: <span class="math display">\[\begin{equation}
-    M= U \Sigma V^\dagger
-   \end{equation}\]</span></p>
-<p>Decimos que las columnas y renglones de <span class="math inline">\(U\)</span> y <span class="math inline">\(V^\dagger\)</span> son los vectores singulares ortonormales por la izquierda y la derecha, respectivamente. En el caso de matrices cuadradas y normales, los valores singulares y los vectores singulares son simplemente los eigenvalores y eigenvectores.\</p>
-<p>Los valores singulares pequeños y sus vectores singulares correspondientes contienen poca información de la matriz. Cuando los valores singulares tienen una cola de valores pequeños, podemos comprimir la matriz descartando tanto estos números como los vectores singulares correspondientes.</p>
+<div class="callout-title-container flex-fill">
+Ejemplo de SVD e información mutua
 </div>
 </div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>### Ejemplo de SVD Consideremos la matriz <span class="math inline">\(M = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0.1 \end{pmatrix}\)</span>. Al aplicar SVD, obtenemos: - <span class="math inline">\(U = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix}\)</span> (vectores singulares por la izquierda) - <span class="math inline">\(\Sigma = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0.1 \end{pmatrix}\)</span> (valores singulares) - <span class="math inline">\(V^\dagger = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix}\)</span> (vectores singulares por la derecha)</p>
-<pre><code>En este caso, el valor singular más pequeño es $0.1$, lo que indica que la información asociada a este valor es menos significativa. Si establecemos un umbral de corte en $0.5$, podríamos truncar este valor singular y su correspondiente vector singular, resultando en una matriz aproximada:
-$$M' = U \Sigma' V^\dagger = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}$$
-Esta aproximación retiene la información más importante de la matriz original mientras reduce su complejidad.</code></pre>
+<div class="callout-body-container callout-body">
+<p>Consideremos la matriz <span class="math inline">\(M = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0.1 \end{pmatrix}\)</span>. Al aplicar SVD, obtenemos: * <span class="math inline">\(U = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix}\)</span> * <span class="math inline">\(\Sigma = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0.1 \end{pmatrix}\)</span> * <span class="math inline">\(V^\dagger = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix}\)</span></p>
+<p>En este caso, el valor singular más pequeño es <span class="math inline">\(0.1\)</span>, lo que indica que la información asociada a este valor es menos significativa. Si establecemos un umbral de corte en <span class="math inline">\(0.5\)</span>, podríamos truncar este valor singular y su correspondiente vector singular, resultando en una matriz aproximada: <span class="math display">\[M' = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}\]</span></p>
 </div>
 </div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>### Ejemplo de MPS Consideremos un sistema de 4 qubits en el estado de GHZ: <span class="math inline">\(\ket{\psi} = \frac{1}{\sqrt{2}} (\ket{0000} + \ket{1111})\)</span></p>
-<p>Para construir su representación MPS, comenzamos con la descomposición en valores singulares entre el primer qubit y el resto del sistema. La matriz que representa esta partición es: <span class="math inline">\(M = \begin{pmatrix} \frac{1}{\sqrt{2}} &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; \frac{1}{\sqrt{2}} \end{pmatrix}\)</span></p>
-<p>Al aplicar SVD a esta matriz, obtenemos los valores singulares <span class="math inline">\(\lambda_1 = \lambda_2 = \frac{1}{\sqrt{2}}\)</span> y los vectores singulares correspondientes. Esto nos permite escribir el estado como un producto de matrices, donde cada matriz representa la conexión entre los qubits. En este caso, la dimensión de enlace <span class="math inline">\(\chi\)</span> es 2, lo que refleja el hecho de que el estado GHZ tiene un alto grado de entrelazamiento.</p>
-<section id="algorritmo-de-tebd-time-evolving-block-decimation" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="algorritmo-de-tebd-time-evolving-block-decimation"><span class="header-section-number">2.4</span> Algorritmo de TEBD (Time-Evolving Block Decimation)</h2>
-<p>El algoritmo <strong>TEBD</strong>, propuesto originalmente por Guifré Vidal en 2003, es una de las técnicas más potentes y eficientes para simular la evolución temporal de sistemas cuánticos unidimensionales de muchos cuerpos. Su éxito radica en combinar la representación de estados mediante **Matrix Product States* con una aproximación local de la dinámica global. ### Concepto clave: Descomposición de Suzuki-Trotter El problema fundamental en la dinámica cuántica es calcular el operador evolución <span class="math inline">\(U(t)= \exp(-i H t)\)</span>. para un sistema de muchos cuerpos, el hamiltoniano <span class="math inline">\(H\)</span> es una matriz gigante, lo que hace que su exponenciación sea inviable de manera tradicional como computacionalmente. El algoptirmo TEBD resuelve eso asumiendo que el hamiltoniano consta de de interacciones locales (regularmente a primeros vecinos): \</p>
-<p><span class="math inline">\(\hat{H} = \sum_i \hat{h}_{i,i+1}\)</span>\</p>
-<p>Para aplicar este operador sobre un MPS, el Hamiltoniano se divide en dos partes, <span class="math inline">\(\hat{H}_{par}\)</span> y <span class="math inline">\(\hat{H}_{impar}\)</span>, para sitios pares e impares respectivamente, tales que los términos dentro de cada grupo conmuten entre sí:\ <span class="math inline">\(H = \hat{H}_{par} + \hat{H}_{impar}\)</span> donde <span class="math inline">\(\hat{H} = \sum_{j\epsilon Par} \hat{h}_{j,j+1}\)</span>\</p>
-<p>Utilizando la expansión de Suzuki-Trotter, el operador de evolución para un paso de tiempo pequeño <span class="math inline">\(\delta\)</span> se aproxima como un producto de operadores locales: -<strong>Primer orden</strong> <span class="math inline">\(\hat{U}(\delta) \approx e^{-i \hat{H}_{par} \delta} e^{-i \hat{H}_{impar} \delta} + O(\delta^2)\)</span>\ -<strong>Segundo orden</strong> <span class="math inline">\(\hat{U}(\delta) \approx e^{-i \hat{H}_{par} \delta/2} e^{-i \hat{H}_{impar} \delta} e^{-i \hat{H}_{par} \delta/2} + O(\delta^3)\)</span>\ Esto permite transformar la evolución global en una serie de “compuertas” de dos sitios que se aplican secuencialmente sobre la cadena.</p>
-<p>### Actualización local del MPS y Truncamiento Cada vez que una compuerta local <span class="math inline">\(e^{-i \hat{h}_{j,j+1} \delta}\)</span> actúa sobre dos sitios contiguos del MPS, el enyrelazamiento de estos dos sitios tiende a aumentar. Si no se controla, la complejidad de la simulación crecería exponencialmente. El algoritmo TEBD mantiene la eficiencia mediante los siguientes pasos operativos: 1. <strong>Contracción:</strong> Se combinan los tensores de los sitios <span class="math inline">\(j\)</span> y <span class="math inline">\(j+1\)</span> con la compuerta unitaria para formar un tensor de dos sitios de rango 4. 2. <strong>Descomposición en Valores Singulares (SVD):</strong> Se aplica una SVD para volver a separar los sitios. Matemáticamente:\ <span class="math inline">\(\Theta_{\sigma_{j},\sigma_{j+1}} = \sum_\mu U_{\sigma_j,\mu} S_\mu V^\dagger_{\mu,\sigma_{j+1}}\)</span> Aquí, los valores singu1lares en la matriz <span class="math inline">\(S\)</span> son precisamente los coeficientes de Schmidt <span class="math inline">\(\lambda_i\)</span> que cuantifican el entrelazamiento entre las dos mitades de la cadena. 3. <strong>Decimación (Truncamiento):</strong> Se conservan unicamente los <span class="math inline">\(\chi\)</span> valores singulares más grandes (donde <span class="math inline">\(\chi\)</span> es la dimensión de enlace), descartando los restantes. Esto asegura que el estado siga siendo representable como un MPS de tamaño manejable, introduciendo un error controlado que depende de la magnitud de los valores singulares truncados.</p>
-<p>### Escalamiento del error La precisión del algoritmo <em>TEBD</em> depende de dos factores controlables: el tamaño del paso de tiempo <span class="math inline">\(\delta\)</span> y la dimensión de enlace <span class="math inline">\(\chi\)</span>. El error de Suzuki-Trotter se puede reducir disminuyendo <span class="math inline">\(\delta\)</span>, mientras que el error de truncamiento se controla aumentando <span class="math inline">\(\chi\)</span>. En la práctica, se busca un equilibrio entre estos parámetros para obtener resultados precisos sin caer en costos computacionales excesivos.</p>
+</section>
+<section id="ejemplo-de-mps" class="level3" data-number="2.3.4">
+<h3 data-number="2.3.4" class="anchored" data-anchor-id="ejemplo-de-mps"><span class="header-section-number">2.3.4</span> Ejemplo de MPS</h3>
+<p>Consideremos un sistema de 4 qubits en el estado de GHZ: <span class="math display">\[\ket{\psi} = \frac{1}{\sqrt{2}} (\ket{0000} + \ket{1111})\]</span></p>
+<p>Para construir su representación MPS, comenzamos con la descomposición en valores singulares entre el primer qubit y el resto del sistema. La matriz que representa esta partición es: <span class="math display">\[M = \begin{pmatrix} \frac{1}{\sqrt{2}} &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; \frac{1}{\sqrt{2}} \end{pmatrix}\]</span></p>
+<p>Al aplicar SVD a esta matriz, obtenemos los valores singulares <span class="math inline">\(\lambda_1 = \lambda_2 = \frac{1}{\sqrt{2}}\)</span> y los vectores singulares correspondientes. Esto nos permite escribir el estado como un producto de matrices, donde la dimensión de enlace <span class="math inline">\(\chi\)</span> es 2, lo que refleja el entrelazamiento del estado.</p>
+</section>
+</section>
+<section id="algoritmo-de-tebd-time-evolving-block-decimation" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="algoritmo-de-tebd-time-evolving-block-decimation"><span class="header-section-number">2.4</span> Algoritmo de TEBD (Time-Evolving Block Decimation)</h2>
+<p>El algoritmo <strong>TEBD</strong>, propuesto originalmente por Guifré Vidal en 2003, es una de las técnicas más potentes y eficientes para simular la evolución temporal de sistemas cuánticos unidimensionales de muchos cuerpos. Su éxito radica en combinar la representación de estados mediante <em>Matrix Product States</em> con una aproximación local de la dinámica global.</p>
+<section id="concepto-clave-descomposición-de-suzuki-trotter" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="concepto-clave-descomposición-de-suzuki-trotter"><span class="header-section-number">2.4.1</span> Concepto clave: Descomposición de Suzuki-Trotter</h3>
+<p>El problema fundamental en la dinámica cuántica es calcular el operador evolución <span class="math inline">\(U(t)= \exp(-i H t)\)</span>. Para un sistema de muchos cuerpos, el hamiltoniano <span class="math inline">\(H\)</span> es una matriz gigante, lo que hace que su exponenciación sea inviable de manera tradicional. El algoritmo TEBD resuelve eso asumiendo que el hamiltoniano consta de interacciones locales: <span class="math display">\[\hat{H} = \sum_i \hat{h}_{i,i+1}\]</span></p>
+<p>Para aplicar este operador sobre un MPS, el Hamiltoniano se divide en dos partes, <span class="math inline">\(\hat{H}_{par}\)</span> y <span class="math inline">\(\hat{H}_{impar}\)</span>, para sitios pares e impares respectivamente, tales que los términos dentro de cada grupo conmuten entre sí: <span class="math display">\[\hat{H} = \hat{H}_{par} + \hat{H}_{impar}\]</span></p>
+<p>Utilizando la expansión de Suzuki-Trotter, el operador de evolución para un paso de tiempo pequeño <span class="math inline">\(\delta\)</span> se aproxima como un producto de operadores locales: * <strong>Primer orden:</strong> <span class="math inline">\(\hat{U}(\delta) \approx e^{-i \hat{H}_{par} \delta} e^{-i \hat{H}_{impar} \delta} + \mathcal{O}(\delta^2)\)</span> * <strong>Segundo orden:</strong> <span class="math inline">\(\hat{U}(\delta) \approx e^{-i \hat{H}_{par} \delta/2} e^{-i \hat{H}_{impar} \delta} e^{-i \hat{H}_{par} \delta/2} + \mathcal{O}(\delta^3)\)</span></p>
+<p>Esto permite transformar la evolución global en una serie de “compuertas” de dos sitios que se aplican secuencialmente sobre la cadena.</p>
+</section>
+<section id="actualización-local-del-mps-y-truncamiento" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="actualización-local-del-mps-y-truncamiento"><span class="header-section-number">2.4.2</span> Actualización local del MPS y Truncamiento</h3>
+<p>Cada vez que una compuerta local <span class="math inline">\(e^{-i \hat{h}_{j,j+1} \delta}\)</span> actúa sobre dos sitios contiguos del MPS, el entrelazamiento de estos dos sitios tiende a aumentar. El algoritmo TEBD mantiene la eficiencia mediante los siguientes pasos operativos:</p>
+<ol type="1">
+<li><strong>Contracción:</strong> Se combinan los tensores de los sitios <span class="math inline">\(j\)</span> y <span class="math inline">\(j+1\)</span> con la compuerta de evolución.</li>
+<li><strong>SVD:</strong> Se aplica SVD para separar nuevamente los sitios: <span class="math inline">\(\Theta_{\sigma_{j},\sigma_{j+1}} = \sum_\mu U_{\sigma_j,\mu} S_\mu V^\dagger_{\mu,\sigma_{j+1}}\)</span>. Los valores en la matriz <span class="math inline">\(S\)</span> son precisamente los nuevos coeficientes de Schmidt <span class="math inline">\(\lambda_i\)</span>.</li>
+<li><strong>Decimación (Truncamiento):</strong> Se conservan únicamente los <span class="math inline">\(\chi\)</span> valores singulares más grandes, descartando los restantes. Esto asegura que el estado siga siendo representable como un MPS de tamaño manejable.</li>
+</ol>
+</section>
+<section id="escalamiento-del-error" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="escalamiento-del-error"><span class="header-section-number">2.4.3</span> Escalamiento del error</h3>
+<p>La precisión del algoritmo <em>TEBD</em> depende de dos factores controlables: el tamaño del paso de tiempo <span class="math inline">\(\delta\)</span> y la dimensión de enlace <span class="math inline">\(\chi\)</span>. El error de Suzuki-Trotter se puede reducir disminuyendo <span class="math inline">\(\delta\)</span>, mientras que el error de truncamiento se controla aumentando <span class="math inline">\(\chi\)</span>.</p>
+</section>
 </section>
 <section id="correlaciones-y-ttsb" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="correlaciones-y-ttsb"><span class="header-section-number">2.5</span> Correlaciones y TTSB</h2>
-<p>La ruptura de la simetría de traslación temporal está intrínsecamente relacionada con a la naturaleza de las correlaciones en los estados propios del sistema. Se dice que un estado tiene correlaciones de corto alcance si satisface la descomposición en cúmulos, es decir, si las correlaciones entre operadores locales decaen a cero a medida que aumenta la distancia entre ellos.</p>
+<p>La ruptura de la simetría de traslación temporal está intrínsecamente relacionada con la naturaleza de las correlaciones en los estados propios del sistema. Se dice que un estado tiene correlaciones de corto alcance si satisface la descomposición en cúmulos, es decir, si las correlaciones entre operadores locales decaen a cero a medida que aumenta la distancia entre ellos.</p>
 <p>Por otro lado, en un cristal de tiempo, los estados propios del operador de Floquet no pueden tener correlaciones de corto alcance. Deben ser superposiciones de estados con orden de corto alcance (estados tipo “gato de Schrödinger”), lo que permite que los observables oscilen con un periodo mayor al del impulso inicial.</p>
 
 
-</section>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-</div>
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->
