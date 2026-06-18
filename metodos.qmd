@@ -41,3 +41,4 @@ Para el segundo código se utilizó la librería `Quimb`, diseñada para cálcul
 * **Fase 2 de Floquet (Algoritmo TEBD):** Se instancia `qtn.TEBD` sobre el estado actual y el Hamiltoniano. La evolución se realiza en pasos de tiempo discretos $dt = 0.01$ hasta $t_0 = 1.0$. El algoritmo descompone el operador de evolución en compuertas de dos sitios mediante Suzuki-Trotter.
 * **Extracción de observables y entropía:** * Se calcula $\langle \sigma^z \rangle$ en el sitio central ($L/2$) mediante el producto interno: `psi.H @ psi.gate(qu.pauli('Z'), L // 2)`.
   * Se utiliza `psi.entropy(L // 2)` para calcular la entropía de Von Neumann en la mitad de la cadena, permitiendo verificar si el sistema está en la fase MBL (crecimiento logarítmico) o si se está termalizando (crecimiento lineal).
+  
