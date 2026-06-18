@@ -14,6 +14,7 @@ book:
     - metodos.qmd
     - Floquet_Time_Crystals.ipynb
        text: "Simulación con diagonalización exacta"
+       
     - Time_crystals_definitivo.ipynb
        text: "Simulación con estados de producto de matriz"
     - summary.qmd
