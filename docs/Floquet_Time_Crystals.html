@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; Floquet Time Crystals – Cristales de Tiempo de Floquet</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Time_crystals_definitivo.html" rel="next">
+<link href="./metodos.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-84a499a29c0cc735b3de93e9cde7ade7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-9a4bbcb5d63b8f9a707ee7fdbc8e35ff.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+window.MathJax = {
+  tex: {
+    macros: {
+      ket: ["\\left|{#1}\\right\\rangle", 1],
+      bra: ["\\left\\langle{#1}\\right|", 1],
+      braket: ["\\left\\langle{#1}\\middle|{#2}\\right\\rangle", 2],
+      sigma: "\\sigma"
+    }
+  }
+};
+</script>  
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Floquet_Time_Crystals.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Floquet Time Crystals</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Cristales de Tiempo de Floquet</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefacio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./teoria.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Marco Teórico para el estudio de los cristales de tiempo de Floquet</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./metodos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Métodos Numéricos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Floquet_Time_Crystals.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Floquet Time Crystals</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Time_crystals_definitivo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Time_crystals_definitivo.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Floquet Time Crystals</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="cell-1" class="cell">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">from</span> scipy.sparse <span class="im">import</span> kron, eye, csc_matrix</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">from</span> scipy.sparse.linalg <span class="im">import</span> expm</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co">#Vamos a utilizar matrices sparse para hacer más eficiente el programa</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co"># Definimos las matrices de Pauli y la identidad como matrices sparse</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>sx <span class="op">=</span> csc_matrix(np.array([[<span class="dv">0</span>, <span class="dv">1</span>], [<span class="dv">1</span>, <span class="dv">0</span>]], dtype<span class="op">=</span><span class="bu">complex</span>))  <span class="co"># Pauli_X</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>sz <span class="op">=</span> csc_matrix(np.array([[<span class="dv">1</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>]], dtype<span class="op">=</span><span class="bu">complex</span>)) <span class="co"># Pauli_Z</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>id2 <span class="op">=</span> csc_matrix(np.eye(<span class="dv">2</span>, dtype<span class="op">=</span><span class="bu">complex</span>))</span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="kw">def</span> prod_kron_n(ops): <span class="co">#Calcula el producto de una lista de operadores.</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>    result <span class="op">=</span> ops[<span class="dv">0</span>]   <span class="co">#ops: operadores (matrices) en cada sitio</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>    <span class="cf">for</span> op <span class="kw">in</span> ops[<span class="dv">1</span>:]:</span>
+<span id="cb1-15"><a href="#cb1-15"></a>        result <span class="op">=</span> kron(result, op)</span>
+<span id="cb1-16"><a href="#cb1-16"></a>    <span class="cf">return</span> result</span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="kw">def</span> op_local(op, sit, L): <span class="co">#Crea un operador local que actúa sólo en un sitio y como identidad en el resto.</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a>                           <span class="co">#op: operador (sx o sz)</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a>                           <span class="co">#sit: índice del sitio</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a>                           <span class="co">#L: número total de sitios</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a>    ops <span class="op">=</span> [id2] <span class="op">*</span> L</span>
+<span id="cb1-23"><a href="#cb1-23"></a>    ops[sit] <span class="op">=</span> op</span>
+<span id="cb1-24"><a href="#cb1-24"></a>    <span class="cf">return</span> prod_kron_n(ops)</span>
+<span id="cb1-25"><a href="#cb1-25"></a></span>
+<span id="cb1-26"><a href="#cb1-26"></a><span class="kw">def</span> op_ady(op1, op2, sit, L):   <span class="co">#Crea un operador que actúa sobre los sitios adyacentes (vecinos).</span></span>
+<span id="cb1-27"><a href="#cb1-27"></a>    ops <span class="op">=</span> [id2] <span class="op">*</span> L</span>
+<span id="cb1-28"><a href="#cb1-28"></a>    ops[sit] <span class="op">=</span> op1</span>
+<span id="cb1-29"><a href="#cb1-29"></a>    ops[sit <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> op2</span>
+<span id="cb1-30"><a href="#cb1-30"></a>    <span class="cf">return</span> prod_kron_n(ops)</span>
+<span id="cb1-31"><a href="#cb1-31"></a></span>
+<span id="cb1-32"><a href="#cb1-32"></a><span class="kw">def</span> H_MBL(L, J<span class="op">=</span><span class="fl">1.0</span>, hz_max<span class="op">=</span><span class="fl">1.0</span>, hx_max<span class="op">=</span><span class="fl">0.3</span>, seed<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb1-33"><a href="#cb1-33"></a>    <span class="co">#Construye el Hamiltoniano de MBL.</span></span>
+<span id="cb1-34"><a href="#cb1-34"></a></span>
+<span id="cb1-35"><a href="#cb1-35"></a>    <span class="cf">if</span> seed <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb1-36"><a href="#cb1-36"></a>        np.random.seed(seed)</span>
+<span id="cb1-37"><a href="#cb1-37"></a></span>
+<span id="cb1-38"><a href="#cb1-38"></a>    H <span class="op">=</span> csc_matrix((<span class="dv">2</span><span class="op">**</span>L, <span class="dv">2</span><span class="op">**</span>L), dtype<span class="op">=</span><span class="bu">complex</span>)</span>
+<span id="cb1-39"><a href="#cb1-39"></a></span>
+<span id="cb1-40"><a href="#cb1-40"></a>    <span class="co"># Campo en dirección z</span></span>
+<span id="cb1-41"><a href="#cb1-41"></a>    hz <span class="op">=</span> np.random.uniform(<span class="dv">0</span>, hz_max, size<span class="op">=</span>L)</span>
+<span id="cb1-42"><a href="#cb1-42"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(L):</span>
+<span id="cb1-43"><a href="#cb1-43"></a>        H <span class="op">+=</span> hz[i] <span class="op">*</span> op_local(sz, i, L)</span>
+<span id="cb1-44"><a href="#cb1-44"></a></span>
+<span id="cb1-45"><a href="#cb1-45"></a>    <span class="co"># Campo en dirección x</span></span>
+<span id="cb1-46"><a href="#cb1-46"></a>    hx <span class="op">=</span> np.random.uniform(<span class="dv">0</span>, hx_max, size<span class="op">=</span>L)</span>
+<span id="cb1-47"><a href="#cb1-47"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(L):</span>
+<span id="cb1-48"><a href="#cb1-48"></a>        H <span class="op">+=</span> hx[i] <span class="op">*</span> op_local(sx, i, L)</span>
+<span id="cb1-49"><a href="#cb1-49"></a></span>
+<span id="cb1-50"><a href="#cb1-50"></a>    <span class="co"># Interacción entre vecinos</span></span>
+<span id="cb1-51"><a href="#cb1-51"></a>    Ji <span class="op">=</span> np.random.uniform(J<span class="op">/</span><span class="dv">2</span>, <span class="dv">3</span><span class="op">*</span>J<span class="op">/</span><span class="dv">2</span>, size<span class="op">=</span>L <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb1-52"><a href="#cb1-52"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(L <span class="op">-</span> <span class="dv">1</span>):</span>
+<span id="cb1-53"><a href="#cb1-53"></a>        H <span class="op">+=</span> Ji[i] <span class="op">*</span> op_ady(sz, sz, i, L)</span>
+<span id="cb1-54"><a href="#cb1-54"></a></span>
+<span id="cb1-55"><a href="#cb1-55"></a>    <span class="cf">return</span> H</span>
+<span id="cb1-56"><a href="#cb1-56"></a></span>
+<span id="cb1-57"><a href="#cb1-57"></a><span class="kw">def</span> sigma_x_sum(L):</span>
+<span id="cb1-58"><a href="#cb1-58"></a></span>
+<span id="cb1-59"><a href="#cb1-59"></a>    <span class="cf">return</span> <span class="bu">sum</span>(op_local(sx, i, L) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(L))</span>
+<span id="cb1-60"><a href="#cb1-60"></a></span>
+<span id="cb1-61"><a href="#cb1-61"></a><span class="kw">def</span> op_floquet(L, t0, t1, J, hz, hx, seed<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb1-62"><a href="#cb1-62"></a></span>
+<span id="cb1-63"><a href="#cb1-63"></a>    <span class="co">#Construye el operador unitario de Floquet:</span></span>
+<span id="cb1-64"><a href="#cb1-64"></a>    <span class="co">#U = exp(-i t0 H_MBL) · exp(-i t1 ∑ σ^x_i)</span></span>
+<span id="cb1-65"><a href="#cb1-65"></a></span>
+<span id="cb1-66"><a href="#cb1-66"></a>    Hmbl <span class="op">=</span> H_MBL(L, J<span class="op">=</span>J, hz_max<span class="op">=</span>hz, hx_max<span class="op">=</span>hx, seed<span class="op">=</span>seed)</span>
+<span id="cb1-67"><a href="#cb1-67"></a>    Hx <span class="op">=</span> sigma_x_sum(L)</span>
+<span id="cb1-68"><a href="#cb1-68"></a></span>
+<span id="cb1-69"><a href="#cb1-69"></a>    U1 <span class="op">=</span> expm(<span class="op">-</span><span class="ot">1j</span> <span class="op">*</span> t0 <span class="op">*</span> Hmbl)  <span class="co"># evolución bajo H_MBL</span></span>
+<span id="cb1-70"><a href="#cb1-70"></a>    U2 <span class="op">=</span> expm(<span class="op">-</span><span class="ot">1j</span> <span class="op">*</span> t1 <span class="op">*</span> Hx)</span>
+<span id="cb1-71"><a href="#cb1-71"></a>    <span class="cf">return</span> U1 <span class="op">@</span> U2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Consideramos sistemas unidimensionales de espín 1/2 con unitarios de Floquet de la forma: <span class="math display">\[ U = exp(-i t_0H_{MBL}) exp(-it_1 \sum_i σ_i^x) \]</span></p>
+<p>Necesitamos expresar de forma correcta a U</p>
+<div id="cell-3" class="cell">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> est_ini(L, theta<span class="op">=</span>np.pi<span class="op">/</span><span class="dv">8</span>): <span class="co">#Construimos el estado inicial:|ψ⟩ = ⊗_i (cos(θ)|0⟩ + sin(θ)|1⟩)</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>    up <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">0</span>], dtype<span class="op">=</span><span class="bu">complex</span>)</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    down <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>], dtype<span class="op">=</span><span class="bu">complex</span>)</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    psi_sit <span class="op">=</span> np.cos(theta) <span class="op">*</span> up <span class="op">+</span> np.sin(theta) <span class="op">*</span> down</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a>    psi <span class="op">=</span> psi_sit</span>
+<span id="cb2-8"><a href="#cb2-8"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(L <span class="op">-</span> <span class="dv">1</span>):   <span class="co">#usamos _ para que la acción se repita L-1 veces, ya que comenzamos en el primer sitio</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>        psi <span class="op">=</span> np.kron(psi, psi_sit)</span>
+<span id="cb2-10"><a href="#cb2-10"></a>    <span class="cf">return</span> psi</span>
+<span id="cb2-11"><a href="#cb2-11"></a></span>
+<span id="cb2-12"><a href="#cb2-12"></a></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="kw">def</span> med_mag_z(psi, L):  <span class="co">#Calcula ⟨σ^z_i⟩ para cada sitio i del estado psi.</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a>    mz <span class="op">=</span> []</span>
+<span id="cb2-15"><a href="#cb2-15"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(L):</span>
+<span id="cb2-16"><a href="#cb2-16"></a>        Sz_i <span class="op">=</span> op_local(sz, i, L)</span>
+<span id="cb2-17"><a href="#cb2-17"></a>        mz.append(np.real(np.vdot(psi, Sz_i <span class="op">@</span> psi)))</span>
+<span id="cb2-18"><a href="#cb2-18"></a>    <span class="cf">return</span> np.array(mz)</span>
+<span id="cb2-19"><a href="#cb2-19"></a></span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="kw">def</span> med_mag_x(psi, L):  <span class="co">#Calcula ⟨σ^z_i⟩ para cada sitio i del estado psi.</span></span>
+<span id="cb2-21"><a href="#cb2-21"></a>    mx <span class="op">=</span> [] <span class="co"># Initialize mx as an empty list</span></span>
+<span id="cb2-22"><a href="#cb2-22"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(L):</span>
+<span id="cb2-23"><a href="#cb2-23"></a>        Sx_i <span class="op">=</span> op_local(sx, i, L)</span>
+<span id="cb2-24"><a href="#cb2-24"></a>        mx.append(np.real(np.vdot(psi, Sx_i <span class="op">@</span> psi))) <span class="co"># Append to mx instead of mz</span></span>
+<span id="cb2-25"><a href="#cb2-25"></a>    <span class="cf">return</span> np.array(mx)</span>
+<span id="cb2-26"><a href="#cb2-26"></a></span>
+<span id="cb2-27"><a href="#cb2-27"></a></span>
+<span id="cb2-28"><a href="#cb2-28"></a></span>
+<span id="cb2-29"><a href="#cb2-29"></a><span class="co">#Definimos la descomposición de Schmidt</span></span>
+<span id="cb2-30"><a href="#cb2-30"></a><span class="kw">def</span> schmidt_desc(psi, L):</span>
+<span id="cb2-31"><a href="#cb2-31"></a>  dim<span class="op">=</span> <span class="dv">2</span><span class="op">**</span>(L<span class="op">//</span><span class="dv">2</span>) <span class="co">#Elegimos esta división del sistema en dos partes justo a la mitad</span></span>
+<span id="cb2-32"><a href="#cb2-32"></a>  psi_matrix<span class="op">=</span> psi.reshape(dim, <span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb2-33"><a href="#cb2-33"></a>  u, s, vh <span class="op">=</span> np.linalg.svd(psi_matrix, full_matrices<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-34"><a href="#cb2-34"></a>  <span class="cf">return</span> s</span>
+<span id="cb2-35"><a href="#cb2-35"></a></span>
+<span id="cb2-36"><a href="#cb2-36"></a></span>
+<span id="cb2-37"><a href="#cb2-37"></a><span class="kw">def</span> entropia_entrelazamiento(s_vals):</span>
+<span id="cb2-38"><a href="#cb2-38"></a>    <span class="co">"""Calcula la entropía de von Neumann a partir de los coeficientes de Schmidt s_vals."""</span></span>
+<span id="cb2-39"><a href="#cb2-39"></a>    p <span class="op">=</span> s_vals<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb2-40"><a href="#cb2-40"></a>    p <span class="op">=</span> p[p <span class="op">&gt;</span> <span class="fl">1e-12</span>]  <span class="co"># quitar ceros numéricos</span></span>
+<span id="cb2-41"><a href="#cb2-41"></a>    <span class="cf">return</span> <span class="op">-</span>np.<span class="bu">sum</span>(p <span class="op">*</span> np.log(p))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="cell-4" class="cell" data-outputid="a4d5d658-7b29-438b-cda5-d530d37a4b84">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#Parámetros del sistema</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>L <span class="op">=</span>  <span class="dv">10</span>            <span class="co"># número de sitios (&lt;= 10)</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>t0 <span class="op">=</span> <span class="fl">1.0</span>          <span class="co"># tiempo bajo H_MBL</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>t1 <span class="op">=</span> np.pi <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>J <span class="op">=</span> <span class="fl">1.0</span>           <span class="co"># fuerza de acoplamiento</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>hz <span class="op">=</span> <span class="fl">0.3</span>          <span class="co"># amplitud en z</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>hx <span class="op">=</span> <span class="fl">0.0</span>          <span class="co"># amplitud en x</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>n_pasos <span class="op">=</span> <span class="dv">50</span>      <span class="co"># ciclos de evolución</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="co">#Simulación de Floquet</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a>U <span class="op">=</span> op_floquet(L, t0, t1, J, hz, hx, seed<span class="op">=</span><span class="dv">123</span>)</span>
+<span id="cb3-12"><a href="#cb3-12"></a>psi <span class="op">=</span> est_ini(L)</span>
+<span id="cb3-13"><a href="#cb3-13"></a></span>
+<span id="cb3-14"><a href="#cb3-14"></a>magneti_z <span class="op">=</span> []</span>
+<span id="cb3-15"><a href="#cb3-15"></a>magneti_x <span class="op">=</span> []</span>
+<span id="cb3-16"><a href="#cb3-16"></a>schmidt_hist<span class="op">=</span>[]</span>
+<span id="cb3-17"><a href="#cb3-17"></a></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="cf">for</span> paso <span class="kw">in</span> <span class="bu">range</span>(n_pasos):</span>
+<span id="cb3-19"><a href="#cb3-19"></a>    mz <span class="op">=</span> med_mag_z(psi, L)</span>
+<span id="cb3-20"><a href="#cb3-20"></a>    magneti_z.append(mz)</span>
+<span id="cb3-21"><a href="#cb3-21"></a></span>
+<span id="cb3-22"><a href="#cb3-22"></a>    mx <span class="op">=</span> med_mag_x(psi, L)</span>
+<span id="cb3-23"><a href="#cb3-23"></a>    magneti_x.append(mx)</span>
+<span id="cb3-24"><a href="#cb3-24"></a></span>
+<span id="cb3-25"><a href="#cb3-25"></a>    s_vals<span class="op">=</span>schmidt_desc(psi, L)</span>
+<span id="cb3-26"><a href="#cb3-26"></a>    schmidt_hist.append(s_vals)</span>
+<span id="cb3-27"><a href="#cb3-27"></a>    psi <span class="op">=</span> U <span class="op">@</span> psi</span>
+<span id="cb3-28"><a href="#cb3-28"></a></span>
+<span id="cb3-29"><a href="#cb3-29"></a>magneti_z <span class="op">=</span> np.array(magneti_z)</span>
+<span id="cb3-30"><a href="#cb3-30"></a>magneti_x <span class="op">=</span> np.array(magneti_x)</span>
+<span id="cb3-31"><a href="#cb3-31"></a></span>
+<span id="cb3-32"><a href="#cb3-32"></a><span class="co"># Calcular la entropía en cada paso</span></span>
+<span id="cb3-33"><a href="#cb3-33"></a>entropias <span class="op">=</span> [entropia_entrelazamiento(s) <span class="cf">for</span> s <span class="kw">in</span> schmidt_hist]</span>
+<span id="cb3-34"><a href="#cb3-34"></a></span>
+<span id="cb3-35"><a href="#cb3-35"></a></span>
+<span id="cb3-36"><a href="#cb3-36"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">10</span>))</span>
+<span id="cb3-37"><a href="#cb3-37"></a>axes <span class="op">=</span> axes.flatten()</span>
+<span id="cb3-38"><a href="#cb3-38"></a></span>
+<span id="cb3-39"><a href="#cb3-39"></a><span class="co"># (1) Magnetización en z</span></span>
+<span id="cb3-40"><a href="#cb3-40"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(L):</span>
+<span id="cb3-41"><a href="#cb3-41"></a>    axes[<span class="dv">0</span>].plot(magneti_z[:, i], marker<span class="op">=</span><span class="st">'o'</span>, label<span class="op">=</span><span class="ss">f'Sitio </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb3-42"><a href="#cb3-42"></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">'Ciclo de Floquet'</span>)</span>
+<span id="cb3-43"><a href="#cb3-43"></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">'⟨σᶻ⟩'</span>)</span>
+<span id="cb3-44"><a href="#cb3-44"></a>axes[<span class="dv">0</span>].set_title(<span class="ss">f'Magnetización por sitio (L = </span><span class="sc">{</span>L<span class="sc">}</span><span class="ss">) en z'</span>)</span>
+<span id="cb3-45"><a href="#cb3-45"></a>axes[<span class="dv">0</span>].grid(<span class="va">True</span>)</span>
+<span id="cb3-46"><a href="#cb3-46"></a>axes[<span class="dv">0</span>].legend(fontsize<span class="op">=</span><span class="dv">8</span>, loc<span class="op">=</span><span class="st">'best'</span>)</span>
+<span id="cb3-47"><a href="#cb3-47"></a></span>
+<span id="cb3-48"><a href="#cb3-48"></a><span class="co"># (2) Magnetización en x</span></span>
+<span id="cb3-49"><a href="#cb3-49"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(L):</span>
+<span id="cb3-50"><a href="#cb3-50"></a>    axes[<span class="dv">1</span>].plot(magneti_x[:, i], marker<span class="op">=</span><span class="st">'o'</span>, label<span class="op">=</span><span class="ss">f'Sitio </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb3-51"><a href="#cb3-51"></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">'Ciclo de Floquet'</span>)</span>
+<span id="cb3-52"><a href="#cb3-52"></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">'⟨σˣ⟩'</span>)</span>
+<span id="cb3-53"><a href="#cb3-53"></a>axes[<span class="dv">1</span>].set_title(<span class="ss">f'Magnetización por sitio (L = </span><span class="sc">{</span>L<span class="sc">}</span><span class="ss">) en x'</span>)</span>
+<span id="cb3-54"><a href="#cb3-54"></a>axes[<span class="dv">1</span>].grid(<span class="va">True</span>)</span>
+<span id="cb3-55"><a href="#cb3-55"></a>axes[<span class="dv">1</span>].legend(fontsize<span class="op">=</span><span class="dv">8</span>, loc<span class="op">=</span><span class="st">'best'</span>)</span>
+<span id="cb3-56"><a href="#cb3-56"></a></span>
+<span id="cb3-57"><a href="#cb3-57"></a><span class="co"># (3) Primeros coeficientes de Schmidt</span></span>
+<span id="cb3-58"><a href="#cb3-58"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb3-59"><a href="#cb3-59"></a>    vals_k <span class="op">=</span> [s[k] <span class="cf">if</span> <span class="bu">len</span>(s) <span class="op">&gt;</span> k <span class="cf">else</span> <span class="dv">0</span> <span class="cf">for</span> s <span class="kw">in</span> schmidt_hist]</span>
+<span id="cb3-60"><a href="#cb3-60"></a>    axes[<span class="dv">2</span>].plot(vals_k, marker<span class="op">=</span><span class="st">'o'</span>, label<span class="op">=</span><span class="ss">f'λ_</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb3-61"><a href="#cb3-61"></a>axes[<span class="dv">2</span>].set_title(<span class="ss">f'Coeficientes de Schmidt</span><span class="ch">\n</span><span class="ss">L=</span><span class="sc">{</span>L<span class="sc">}</span><span class="ss">, t1=</span><span class="sc">{</span>t1<span class="sc">:.2f}</span><span class="ss">, hz=</span><span class="sc">{</span>hz<span class="sc">}</span><span class="ss">, hx=</span><span class="sc">{</span>hx<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb3-62"><a href="#cb3-62"></a>axes[<span class="dv">2</span>].set_xlabel(<span class="st">'Ciclo de Floquet'</span>)</span>
+<span id="cb3-63"><a href="#cb3-63"></a>axes[<span class="dv">2</span>].set_ylabel(<span class="st">'Coeficientes de Schmidt'</span>)</span>
+<span id="cb3-64"><a href="#cb3-64"></a>axes[<span class="dv">2</span>].grid(<span class="va">True</span>)</span>
+<span id="cb3-65"><a href="#cb3-65"></a>axes[<span class="dv">2</span>].legend(fontsize<span class="op">=</span><span class="dv">8</span>, loc<span class="op">=</span><span class="st">'best'</span>)</span>
+<span id="cb3-66"><a href="#cb3-66"></a></span>
+<span id="cb3-67"><a href="#cb3-67"></a><span class="co"># (4) Entropía de entrelazamiento</span></span>
+<span id="cb3-68"><a href="#cb3-68"></a>axes[<span class="dv">3</span>].plot(entropias, marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">"darkred"</span>)</span>
+<span id="cb3-69"><a href="#cb3-69"></a>axes[<span class="dv">3</span>].set_xlabel(<span class="st">'Ciclo de Floquet'</span>)</span>
+<span id="cb3-70"><a href="#cb3-70"></a>axes[<span class="dv">3</span>].set_ylabel(<span class="st">'Entropía de von Neumann'</span>)</span>
+<span id="cb3-71"><a href="#cb3-71"></a>axes[<span class="dv">3</span>].set_title(<span class="ss">f'Entropía de entrelazamiento</span><span class="ch">\n</span><span class="ss">L=</span><span class="sc">{</span>L<span class="sc">}</span><span class="ss">, t1=</span><span class="sc">{</span>t1<span class="sc">:.2f}</span><span class="ss">, hz=</span><span class="sc">{</span>hz<span class="sc">}</span><span class="ss">, hx=</span><span class="sc">{</span>hx<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb3-72"><a href="#cb3-72"></a>axes[<span class="dv">3</span>].grid(<span class="va">True</span>)</span>
+<span id="cb3-73"><a href="#cb3-73"></a></span>
+<span id="cb3-74"><a href="#cb3-74"></a><span class="co"># Ajuste general de la figura</span></span>
+<span id="cb3-75"><a href="#cb3-75"></a>plt.suptitle(<span class="ss">f"Evolución del sistema de Floquet (L=</span><span class="sc">{</span>L<span class="sc">}</span><span class="ss">)"</span>, fontsize<span class="op">=</span><span class="dv">14</span>, y<span class="op">=</span><span class="fl">1.02</span>)</span>
+<span id="cb3-76"><a href="#cb3-76"></a>plt.tight_layout()</span>
+<span id="cb3-77"><a href="#cb3-77"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>/usr/local/lib/python3.12/dist-packages/scipy/sparse/_index.py:168: SparseEfficiencyWarning: Changing the sparsity structure of a csc_matrix is expensive. lil and dok are more efficient.
+  self._set_intXint(row, col, x.flat[0])</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Floquet_Time_Crystals_files/figure-html/cell-4-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-5" class="cell" data-outputid="9bdb9a8f-dd54-4908-d1a9-7a13bfce7104">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#Parámetros del sistema</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>L <span class="op">=</span>  <span class="dv">10</span>            <span class="co"># número de sitios (&lt;= 10)</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>t0 <span class="op">=</span> <span class="fl">1.0</span>          <span class="co"># tiempo bajo H_MBL</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>t1 <span class="op">=</span> np.pi <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>J <span class="op">=</span> <span class="dv">3</span>           <span class="co"># fuerza de acoplamiento</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>hz <span class="op">=</span> <span class="fl">0.5</span>          <span class="co"># amplitud en z</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>hx <span class="op">=</span> <span class="fl">0.5</span>          <span class="co"># amplitud en x</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>n_pasos <span class="op">=</span> <span class="dv">50</span>      <span class="co"># ciclos de evolución</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co">#Simulación de Floquet</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>U <span class="op">=</span> op_floquet(L, t0, t1, J, hz, hx, seed<span class="op">=</span><span class="dv">321</span>)</span>
+<span id="cb5-12"><a href="#cb5-12"></a>psi <span class="op">=</span> est_ini(L)</span>
+<span id="cb5-13"><a href="#cb5-13"></a></span>
+<span id="cb5-14"><a href="#cb5-14"></a>magneti_z <span class="op">=</span> []</span>
+<span id="cb5-15"><a href="#cb5-15"></a>magneti_x <span class="op">=</span> []</span>
+<span id="cb5-16"><a href="#cb5-16"></a>schmidt_hist<span class="op">=</span>[]</span>
+<span id="cb5-17"><a href="#cb5-17"></a></span>
+<span id="cb5-18"><a href="#cb5-18"></a><span class="cf">for</span> paso <span class="kw">in</span> <span class="bu">range</span>(n_pasos):</span>
+<span id="cb5-19"><a href="#cb5-19"></a>    mz <span class="op">=</span> med_mag_z(psi, L)</span>
+<span id="cb5-20"><a href="#cb5-20"></a>    magneti_z.append(mz)</span>
+<span id="cb5-21"><a href="#cb5-21"></a></span>
+<span id="cb5-22"><a href="#cb5-22"></a>    mx <span class="op">=</span> med_mag_x(psi, L)</span>
+<span id="cb5-23"><a href="#cb5-23"></a>    magneti_x.append(mx)</span>
+<span id="cb5-24"><a href="#cb5-24"></a></span>
+<span id="cb5-25"><a href="#cb5-25"></a>    s_vals<span class="op">=</span>schmidt_desc(psi, L)</span>
+<span id="cb5-26"><a href="#cb5-26"></a>    schmidt_hist.append(s_vals)</span>
+<span id="cb5-27"><a href="#cb5-27"></a>    psi <span class="op">=</span> U <span class="op">@</span> psi</span>
+<span id="cb5-28"><a href="#cb5-28"></a></span>
+<span id="cb5-29"><a href="#cb5-29"></a>magneti_z <span class="op">=</span> np.array(magneti_z)</span>
+<span id="cb5-30"><a href="#cb5-30"></a>magneti_x <span class="op">=</span> np.array(magneti_x)</span>
+<span id="cb5-31"><a href="#cb5-31"></a></span>
+<span id="cb5-32"><a href="#cb5-32"></a><span class="co"># Calcular la entropía en cada paso</span></span>
+<span id="cb5-33"><a href="#cb5-33"></a>entropias <span class="op">=</span> [entropia_entrelazamiento(s) <span class="cf">for</span> s <span class="kw">in</span> schmidt_hist]</span>
+<span id="cb5-34"><a href="#cb5-34"></a></span>
+<span id="cb5-35"><a href="#cb5-35"></a></span>
+<span id="cb5-36"><a href="#cb5-36"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">10</span>))</span>
+<span id="cb5-37"><a href="#cb5-37"></a>axes <span class="op">=</span> axes.flatten()</span>
+<span id="cb5-38"><a href="#cb5-38"></a></span>
+<span id="cb5-39"><a href="#cb5-39"></a><span class="co"># (1) Magnetización en z</span></span>
+<span id="cb5-40"><a href="#cb5-40"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(L):</span>
+<span id="cb5-41"><a href="#cb5-41"></a>    axes[<span class="dv">0</span>].plot(magneti_z[:, i], marker<span class="op">=</span><span class="st">'o'</span>, label<span class="op">=</span><span class="ss">f'Sitio </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb5-42"><a href="#cb5-42"></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">'Ciclo de Floquet'</span>)</span>
+<span id="cb5-43"><a href="#cb5-43"></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">'⟨σᶻ⟩'</span>)</span>
+<span id="cb5-44"><a href="#cb5-44"></a>axes[<span class="dv">0</span>].set_title(<span class="ss">f'Magnetización por sitio (L = </span><span class="sc">{</span>L<span class="sc">}</span><span class="ss">) en z'</span>)</span>
+<span id="cb5-45"><a href="#cb5-45"></a>axes[<span class="dv">0</span>].grid(<span class="va">True</span>)</span>
+<span id="cb5-46"><a href="#cb5-46"></a>axes[<span class="dv">0</span>].legend(fontsize<span class="op">=</span><span class="dv">8</span>, loc<span class="op">=</span><span class="st">'best'</span>)</span>
+<span id="cb5-47"><a href="#cb5-47"></a></span>
+<span id="cb5-48"><a href="#cb5-48"></a><span class="co"># (2) Magnetización en x</span></span>
+<span id="cb5-49"><a href="#cb5-49"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(L):</span>
+<span id="cb5-50"><a href="#cb5-50"></a>    axes[<span class="dv">1</span>].plot(magneti_x[:, i], marker<span class="op">=</span><span class="st">'o'</span>, label<span class="op">=</span><span class="ss">f'Sitio </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb5-51"><a href="#cb5-51"></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">'Ciclo de Floquet'</span>)</span>
+<span id="cb5-52"><a href="#cb5-52"></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">'⟨σˣ⟩'</span>)</span>
+<span id="cb5-53"><a href="#cb5-53"></a>axes[<span class="dv">1</span>].set_title(<span class="ss">f'Magnetización por sitio (L = </span><span class="sc">{</span>L<span class="sc">}</span><span class="ss">) en x'</span>)</span>
+<span id="cb5-54"><a href="#cb5-54"></a>axes[<span class="dv">1</span>].grid(<span class="va">True</span>)</span>
+<span id="cb5-55"><a href="#cb5-55"></a>axes[<span class="dv">1</span>].legend(fontsize<span class="op">=</span><span class="dv">8</span>, loc<span class="op">=</span><span class="st">'best'</span>)</span>
+<span id="cb5-56"><a href="#cb5-56"></a></span>
+<span id="cb5-57"><a href="#cb5-57"></a><span class="co"># (3) Primeros coeficientes de Schmidt</span></span>
+<span id="cb5-58"><a href="#cb5-58"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb5-59"><a href="#cb5-59"></a>    vals_k <span class="op">=</span> [s[k] <span class="cf">if</span> <span class="bu">len</span>(s) <span class="op">&gt;</span> k <span class="cf">else</span> <span class="dv">0</span> <span class="cf">for</span> s <span class="kw">in</span> schmidt_hist]</span>
+<span id="cb5-60"><a href="#cb5-60"></a>    axes[<span class="dv">2</span>].plot(vals_k, marker<span class="op">=</span><span class="st">'o'</span>, label<span class="op">=</span><span class="ss">f'λ_</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb5-61"><a href="#cb5-61"></a>axes[<span class="dv">2</span>].set_title(<span class="ss">f'Coeficientes de Schmidt</span><span class="ch">\n</span><span class="ss">L=</span><span class="sc">{</span>L<span class="sc">}</span><span class="ss">, t1=</span><span class="sc">{</span>t1<span class="sc">:.2f}</span><span class="ss">, hz=</span><span class="sc">{</span>hz<span class="sc">}</span><span class="ss">, hx=</span><span class="sc">{</span>hx<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb5-62"><a href="#cb5-62"></a>axes[<span class="dv">2</span>].set_xlabel(<span class="st">'Ciclo de Floquet'</span>)</span>
+<span id="cb5-63"><a href="#cb5-63"></a>axes[<span class="dv">2</span>].set_ylabel(<span class="st">'Coeficientes de Schmidt'</span>)</span>
+<span id="cb5-64"><a href="#cb5-64"></a>axes[<span class="dv">2</span>].grid(<span class="va">True</span>)</span>
+<span id="cb5-65"><a href="#cb5-65"></a>axes[<span class="dv">2</span>].legend(fontsize<span class="op">=</span><span class="dv">8</span>, loc<span class="op">=</span><span class="st">'best'</span>)</span>
+<span id="cb5-66"><a href="#cb5-66"></a></span>
+<span id="cb5-67"><a href="#cb5-67"></a><span class="co"># (4) Entropía de entrelazamiento</span></span>
+<span id="cb5-68"><a href="#cb5-68"></a>axes[<span class="dv">3</span>].plot(entropias, marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">"darkred"</span>)</span>
+<span id="cb5-69"><a href="#cb5-69"></a>axes[<span class="dv">3</span>].set_xlabel(<span class="st">'Ciclo de Floquet'</span>)</span>
+<span id="cb5-70"><a href="#cb5-70"></a>axes[<span class="dv">3</span>].set_ylabel(<span class="st">'Entropía de von Neumann'</span>)</span>
+<span id="cb5-71"><a href="#cb5-71"></a>axes[<span class="dv">3</span>].set_title(<span class="ss">f'Entropía de entrelazamiento</span><span class="ch">\n</span><span class="ss">L=</span><span class="sc">{</span>L<span class="sc">}</span><span class="ss">, t1=</span><span class="sc">{</span>t1<span class="sc">:.2f}</span><span class="ss">, hz=</span><span class="sc">{</span>hz<span class="sc">}</span><span class="ss">, hx=</span><span class="sc">{</span>hx<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb5-72"><a href="#cb5-72"></a>axes[<span class="dv">3</span>].grid(<span class="va">True</span>)</span>
+<span id="cb5-73"><a href="#cb5-73"></a></span>
+<span id="cb5-74"><a href="#cb5-74"></a><span class="co"># Ajuste general de la figura</span></span>
+<span id="cb5-75"><a href="#cb5-75"></a>plt.suptitle(<span class="ss">f"Evolución del sistema de Floquet (L=</span><span class="sc">{</span>L<span class="sc">}</span><span class="ss">)"</span>, fontsize<span class="op">=</span><span class="dv">14</span>, y<span class="op">=</span><span class="fl">1.02</span>)</span>
+<span id="cb5-76"><a href="#cb5-76"></a>plt.tight_layout()</span>
+<span id="cb5-77"><a href="#cb5-77"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Floquet_Time_Crystals_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-7" class="cell" data-outputid="976d457b-de63-4826-e7ab-a01b9dfc7816">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#Parámetros del sistema</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>L <span class="op">=</span>  <span class="dv">10</span>            <span class="co"># número de sitios (&lt;= 10)</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>t0 <span class="op">=</span> <span class="fl">1.0</span>          <span class="co"># tiempo bajo H_MBL</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>t1 <span class="op">=</span> np.pi <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>J <span class="op">=</span> <span class="fl">1.0</span>           <span class="co"># fuerza de acoplamiento</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a>hz <span class="op">=</span> <span class="fl">0.7</span>          <span class="co"># amplitud en z</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a>hx <span class="op">=</span> <span class="fl">0.7</span>          <span class="co"># amplitud en x</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a>n_pasos <span class="op">=</span> <span class="dv">50</span>      <span class="co"># ciclos de evolución</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co">#Simulación de Floquet</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a>U <span class="op">=</span> op_floquet(L, t0, t1, J, hz, hx, seed<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb6-12"><a href="#cb6-12"></a>psi <span class="op">=</span> est_ini(L)</span>
+<span id="cb6-13"><a href="#cb6-13"></a></span>
+<span id="cb6-14"><a href="#cb6-14"></a>magneti_z <span class="op">=</span> []</span>
+<span id="cb6-15"><a href="#cb6-15"></a>magneti_x <span class="op">=</span> []</span>
+<span id="cb6-16"><a href="#cb6-16"></a>schmidt_hist<span class="op">=</span>[]</span>
+<span id="cb6-17"><a href="#cb6-17"></a></span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="cf">for</span> paso <span class="kw">in</span> <span class="bu">range</span>(n_pasos):</span>
+<span id="cb6-19"><a href="#cb6-19"></a>    mz <span class="op">=</span> med_mag_z(psi, L)</span>
+<span id="cb6-20"><a href="#cb6-20"></a>    magneti_z.append(mz)</span>
+<span id="cb6-21"><a href="#cb6-21"></a></span>
+<span id="cb6-22"><a href="#cb6-22"></a>    mx <span class="op">=</span> med_mag_x(psi, L)</span>
+<span id="cb6-23"><a href="#cb6-23"></a>    magneti_x.append(mx)</span>
+<span id="cb6-24"><a href="#cb6-24"></a></span>
+<span id="cb6-25"><a href="#cb6-25"></a>    s_vals<span class="op">=</span>schmidt_desc(psi, L)</span>
+<span id="cb6-26"><a href="#cb6-26"></a>    schmidt_hist.append(s_vals)</span>
+<span id="cb6-27"><a href="#cb6-27"></a>    psi <span class="op">=</span> U <span class="op">@</span> psi</span>
+<span id="cb6-28"><a href="#cb6-28"></a></span>
+<span id="cb6-29"><a href="#cb6-29"></a>magneti_z <span class="op">=</span> np.array(magneti_z)</span>
+<span id="cb6-30"><a href="#cb6-30"></a>magneti_x <span class="op">=</span> np.array(magneti_x)</span>
+<span id="cb6-31"><a href="#cb6-31"></a></span>
+<span id="cb6-32"><a href="#cb6-32"></a><span class="co"># Calcular la entropía en cada paso</span></span>
+<span id="cb6-33"><a href="#cb6-33"></a>entropias <span class="op">=</span> [entropia_entrelazamiento(s) <span class="cf">for</span> s <span class="kw">in</span> schmidt_hist]</span>
+<span id="cb6-34"><a href="#cb6-34"></a></span>
+<span id="cb6-35"><a href="#cb6-35"></a></span>
+<span id="cb6-36"><a href="#cb6-36"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">10</span>))</span>
+<span id="cb6-37"><a href="#cb6-37"></a>axes <span class="op">=</span> axes.flatten()</span>
+<span id="cb6-38"><a href="#cb6-38"></a></span>
+<span id="cb6-39"><a href="#cb6-39"></a><span class="co"># (1) Magnetización en z</span></span>
+<span id="cb6-40"><a href="#cb6-40"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(L):</span>
+<span id="cb6-41"><a href="#cb6-41"></a>    axes[<span class="dv">0</span>].plot(magneti_z[:, i], marker<span class="op">=</span><span class="st">'o'</span>, label<span class="op">=</span><span class="ss">f'Sitio </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb6-42"><a href="#cb6-42"></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">'Ciclo de Floquet'</span>)</span>
+<span id="cb6-43"><a href="#cb6-43"></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">'⟨σᶻ⟩'</span>)</span>
+<span id="cb6-44"><a href="#cb6-44"></a>axes[<span class="dv">0</span>].set_title(<span class="ss">f'Magnetización por sitio (L = </span><span class="sc">{</span>L<span class="sc">}</span><span class="ss">) en z'</span>)</span>
+<span id="cb6-45"><a href="#cb6-45"></a>axes[<span class="dv">0</span>].grid(<span class="va">True</span>)</span>
+<span id="cb6-46"><a href="#cb6-46"></a>axes[<span class="dv">0</span>].legend(fontsize<span class="op">=</span><span class="dv">8</span>, loc<span class="op">=</span><span class="st">'best'</span>)</span>
+<span id="cb6-47"><a href="#cb6-47"></a></span>
+<span id="cb6-48"><a href="#cb6-48"></a><span class="co"># (2) Magnetización en x</span></span>
+<span id="cb6-49"><a href="#cb6-49"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(L):</span>
+<span id="cb6-50"><a href="#cb6-50"></a>    axes[<span class="dv">1</span>].plot(magneti_x[:, i], marker<span class="op">=</span><span class="st">'o'</span>, label<span class="op">=</span><span class="ss">f'Sitio </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb6-51"><a href="#cb6-51"></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">'Ciclo de Floquet'</span>)</span>
+<span id="cb6-52"><a href="#cb6-52"></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">'⟨σˣ⟩'</span>)</span>
+<span id="cb6-53"><a href="#cb6-53"></a>axes[<span class="dv">1</span>].set_title(<span class="ss">f'Magnetización por sitio (L = </span><span class="sc">{</span>L<span class="sc">}</span><span class="ss">) en x'</span>)</span>
+<span id="cb6-54"><a href="#cb6-54"></a>axes[<span class="dv">1</span>].grid(<span class="va">True</span>)</span>
+<span id="cb6-55"><a href="#cb6-55"></a>axes[<span class="dv">1</span>].legend(fontsize<span class="op">=</span><span class="dv">8</span>, loc<span class="op">=</span><span class="st">'best'</span>)</span>
+<span id="cb6-56"><a href="#cb6-56"></a></span>
+<span id="cb6-57"><a href="#cb6-57"></a><span class="co"># (3) Primeros coeficientes de Schmidt</span></span>
+<span id="cb6-58"><a href="#cb6-58"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb6-59"><a href="#cb6-59"></a>    vals_k <span class="op">=</span> [s[k] <span class="cf">if</span> <span class="bu">len</span>(s) <span class="op">&gt;</span> k <span class="cf">else</span> <span class="dv">0</span> <span class="cf">for</span> s <span class="kw">in</span> schmidt_hist]</span>
+<span id="cb6-60"><a href="#cb6-60"></a>    axes[<span class="dv">2</span>].plot(vals_k, marker<span class="op">=</span><span class="st">'o'</span>, label<span class="op">=</span><span class="ss">f'λ_</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb6-61"><a href="#cb6-61"></a>axes[<span class="dv">2</span>].set_title(<span class="ss">f'Coeficientes de Schmidt</span><span class="ch">\n</span><span class="ss">L=</span><span class="sc">{</span>L<span class="sc">}</span><span class="ss">, t1=</span><span class="sc">{</span>t1<span class="sc">:.2f}</span><span class="ss">, hz=</span><span class="sc">{</span>hz<span class="sc">}</span><span class="ss">, hx=</span><span class="sc">{</span>hx<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb6-62"><a href="#cb6-62"></a>axes[<span class="dv">2</span>].set_xlabel(<span class="st">'Ciclo de Floquet'</span>)</span>
+<span id="cb6-63"><a href="#cb6-63"></a>axes[<span class="dv">2</span>].set_ylabel(<span class="st">'Coeficientes de Schmidt'</span>)</span>
+<span id="cb6-64"><a href="#cb6-64"></a>axes[<span class="dv">2</span>].grid(<span class="va">True</span>)</span>
+<span id="cb6-65"><a href="#cb6-65"></a>axes[<span class="dv">2</span>].legend(fontsize<span class="op">=</span><span class="dv">8</span>, loc<span class="op">=</span><span class="st">'best'</span>)</span>
+<span id="cb6-66"><a href="#cb6-66"></a></span>
+<span id="cb6-67"><a href="#cb6-67"></a><span class="co"># (4) Entropía de entrelazamiento</span></span>
+<span id="cb6-68"><a href="#cb6-68"></a>axes[<span class="dv">3</span>].plot(entropias, marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">"darkred"</span>)</span>
+<span id="cb6-69"><a href="#cb6-69"></a>axes[<span class="dv">3</span>].set_xlabel(<span class="st">'Ciclo de Floquet'</span>)</span>
+<span id="cb6-70"><a href="#cb6-70"></a>axes[<span class="dv">3</span>].set_ylabel(<span class="st">'Entropía de von Neumann'</span>)</span>
+<span id="cb6-71"><a href="#cb6-71"></a>axes[<span class="dv">3</span>].set_title(<span class="ss">f'Entropía de entrelazamiento</span><span class="ch">\n</span><span class="ss">L=</span><span class="sc">{</span>L<span class="sc">}</span><span class="ss">, t1=</span><span class="sc">{</span>t1<span class="sc">:.2f}</span><span class="ss">, hz=</span><span class="sc">{</span>hz<span class="sc">}</span><span class="ss">, hx=</span><span class="sc">{</span>hx<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb6-72"><a href="#cb6-72"></a>axes[<span class="dv">3</span>].grid(<span class="va">True</span>)</span>
+<span id="cb6-73"><a href="#cb6-73"></a></span>
+<span id="cb6-74"><a href="#cb6-74"></a><span class="co"># Ajuste general de la figura</span></span>
+<span id="cb6-75"><a href="#cb6-75"></a>plt.suptitle(<span class="ss">f"Evolución del sistema de Floquet (L=</span><span class="sc">{</span>L<span class="sc">}</span><span class="ss">)"</span>, fontsize<span class="op">=</span><span class="dv">14</span>, y<span class="op">=</span><span class="fl">1.02</span>)</span>
+<span id="cb6-76"><a href="#cb6-76"></a>plt.tight_layout()</span>
+<span id="cb6-77"><a href="#cb6-77"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Floquet_Time_Crystals_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-9" class="cell" data-outputid="e133edca-6b2c-45d7-dce0-b69f4beefccd">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">#Parámetros del sistema</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>L <span class="op">=</span>  <span class="dv">10</span>            <span class="co"># número de sitios (&lt;= 10)</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>t0 <span class="op">=</span> <span class="fl">1.0</span>          <span class="co"># tiempo bajo H_MBL</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>t1 <span class="op">=</span> np.pi <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>J <span class="op">=</span> <span class="fl">1.0</span>           <span class="co"># fuerza de acoplamiento</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a>hz <span class="op">=</span> <span class="fl">1.0</span>          <span class="co"># amplitud en z</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a>hx <span class="op">=</span> <span class="fl">1.0</span>          <span class="co"># amplitud en x</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a>n_pasos <span class="op">=</span> <span class="dv">50</span>      <span class="co"># ciclos de evolución</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co">#Simulación de Floquet</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a>U <span class="op">=</span> op_floquet(L, t0, t1, J, hz, hx, seed<span class="op">=</span><span class="dv">123</span>)</span>
+<span id="cb7-12"><a href="#cb7-12"></a>psi <span class="op">=</span> est_ini(L)</span>
+<span id="cb7-13"><a href="#cb7-13"></a></span>
+<span id="cb7-14"><a href="#cb7-14"></a>magneti_z <span class="op">=</span> []</span>
+<span id="cb7-15"><a href="#cb7-15"></a>magneti_x <span class="op">=</span> []</span>
+<span id="cb7-16"><a href="#cb7-16"></a>schmidt_hist<span class="op">=</span>[]</span>
+<span id="cb7-17"><a href="#cb7-17"></a></span>
+<span id="cb7-18"><a href="#cb7-18"></a><span class="cf">for</span> paso <span class="kw">in</span> <span class="bu">range</span>(n_pasos):</span>
+<span id="cb7-19"><a href="#cb7-19"></a>    mz <span class="op">=</span> med_mag_z(psi, L)</span>
+<span id="cb7-20"><a href="#cb7-20"></a>    magneti_z.append(mz)</span>
+<span id="cb7-21"><a href="#cb7-21"></a></span>
+<span id="cb7-22"><a href="#cb7-22"></a>    mx <span class="op">=</span> med_mag_x(psi, L)</span>
+<span id="cb7-23"><a href="#cb7-23"></a>    magneti_x.append(mx)</span>
+<span id="cb7-24"><a href="#cb7-24"></a></span>
+<span id="cb7-25"><a href="#cb7-25"></a>    s_vals<span class="op">=</span>schmidt_desc(psi, L)</span>
+<span id="cb7-26"><a href="#cb7-26"></a>    schmidt_hist.append(s_vals)</span>
+<span id="cb7-27"><a href="#cb7-27"></a>    psi <span class="op">=</span> U <span class="op">@</span> psi</span>
+<span id="cb7-28"><a href="#cb7-28"></a></span>
+<span id="cb7-29"><a href="#cb7-29"></a>magneti_z <span class="op">=</span> np.array(magneti_z)</span>
+<span id="cb7-30"><a href="#cb7-30"></a>magneti_x <span class="op">=</span> np.array(magneti_x)</span>
+<span id="cb7-31"><a href="#cb7-31"></a></span>
+<span id="cb7-32"><a href="#cb7-32"></a><span class="co"># Calcular la entropía en cada paso</span></span>
+<span id="cb7-33"><a href="#cb7-33"></a>entropias <span class="op">=</span> [entropia_entrelazamiento(s) <span class="cf">for</span> s <span class="kw">in</span> schmidt_hist]</span>
+<span id="cb7-34"><a href="#cb7-34"></a></span>
+<span id="cb7-35"><a href="#cb7-35"></a></span>
+<span id="cb7-36"><a href="#cb7-36"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">10</span>))</span>
+<span id="cb7-37"><a href="#cb7-37"></a>axes <span class="op">=</span> axes.flatten()</span>
+<span id="cb7-38"><a href="#cb7-38"></a></span>
+<span id="cb7-39"><a href="#cb7-39"></a><span class="co"># (1) Magnetización en z</span></span>
+<span id="cb7-40"><a href="#cb7-40"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(L):</span>
+<span id="cb7-41"><a href="#cb7-41"></a>    axes[<span class="dv">0</span>].plot(magneti_z[:, i], marker<span class="op">=</span><span class="st">'o'</span>, label<span class="op">=</span><span class="ss">f'Sitio </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb7-42"><a href="#cb7-42"></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">'Ciclo de Floquet'</span>)</span>
+<span id="cb7-43"><a href="#cb7-43"></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">'⟨σᶻ⟩'</span>)</span>
+<span id="cb7-44"><a href="#cb7-44"></a>axes[<span class="dv">0</span>].set_title(<span class="ss">f'Magnetización por sitio (L = </span><span class="sc">{</span>L<span class="sc">}</span><span class="ss">) en z'</span>)</span>
+<span id="cb7-45"><a href="#cb7-45"></a>axes[<span class="dv">0</span>].grid(<span class="va">True</span>)</span>
+<span id="cb7-46"><a href="#cb7-46"></a>axes[<span class="dv">0</span>].legend(fontsize<span class="op">=</span><span class="dv">8</span>, loc<span class="op">=</span><span class="st">'best'</span>)</span>
+<span id="cb7-47"><a href="#cb7-47"></a></span>
+<span id="cb7-48"><a href="#cb7-48"></a><span class="co"># (2) Magnetización en x</span></span>
+<span id="cb7-49"><a href="#cb7-49"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(L):</span>
+<span id="cb7-50"><a href="#cb7-50"></a>    axes[<span class="dv">1</span>].plot(magneti_x[:, i], marker<span class="op">=</span><span class="st">'o'</span>, label<span class="op">=</span><span class="ss">f'Sitio </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb7-51"><a href="#cb7-51"></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">'Ciclo de Floquet'</span>)</span>
+<span id="cb7-52"><a href="#cb7-52"></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">'⟨σˣ⟩'</span>)</span>
+<span id="cb7-53"><a href="#cb7-53"></a>axes[<span class="dv">1</span>].set_title(<span class="ss">f'Magnetización por sitio (L = </span><span class="sc">{</span>L<span class="sc">}</span><span class="ss">) en x'</span>)</span>
+<span id="cb7-54"><a href="#cb7-54"></a>axes[<span class="dv">1</span>].grid(<span class="va">True</span>)</span>
+<span id="cb7-55"><a href="#cb7-55"></a>axes[<span class="dv">1</span>].legend(fontsize<span class="op">=</span><span class="dv">8</span>, loc<span class="op">=</span><span class="st">'best'</span>)</span>
+<span id="cb7-56"><a href="#cb7-56"></a></span>
+<span id="cb7-57"><a href="#cb7-57"></a><span class="co"># (3) Primeros coeficientes de Schmidt</span></span>
+<span id="cb7-58"><a href="#cb7-58"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb7-59"><a href="#cb7-59"></a>    vals_k <span class="op">=</span> [s[k] <span class="cf">if</span> <span class="bu">len</span>(s) <span class="op">&gt;</span> k <span class="cf">else</span> <span class="dv">0</span> <span class="cf">for</span> s <span class="kw">in</span> schmidt_hist]</span>
+<span id="cb7-60"><a href="#cb7-60"></a>    axes[<span class="dv">2</span>].plot(vals_k, marker<span class="op">=</span><span class="st">'o'</span>, label<span class="op">=</span><span class="ss">f'λ_</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb7-61"><a href="#cb7-61"></a>axes[<span class="dv">2</span>].set_title(<span class="ss">f'Coeficientes de Schmidt</span><span class="ch">\n</span><span class="ss">L=</span><span class="sc">{</span>L<span class="sc">}</span><span class="ss">, t1=</span><span class="sc">{</span>t1<span class="sc">:.2f}</span><span class="ss">, hz=</span><span class="sc">{</span>hz<span class="sc">}</span><span class="ss">, hx=</span><span class="sc">{</span>hx<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb7-62"><a href="#cb7-62"></a>axes[<span class="dv">2</span>].set_xlabel(<span class="st">'Ciclo de Floquet'</span>)</span>
+<span id="cb7-63"><a href="#cb7-63"></a>axes[<span class="dv">2</span>].set_ylabel(<span class="st">'Coeficientes de Schmidt'</span>)</span>
+<span id="cb7-64"><a href="#cb7-64"></a>axes[<span class="dv">2</span>].grid(<span class="va">True</span>)</span>
+<span id="cb7-65"><a href="#cb7-65"></a>axes[<span class="dv">2</span>].legend(fontsize<span class="op">=</span><span class="dv">8</span>, loc<span class="op">=</span><span class="st">'best'</span>)</span>
+<span id="cb7-66"><a href="#cb7-66"></a></span>
+<span id="cb7-67"><a href="#cb7-67"></a><span class="co"># (4) Entropía de entrelazamiento</span></span>
+<span id="cb7-68"><a href="#cb7-68"></a>axes[<span class="dv">3</span>].plot(entropias, marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">"darkred"</span>)</span>
+<span id="cb7-69"><a href="#cb7-69"></a>axes[<span class="dv">3</span>].set_xlabel(<span class="st">'Ciclo de Floquet'</span>)</span>
+<span id="cb7-70"><a href="#cb7-70"></a>axes[<span class="dv">3</span>].set_ylabel(<span class="st">'Entropía de von Neumann'</span>)</span>
+<span id="cb7-71"><a href="#cb7-71"></a>axes[<span class="dv">3</span>].set_title(<span class="ss">f'Entropía de entrelazamiento</span><span class="ch">\n</span><span class="ss">L=</span><span class="sc">{</span>L<span class="sc">}</span><span class="ss">, t1=</span><span class="sc">{</span>t1<span class="sc">:.2f}</span><span class="ss">, hz=</span><span class="sc">{</span>hz<span class="sc">}</span><span class="ss">, hx=</span><span class="sc">{</span>hx<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb7-72"><a href="#cb7-72"></a>axes[<span class="dv">3</span>].grid(<span class="va">True</span>)</span>
+<span id="cb7-73"><a href="#cb7-73"></a></span>
+<span id="cb7-74"><a href="#cb7-74"></a><span class="co"># Ajuste general de la figura</span></span>
+<span id="cb7-75"><a href="#cb7-75"></a>plt.suptitle(<span class="ss">f"Evolución del sistema de Floquet (L=</span><span class="sc">{</span>L<span class="sc">}</span><span class="ss">)"</span>, fontsize<span class="op">=</span><span class="dv">14</span>, y<span class="op">=</span><span class="fl">1.02</span>)</span>
+<span id="cb7-76"><a href="#cb7-76"></a>plt.tight_layout()</span>
+<span id="cb7-77"><a href="#cb7-77"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>/usr/local/lib/python3.12/dist-packages/scipy/sparse/linalg/_matfuncs.py:707: SparseEfficiencyWarning: spsolve requires A be CSC or CSR matrix format
+  return spsolve(Q, P)
+/usr/local/lib/python3.12/dist-packages/scipy/sparse/linalg/_matfuncs.py:707: SparseEfficiencyWarning: spsolve is more efficient when sparse b is in the CSC matrix format
+  return spsolve(Q, P)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Floquet_Time_Crystals_files/figure-html/cell-9-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./metodos.html" class="pagination-link" aria-label="Métodos Numéricos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Métodos Numéricos</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Time_crystals_definitivo.html" class="pagination-link" aria-label="Time_crystals_definitivo.html">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Time_crystals_definitivo.html</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
