@@ -159,7 +159,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Time_crystals_definitivo.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Time_crystals_definitivo.html</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Time_crystals_definitivo.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simulación con estados de producto de matriz</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -214,13 +214,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Floquet_Time_Crystals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Floquet Time Crystals</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Simulación con diagonalización exacta</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Time_crystals_definitivo.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Time_crystals_definitivo.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simulación con estados de producto de matriz</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -240,8 +240,14 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#caracterización-de-las-transciciones-de-fase" id="toc-caracterización-de-las-transciciones-de-fase" class="nav-link active" data-scroll-target="#caracterización-de-las-transciciones-de-fase"><span class="header-section-number">5.1</span> Caracterización de las transciciones de fase</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -629,13 +635,13 @@ Requirement already satisfied: llvmlite&lt;0.45,&gt;=0.44.0dev0 in /home/sebasto
 </div>
 </div>
 </div>
-<p>^X</p>
-<p>“Caracterización de las transciciones de fase”</p>
+<section id="caracterización-de-las-transciciones-de-fase" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="caracterización-de-las-transciciones-de-fase"><span class="header-section-number">5.1</span> Caracterización de las transciciones de fase</h2>
 <p>Para caracterizar las transiciones de fase entre el Cristal de Tiempo (TTSB) y la Fase Termal, necesitamos replicar la métrica clave del artículo: la magnetización promediada sobre el desorden <span class="math inline">\(Z(t)\)</span>.</p>
 <p>Esta magnetización alcanza una meseta que sobrevive por un tiempo que diverge exponencialmente con el tamaño del sistema. Si la perturbación (por ejemplo, el campo transversal <span class="math inline">\(h_x\)</span>) es demasiado fuerte, el sistema se termaliza, las resonancias proliferan y la magnetización decae a cero rápidamente.</p>
 <p>Para lograr ver estas propiedades tenemos que cumplir tres puntos importantes: 1) una función central que ejecute un ciclo completo de <span class="math inline">\(TEBD\)</span> para una configuración 2) un bucle de desorden que promedie los resultados sobre diferentes semillas aleatorias<br>
 3) un barrido de parámetros (barriendo <span class="math inline">\(h_x\)</span>, <span class="math inline">\(J\)</span> o <span class="math inline">\(L\)</span>) para observar cómo se colapsa la meseta</p>
-<div id="921607cb" class="cell" data-execution_count="1">
+<div id="921607cb" class="cell">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a><span class="im">import</span> quimb <span class="im">as</span> qu</span>
@@ -705,7 +711,7 @@ Requirement already satisfied: llvmlite&lt;0.45,&gt;=0.44.0dev0 in /home/sebasto
 </details>
 </div>
 <p>Al multiplicar la evolución de cada trayectoria individual por su signo_inicial, se forza matemáticamente a que todas las trayectorias arranquen desde +1 en la gráfica. Así, cuando se promedien al final del experimento, todas oscilarán en fase y se podrá observar cómo decae la envolvente de la magnetización sin que se auto-cancelen por culpa de sus estados iniciales aleatorios.</p>
-<div id="3bf6a64b" class="cell" data-execution_count="2">
+<div id="3bf6a64b" class="cell">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># ==========================================</span></span>
@@ -4371,7 +4377,7 @@ t=1, max-bond=23: 100%|##########| 100/100 [00:03&lt;00:00, 29.58%/s]  </code></
 </div>
 </div>
 </div>
-<div id="4779a607" class="cell" data-execution_count="2">
+<div id="4779a607" class="cell">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a><span class="co"># ==========================================</span></span>
@@ -22437,7 +22443,7 @@ t=1, max-bond=28: 100%|##########| 100/100 [00:03&lt;00:00, 26.01%/s]  </code></
 </div>
 </div>
 </div>
-<div id="433f609b" class="cell" data-execution_count="2">
+<div id="433f609b" class="cell">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a><span class="co"># ==========================================</span></span>
@@ -58507,6 +58513,7 @@ t=1, max-bond=50: 100%|##########| 100/100 [00:06&lt;00:00, 16.55%/s]   </code><
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -59072,8 +59079,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Floquet_Time_Crystals.html" class="pagination-link" aria-label="Floquet Time Crystals">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Floquet Time Crystals</span></span>
+      <a href="./Floquet_Time_Crystals.html" class="pagination-link" aria-label="Simulación con diagonalización exacta">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Simulación con diagonalización exacta</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
