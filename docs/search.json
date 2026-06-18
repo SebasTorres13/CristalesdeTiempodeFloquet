@@ -144,7 +144,7 @@
     "href": "resumen.html#síntesis-del-desarrollo",
     "title": "6  Resumen",
     "section": "6.2 Síntesis del desarrollo",
-    "text": "6.2 Síntesis del desarrollo\nA lo largo del libro digital, el contenido se estructuró de manera lógica para guiar al lector desde los fundamentos teóricos abstractos hasta la validación empírica en el límite termodinámico:\n\nIntroducción y Contexto Histórico: Se planteó el cambio de paradigma que representan las fases dinámicas de la materia. Frente a los sistemas cerrados convencionales que tienden a la muerte térmica, los cristales de tiempo discretos se introdujeron como sistemas capaces de romper la simetría de traslación temporal sin violar las leyes fundamentales de la física.\nFundamentos Teóricos: Se analizaron formalmente las condiciones físicas para la Ruptura Espontánea de la Simetría de Traslación Temporal Discreta (\\(dTTSB\\)). Se abordó el papel crucial de la Localización de Muchos Cuerpos (\\(MBL\\)) como el mecanismo encargado de inhibir la Hipótesis de Termalización de Eigenestados (\\(ETH\\)), actuando como un escudo contra el calentamiento por absorción de energía de Floquet.\nMétodos Numéricos: Se desglosó el Hamiltoniano MBL de espines-1/2 con interacciones de Ising desordenadas y campos magnéticos aleatorios. Se formularon las dos aproximaciones computacionales implementadas: la Diagonalización Exacta (ED) y el método de Redes Tensoriales a través de Time-Evolving Block Decimation (TEBD).",
+    "text": "6.2 Síntesis del desarrollo\nA lo largo del libro digital, el contenido se estructuró de manera lógica para guiar al lector desde los fundamentos teóricos abstractos hasta la validación empírica en el límite termodinámico:\n\nIntroducción y contexto histórico: Se planteó el cambio de paradigma que representan las fases dinámicas de la materia. Frente a los sistemas cerrados convencionales que tienden a la muerte térmica, los cristales de tiempo discretos se introdujeron como sistemas capaces de romper la simetría de traslación temporal sin violar las leyes fundamentales de la física.\nFundamentos teóricos: Se analizaron formalmente las condiciones físicas para la Ruptura Espontánea de la Simetría de Traslación Temporal Discreta (\\(dTTSB\\)). Se abordó el papel crucial de la Localización de Muchos Cuerpos (\\(MBL\\)) como el mecanismo encargado de inhibir la Hipótesis de Termalización de Eigenestados (\\(ETH\\)), actuando como un escudo contra el calentamiento por absorción de energía de Floquet.\nMétodos numéricos: Se desglosó el Hamiltoniano MBL de espines -1/2 con interacciones de Ising desordenadas y campos magnéticos aleatorios. Se formularon las dos aproximaciones computacionales implementadas: la Diagonalización Exacta (ED) y el método de Redes Tensoriales a través de Time-Evolving Block Decimation (TEBD).",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Resumen</span>"
     ]
@@ -162,11 +162,11 @@
   {
     "objectID": "references.html",
     "href": "references.html",
-    "title": "Referencias",
+    "title": "7  Referencias",
     "section": "",
-    "text": "Referencias\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "Else, Dominic V, Bela Bauer, and Chetan Nayak. 2016. “Floquet Time Crystals.” Physical Review Letters 117 (9): 090402. https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.117.090402.\n\n\nGray, Johnnie. 2018. “Quimb: A Python Package for Quantum Information and Many-Body Calculations.” Journal of Open Source Software 3 (29): 819. https://quimb.readthedocs.io/en/latest/.\n\n\nTensorNetwork Community. 2024. “Time-Evolving Block-Decimation (TEBD) - Tensor Network.” https://tensornetwork.org/mps/algorithms/timeevo/tebd.html.\n\n\nVidal, Guifré. 2003. “Efficient Classical Simulation of Slightly Entangled Quantum Computations.” Physical Review Letters 91 (14): 147902. https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.91.147902.\n\n\nWatanabe, Haruki, and Masaki Oshikawa. 2015. “Absence of Quantum Time Crystals.” Physical Review Letters 114 (25): 251603. https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.114.251603.\n\n\nXanadu Quantum Technologies. 2024a. “Matrix Product States.” https://pennylane.ai/demos/tutorial_mps.\n\n\n———. 2024b. “Pennylane.TrotterProduct — PennyLane Documentation.” https://docs.pennylane.ai/en/stable/code/api/pennylane.TrotterProduct.html.",
     "crumbs": [
-      "Referencias"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Referencias</span>"
     ]
   }
 ]

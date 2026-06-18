@@ -1,5 +1,3 @@
-# Referencias {.unnumbered}
-
 ---
 nocite: |
   @*
