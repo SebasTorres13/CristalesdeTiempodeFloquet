@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>6&nbsp; Summary – Cristales de Tiempo de Floquet</title>
+<title>6&nbsp; Resumen – Cristales de Tiempo de Floquet</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,6 +83,35 @@ window.MathJax = {
 };
 </script>  
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -96,7 +125,7 @@ window.MathJax = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./summary.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summary</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./resumen.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Resumen</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -162,14 +191,14 @@ window.MathJax = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  <a href="./resumen.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Resumen</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Referencias</span></a>
   </div>
 </li>
     </ul>
@@ -177,15 +206,29 @@ window.MathJax = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#resumen-y-hallazgos-del-desarrollo" id="toc-resumen-y-hallazgos-del-desarrollo" class="nav-link active" data-scroll-target="#resumen-y-hallazgos-del-desarrollo"><span class="header-section-number">6.1</span> Resumen y hallazgos del desarrollo</a></li>
+  <li><a href="#síntesis-del-desarrollo" id="toc-síntesis-del-desarrollo" class="nav-link" data-scroll-target="#síntesis-del-desarrollo"><span class="header-section-number">6.2</span> Síntesis del desarrollo</a></li>
+  <li><a href="#principales-hallazgos-físicos-y-conclusiones" id="toc-principales-hallazgos-físicos-y-conclusiones" class="nav-link" data-scroll-target="#principales-hallazgos-físicos-y-conclusiones"><span class="header-section-number">6.3</span> Principales hallazgos físicos y conclusiones</a>
+  <ul class="collapse">
+  <li><a href="#robustez-rigurosa-de-la-fase-de-cristal-de-tiempo" id="toc-robustez-rigurosa-de-la-fase-de-cristal-de-tiempo" class="nav-link" data-scroll-target="#robustez-rigurosa-de-la-fase-de-cristal-de-tiempo"><span class="header-section-number">6.3.1</span> 1. Robustez rigurosa de la fase de cristal de tiempo</a></li>
+  <li><a href="#el-desorden-colectivo-como-escudo-antitermalización" id="toc-el-desorden-colectivo-como-escudo-antitermalización" class="nav-link" data-scroll-target="#el-desorden-colectivo-como-escudo-antitermalización"><span class="header-section-number">6.3.2</span> 2. El desorden colectivo como escudo antitermalización</a></li>
+  <li><a href="#dinámica-del-entrelazamiento-en-el-límite-termodinámico" id="toc-dinámica-del-entrelazamiento-en-el-límite-termodinámico" class="nav-link" data-scroll-target="#dinámica-del-entrelazamiento-en-el-límite-termodinámico"><span class="header-section-number">6.3.3</span> 3. Dinámica del entrelazamiento en el límite termodinámico</a></li>
+  <li><a href="#eficiencia-metodológica-de-las-redes-tensoriales" id="toc-eficiencia-metodológica-de-las-redes-tensoriales" class="nav-link" data-scroll-target="#eficiencia-metodológica-de-las-redes-tensoriales"><span class="header-section-number">6.3.4</span> 4. Eficiencia metodológica de las redes tensoriales</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summary</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Resumen</span></h1>
 </div>
 
 
@@ -202,9 +245,47 @@ window.MathJax = {
 </header>
 
 
-<p>In summary, this book has no content whatsoever.</p>
+<section id="resumen-y-hallazgos-del-desarrollo" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="resumen-y-hallazgos-del-desarrollo"><span class="header-section-number">6.1</span> Resumen y hallazgos del desarrollo</h2>
+<p>Este capítulo consolida la síntesis de la investigación y los resultados fundamentales obtenidos mediante la simulación numérica de los Cristales de Tiempo Discretos (DTC). A lo largo de este proyecto, se ha explorado la transición desde la termodinámica convencional fuera del equilibrio hacia la estabilización de nuevas fases cuánticas de muchos cuerpos impulsadas periódicamente (<em>Sistemas de Floquet</em>).</p>
+</section>
+<section id="síntesis-del-desarrollo" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="síntesis-del-desarrollo"><span class="header-section-number">6.2</span> Síntesis del desarrollo</h2>
+<p>A lo largo del libro digital, el contenido se estructuró de manera lógica para guiar al lector desde los fundamentos teóricos abstractos hasta la validación empírica en el límite termodinámico:</p>
+<ol type="1">
+<li><strong>Introducción y Contexto Histórico:</strong> Se planteó el cambio de paradigma que representan las fases dinámicas de la materia. Frente a los sistemas cerrados convencionales que tienden a la muerte térmica, los cristales de tiempo discretos se introdujeron como sistemas capaces de romper la simetría de traslación temporal sin violar las leyes fundamentales de la física.</li>
+<li><strong>Fundamentos Teóricos:</strong> Se analizaron formalmente las condiciones físicas para la Ruptura Espontánea de la Simetría de Traslación Temporal Discreta (<span class="math inline">\(dTTSB\)</span>). Se abordó el papel crucial de la Localización de Muchos Cuerpos (<span class="math inline">\(MBL\)</span>) como el mecanismo encargado de inhibir la Hipótesis de Termalización de Eigenestados (<span class="math inline">\(ETH\)</span>), actuando como un escudo contra el calentamiento por absorción de energía de Floquet.</li>
+<li><strong>Métodos Numéricos:</strong> Se desglosó el Hamiltoniano MBL de espines-1/2 con interacciones de Ising desordenadas y campos magnéticos aleatorios. Se formularon las dos aproximaciones computacionales implementadas: la Diagonalización Exacta (ED) y el método de Redes Tensoriales a través de <em>Time-Evolving Block Decimation</em> (TEBD).</li>
+</ol>
+<hr>
+</section>
+<section id="principales-hallazgos-físicos-y-conclusiones" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="principales-hallazgos-físicos-y-conclusiones"><span class="header-section-number">6.3</span> Principales hallazgos físicos y conclusiones</h2>
+<p>A través del análisis cuantitativo de los datos recolectados y las curvas generadas por las simulaciones numéricas, se derivan las siguientes conclusiones fundamentales:</p>
+<section id="robustez-rigurosa-de-la-fase-de-cristal-de-tiempo" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="robustez-rigurosa-de-la-fase-de-cristal-de-tiempo"><span class="header-section-number">6.3.1</span> 1. Robustez rigurosa de la fase de cristal de tiempo</h3>
+<p>Las simulaciones con <strong>Diagonalización Exacta (ED)</strong> para cadenas cortas (<span class="math inline">\(L &lt; 15\)</span>) demostraron de forma contundente que la fase de cristal de tiempo es un fenómeno macroscópico robusto y no un artefacto de condiciones iniciales ideales o de un “giro perfecto”.</p>
+<p>Al introducir perturbaciones intencionales en el pulso de rotación global (<span class="math inline">\(t_1 \neq \pi/2\)</span>) y en presencia de campos transversos acoplados (<span class="math inline">\(h_x \neq 0\)</span>), la magnetización local <span class="math inline">\(\langle \sigma_i^z \rangle\)</span> continuó oscilando rígidamente con un periodo estroboscópico exacto de <span class="math inline">\(2T\)</span>. Esta respuesta subarmónica (frecuencia <span class="math inline">\(\Omega/2\)</span>) está protegida cuánticamente por el apareamiento espectral en las cuasi-energías del operador de evolución de Floquet.</p>
+</section>
+<section id="el-desorden-colectivo-como-escudo-antitermalización" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="el-desorden-colectivo-como-escudo-antitermalización"><span class="header-section-number">6.3.2</span> 2. El desorden colectivo como escudo antitermalización</h3>
+<p>El análisis espectral y la evolución temporal confirmaron que el desorden aleatorio en los acoplamientos de Ising (<span class="math inline">\(J_i\)</span>) y los campos longitudinales (<span class="math inline">\(h_i^z\)</span>) constituye el ingrediente indispensable del cristal de tiempo. Sin este desorden, el sistema cae en un régimen ergódico gobernado por <span class="math inline">\(ETH\)</span>, absorbiendo energía del impulso externo hasta disipar toda la información en un estado de temperatura infinita. El desorden local induce la fase MBL, rompiendo la ergodicidad y congelando la dinámica del sistema en configuraciones que retienen permanentemente la memoria de su estado inicial.</p>
+</section>
+<section id="dinámica-del-entrelazamiento-en-el-límite-termodinámico" class="level3" data-number="6.3.3">
+<h3 data-number="6.3.3" class="anchored" data-anchor-id="dinámica-del-entrelazamiento-en-el-límite-termodinámico"><span class="header-section-number">6.3.3</span> 3. Dinámica del entrelazamiento en el límite termodinámico</h3>
+<p>Mediante el uso de <strong>Estados Producto de Matriz (MPS)</strong> y el algoritmo TEBD en cadenas largas (<span class="math inline">\(L = 100\)</span>), se verificó el comportamiento del sistema en las cercanías del límite termodinámico. El hallazgo más relevante en esta sección fue el contraste en la evolución de la <strong>Entropía de Entrelazamiento de Von Neumann</strong> en la mitad de la cadena (<span class="math inline">\(L/2\)</span>):</p>
+<ul>
+<li><strong>En la fase térmica:</strong> La entropía exhibe un crecimiento balístico (lineal) que rápidamente satura el espacio de Hilbert disponible, destruyendo el orden local.</li>
+<li><strong>En la fase de Cristal de Tiempo (MBL):</strong> El entrelazamiento cuántico muestra un crecimiento sumamente lento de tipo <strong>logarítmico</strong>. Esto restringe la propagación de la correlación a una ley de área modificada, permitiendo que la oscilación de la magnetización persista indefinidamente en el tiempo.</li>
+</ul>
+</section>
+<section id="eficiencia-metodológica-de-las-redes-tensoriales" class="level3" data-number="6.3.4">
+<h3 data-number="6.3.4" class="anchored" data-anchor-id="eficiencia-metodológica-de-las-redes-tensoriales"><span class="header-section-number">6.3.4</span> 4. Eficiencia metodológica de las redes tensoriales</h3>
+<p>Desde la perspectiva del cómputo científico, el desarrollo demostró la tremenda superioridad de las redes tensoriales sobre la diagonalización exacta para estudiar fenómenos de muchos cuerpos fuera de equilibrio. Mientras que ED sufre una barrera insalvable debido al crecimiento exponencial de la dimensión del espacio de Hilbert (<span class="math inline">\(2^L\)</span>), el truncamiento mediante descomposición en valores singulares (SVD) implementado en TEBD con una dimensión de enlace moderada (<span class="math inline">\(\chi = 50\)</span>) capturó la física esencial MBL con un costo computacional lineal frente al tamaño del sistema, validando que la estructura cuántica de los cristales de tiempo pertenece a la subclase de estados de bajo entrelazamiento.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -775,8 +856,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="Referencias">
+        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

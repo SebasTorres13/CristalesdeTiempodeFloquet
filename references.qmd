@@ -1,4 +1,11 @@
-# References {.unnumbered}
+# Referencias {.unnumbered}
+
+---
+nocite: |
+  @*
+---
+
+# Referencias
 
 ::: {#refs}
 :::

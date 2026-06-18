@@ -130,13 +130,43 @@
     ]
   },
   {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "6  Summary",
+    "objectID": "resumen.html",
+    "href": "resumen.html",
+    "title": "6  Resumen",
     "section": "",
-    "text": "In summary, this book has no content whatsoever.",
+    "text": "6.1 Resumen y hallazgos del desarrollo\nEste capítulo consolida la síntesis de la investigación y los resultados fundamentales obtenidos mediante la simulación numérica de los Cristales de Tiempo Discretos (DTC). A lo largo de este proyecto, se ha explorado la transición desde la termodinámica convencional fuera del equilibrio hacia la estabilización de nuevas fases cuánticas de muchos cuerpos impulsadas periódicamente (Sistemas de Floquet).",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Summary</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Resumen</span>"
+    ]
+  },
+  {
+    "objectID": "resumen.html#síntesis-del-desarrollo",
+    "href": "resumen.html#síntesis-del-desarrollo",
+    "title": "6  Resumen",
+    "section": "6.2 Síntesis del desarrollo",
+    "text": "6.2 Síntesis del desarrollo\nA lo largo del libro digital, el contenido se estructuró de manera lógica para guiar al lector desde los fundamentos teóricos abstractos hasta la validación empírica en el límite termodinámico:\n\nIntroducción y Contexto Histórico: Se planteó el cambio de paradigma que representan las fases dinámicas de la materia. Frente a los sistemas cerrados convencionales que tienden a la muerte térmica, los cristales de tiempo discretos se introdujeron como sistemas capaces de romper la simetría de traslación temporal sin violar las leyes fundamentales de la física.\nFundamentos Teóricos: Se analizaron formalmente las condiciones físicas para la Ruptura Espontánea de la Simetría de Traslación Temporal Discreta (\\(dTTSB\\)). Se abordó el papel crucial de la Localización de Muchos Cuerpos (\\(MBL\\)) como el mecanismo encargado de inhibir la Hipótesis de Termalización de Eigenestados (\\(ETH\\)), actuando como un escudo contra el calentamiento por absorción de energía de Floquet.\nMétodos Numéricos: Se desglosó el Hamiltoniano MBL de espines-1/2 con interacciones de Ising desordenadas y campos magnéticos aleatorios. Se formularon las dos aproximaciones computacionales implementadas: la Diagonalización Exacta (ED) y el método de Redes Tensoriales a través de Time-Evolving Block Decimation (TEBD).",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Resumen</span>"
+    ]
+  },
+  {
+    "objectID": "resumen.html#principales-hallazgos-físicos-y-conclusiones",
+    "href": "resumen.html#principales-hallazgos-físicos-y-conclusiones",
+    "title": "6  Resumen",
+    "section": "6.3 Principales hallazgos físicos y conclusiones",
+    "text": "6.3 Principales hallazgos físicos y conclusiones\nA través del análisis cuantitativo de los datos recolectados y las curvas generadas por las simulaciones numéricas, se derivan las siguientes conclusiones fundamentales:\n\n6.3.1 1. Robustez rigurosa de la fase de cristal de tiempo\nLas simulaciones con Diagonalización Exacta (ED) para cadenas cortas (\\(L &lt; 15\\)) demostraron de forma contundente que la fase de cristal de tiempo es un fenómeno macroscópico robusto y no un artefacto de condiciones iniciales ideales o de un “giro perfecto”.\nAl introducir perturbaciones intencionales en el pulso de rotación global (\\(t_1 \\neq \\pi/2\\)) y en presencia de campos transversos acoplados (\\(h_x \\neq 0\\)), la magnetización local \\(\\langle \\sigma_i^z \\rangle\\) continuó oscilando rígidamente con un periodo estroboscópico exacto de \\(2T\\). Esta respuesta subarmónica (frecuencia \\(\\Omega/2\\)) está protegida cuánticamente por el apareamiento espectral en las cuasi-energías del operador de evolución de Floquet.\n\n\n6.3.2 2. El desorden colectivo como escudo antitermalización\nEl análisis espectral y la evolución temporal confirmaron que el desorden aleatorio en los acoplamientos de Ising (\\(J_i\\)) y los campos longitudinales (\\(h_i^z\\)) constituye el ingrediente indispensable del cristal de tiempo. Sin este desorden, el sistema cae en un régimen ergódico gobernado por \\(ETH\\), absorbiendo energía del impulso externo hasta disipar toda la información en un estado de temperatura infinita. El desorden local induce la fase MBL, rompiendo la ergodicidad y congelando la dinámica del sistema en configuraciones que retienen permanentemente la memoria de su estado inicial.\n\n\n6.3.3 3. Dinámica del entrelazamiento en el límite termodinámico\nMediante el uso de Estados Producto de Matriz (MPS) y el algoritmo TEBD en cadenas largas (\\(L = 100\\)), se verificó el comportamiento del sistema en las cercanías del límite termodinámico. El hallazgo más relevante en esta sección fue el contraste en la evolución de la Entropía de Entrelazamiento de Von Neumann en la mitad de la cadena (\\(L/2\\)):\n\nEn la fase térmica: La entropía exhibe un crecimiento balístico (lineal) que rápidamente satura el espacio de Hilbert disponible, destruyendo el orden local.\nEn la fase de Cristal de Tiempo (MBL): El entrelazamiento cuántico muestra un crecimiento sumamente lento de tipo logarítmico. Esto restringe la propagación de la correlación a una ley de área modificada, permitiendo que la oscilación de la magnetización persista indefinidamente en el tiempo.\n\n\n\n6.3.4 4. Eficiencia metodológica de las redes tensoriales\nDesde la perspectiva del cómputo científico, el desarrollo demostró la tremenda superioridad de las redes tensoriales sobre la diagonalización exacta para estudiar fenómenos de muchos cuerpos fuera de equilibrio. Mientras que ED sufre una barrera insalvable debido al crecimiento exponencial de la dimensión del espacio de Hilbert (\\(2^L\\)), el truncamiento mediante descomposición en valores singulares (SVD) implementado en TEBD con una dimensión de enlace moderada (\\(\\chi = 50\\)) capturó la física esencial MBL con un costo computacional lineal frente al tamaño del sistema, validando que la estructura cuántica de los cristales de tiempo pertenece a la subclase de estados de bajo entrelazamiento.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Resumen</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "Referencias",
+    "section": "",
+    "text": "Referencias\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "crumbs": [
+      "Referencias"
     ]
   }
 ]

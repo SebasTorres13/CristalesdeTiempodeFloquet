@@ -17,7 +17,7 @@ book:
 
     - file: Time_crystals_definitivo.ipynb
       text: "Simulación con estados de producto de matriz"
-    - summary.qmd
+    - resumen.qmd
     - references.qmd
     
 bibliography: references.bib
