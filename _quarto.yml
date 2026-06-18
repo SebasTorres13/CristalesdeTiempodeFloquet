@@ -4,14 +4,16 @@ project:
 
 book:
   title: "Cristales de Tiempo de Floquet"
-  author: "Mario sebastián Torres Rubio"
-  date: 28/4/2026
+  author: "Mario Sebastián Torres Rubio"
+  date: "2026-04-28" 
+  date-format: "long" 
   chapters:
     - index.qmd
     - intro.qmd
     - teoria.qmd
     - metodos.qmd
-    - simulaciones.qmd
+    - Floquet_Time_Crystals.ipynb
+    - Time_crystals_definitivo.ipynb
     - summary.qmd
     - references.qmd
     
@@ -19,10 +21,12 @@ bibliography: references.bib
 
 format:
   html:
+    # --- CONFIGURACIÓN DE MODO OSCURO Y COLOR ---
     theme:
-      light: superhero
-      dark: superhero
+      light: cosmo      # Tema limpio y claro por defecto
+      dark: superhero   # Tema oscuro cuando el usuario activa el interruptor
     
+    # --- CONFIGURACIÓN DE MATHJAX ---
     include-in-header:
       text: |
         <script>
@@ -37,14 +41,15 @@ format:
           }
         };
         </script>  
+    
+    # --- ESTILOS ADICIONALES ---
     fontsize: 0.8em
     css: styles.css
+    
+    # --- CONFIGURACIÓN DE CÓDIGO ---
     code-fold: true
     code-summary: "Mostrar código"
     code-line-numbers: true
     code-copy: true
-  pdf:
-    documentclass: scrreprt
-
 
 
