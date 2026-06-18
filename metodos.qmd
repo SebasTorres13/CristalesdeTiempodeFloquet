@@ -1,82 +1,43 @@
-El modelo utilizado lo tomamos del artículo de Else et al. (2016), donde se estudia un sistema de espines-1/2 en una cadena unidimensional de longitud $L$ con condiciones periódicas.
-La dinámica del cristal de tiempo está gobernada por un operador de evolución unitaria que se repite en cada periodo $T$ . Este operador se compone de dos pasos principales:\\
-$U_f = \exp(-it_0 H_{MBL}) \exp(it_1 \sum_i \sigma_i^x)$\\ 
+# Métodos Numéricos
 
-La primera parte del operador $\exp(-it_0 H_{MBL})$ representa la evolución del sistema bajo un Hamiltoniano, de Many-Body Localization, con desorden e interacciones durante un tiempo $t_0$. El Hamiltoniano $H_{MBL}$ que genera la interacción y permite la localización se define como:
+El modelo utilizado lo tomamos del artículo de Else et al. (2016), donde se estudia un sistema de espines-1/2 en una cadena unidimensional de longitud $L$ con condiciones periódicas. La dinámica del cristal de tiempo está gobernada por un operador de evolución unitaria que se repite en cada periodo $T$. Este operador se compone de dos pasos principales:
 
-$H_{MBL} = \sum_i (J_i \sigma_i^z \sigma_{i+1}^z + h_i^z \sigma_i^z + h_i^x \sigma_i^x)$\\ 
-:::{.callout-note appearance="simple" icon="false" collapse="false"}
- ### -Término de Interacción ($J_i \sigma_i^z \sigma_{i+1}^z$): 
- Representa la interacción de Ising entre espines vecinos. El desorden en los acoplamientos $J_i$ es crucial para estabilizar la fase MBL y evitar que el sistema se caliente.
+$$U_f = \exp(-it_0 H_{MBL}) \exp\left(it_1 \sum_i \sigma_i^x\right)$$
 
- ### -Campo Longitudinal ($h_i^z \sigma_i^z$): 
- Es un campo magnético aleatorio en la dirección $z$. Su función es romper la homogeneidad del sistema y facilitar la localización de MBL.  
+La primera parte del operador $\exp(-it_0 H_{MBL})$ representa la evolución del sistema bajo un Hamiltoniano de Localización de Muchos Cuerpos (MBL) con desorden e interacciones durante un tiempo $t_0$. El Hamiltoniano $H_{MBL}$ que genera la interacción y permite la localización se define como:
 
- ### -Campo Transverso ($h_i^x \sigma_i^x$): 
- Actúa como una perturbación . En el punto soluble este término es cero, pero en simulaciones reales se utiliza un valor pequeño para demostrar que el cristal de tiempo es una fase robusta y no solo un efecto de un "giro perfecto".
+$$H_{MBL} = \sum_i (J_i \sigma_i^z \sigma_{i+1}^z + h_i^z \sigma_i^z + h_i^x \sigma_i^x)$$
+
+::: {.callout-note appearance="simple" icon=false}
+## Componentes del Hamiltoniano
+* **Término de Interacción ($J_i \sigma_i^z \sigma_{i+1}^z$):** Representa la interacción de Ising entre espines vecinos. El desorden en los acoplamientos $J_i$ es crucial para estabilizar la fase MBL y evitar que el sistema se caliente.
+* **Campo Longitudinal ($h_i^z \sigma_i^z$):** Es un campo magnético aleatorio en la dirección $z$. Su función es romper la homogeneidad del sistema y facilitar la localización de MBL.
+* **Campo Transverso ($h_i^x \sigma_i^x$):** Actúa como una perturbación. En el punto soluble este término es cero, pero en simulaciones reales se utiliza un valor pequeño para demostrar que el cristal de tiempo es una fase robusta y no solo un efecto de un "giro perfecto".
 :::
 
-La segunda parte del operador de evolución $\exp(it_1 \sum_i \sigma_i^x)$ representa un impulso de rotación global de todos los espines alrededor del eje $x$ . Si el parámetro $t_1$ es exactamente $\pi/2$, este término actúa como un operador de paridad que invierte todos los espines ($\sigma^z \rightarrow -\sigma^z$).
+La segunda parte del operador de evolución $\exp\left(it_1 \sum_i \sigma_i^x\right)$ representa un impulso de rotación global de todos los espines alrededor del eje $x$. Si el parámetro $t_1$ es exactamente $\pi/2$, este término actúa como un operador de paridad que invierte todos los espines ($\sigma^z \rightarrow -\sigma^z$).
 
-## Métodos Numéricos
+La simulación numérica de los cristales de tiempo de Floquet requiere un enfoque simultáneo que permita, por un lado, obtener resultados exactos en sistemas pequeños y, por otro, explorar el comportamiento del sistema en el límite termodinámico. El desafío principal radica en que el número de parámetros necesarios para describir un estado cuántico de muchos cuerpos crece exponencialmente con el número de sitios $L$ ($2^L$ estados). Para superar este obstáculo, se han desarrollado dos metodologías fundamentales: la Diagonalización Exacta (ED) mediante matrices dispersas y la evolución de Estados Producto de Matriz (MPS) utilizando el algoritmo TEBD. 
 
-La simulación numérica de los cristales de tiempo de Floquet requiere un enfoque simultáneo que permita, por un lado, obtener resultados exactos en sistemas pequeños y, por otro, explorar el comportamiento del sistema en el límite termodinámico. El desafío principal radica en que el número de parámetros necesarios para describir un estado cuántico de muchos cuerpos crece exponencialmente con el número de sitios $L$. Para superar este obstáculo, se han desarrollado dos metodologías fundamentales: la Diagonalización Exacta (ED) mediante matrices dispersas y la evolución de Estados Producto de Matriz (MPS) utilizando el algoritmo TEBD. \\
+## Diagonalización Exacta (ED)
 
+Para el primer código solo se consideraron los casos para cadenas de longitud $L<15$, ya que el espacio de Hilbert crece exponencialmente, volviéndose computacionalmente costoso. Por esto, se utilizaron operaciones matriciales con librerías como `numpy`, `scipy.sparse` y `scipy.sparse.linalg`. Las matrices *sparse* permitieron trabajar eficientemente almacenando solo los elementos no nulos, lo que redujo el uso de memoria y tiempo de cómputo.
 
-Para el primer código solo se consideraron los casos casos para cadenas de longitud $L<15$ ya que que el espacio de Hilbert crece exponencialmente con $L$ ($2^L$ estados) por lo que se vuelve computacionalmente costoso, es por eso que se utilizaron operaciones matriciales con funciones especiales de librerías como *numpy*, *scipy.sparse* y *scipy.sparse.linalg*. Las matrices sparce permitieron trabajar con operaciones matriciales directamente al solo almacenar los elementos no nulos de cada matriz, lo que redujo principalmente el uso de memoria y tiempo de cómputo.\\
+* **Estrategia de eficiencia:** Uso de `csc_matrix` para definir las matrices de Pauli ($\sigma^x$, $\sigma^z$) y la identidad. Esto permite realizar operaciones matriciales de manera eficiente.
+* **Construcción del espacio de muchos cuerpos:** Uso de la función `kron` para expandir los operadores locales a la dimensión total del sistema $2^L$. Por ejemplo, para un término $\sigma_i^z \sigma_{i+1}^z$ se construye una matriz que es la identidad en todos los sitios excepto en $i$ e $i+1$, donde se coloca el producto de las matrices correspondientes.
+* **Implementación del Hamiltoniano desordenado:** Se construye sumando los términos de interacción, campo longitudinal y transverso. Se utilizan generadores de números aleatorios que asignan valores únicos a $J_i$ y $h_i^z$ en cada sitio. Cada término se construye como una matriz dispersa y se suma para obtener $H_{MBL}$.
+* **Operador de evolución de Floquet:** Se utiliza `scipy.sparse.linalg.expm` para calcular los operadores de evolución $e^{-it_0 H_{MBL}}$ y la rotación global $e^{it_1 \sum \sigma_i^x}$. El operador total es: $U_f = U_{int} \cdot U_{rot}$.
+* **Dinámica y evolución temporal:** El sistema se observa en pasos discretos de tiempo $T$. El estado inicial $|\psi(0)\rangle$ se multiplica sucesivamente por la matriz en un ciclo `for`: $|\psi(nT)\rangle = (U_f)^n |\psi(0)\rangle$.
+* **Extracción de observables:** Para detectar la fase del cristal de tiempo, se mide la magnetización en cada paso. En cada periodo $n$, se calcula $\langle \sigma_i^z \rangle$ mediante la proyección: $\langle \sigma_i^z \rangle = \langle \psi(nT) | \sigma_i^z | \psi(nT) \rangle$. Si la magnetización oscila entre 1 y -1 con un periodo $2T$, se confirma la *dTTSB*.
 
-Para el segundo código se utilizó la librería *Quimb*, es una biblioteca de Python diseñada para realizar cálculos de información cuántica y sistemas de muchos cuerpos, especializada en el uso de redes tensoriales. Con este nuevo compendio de funciones especializadas se pudo simular cadenas de longitud $L>200$ para poder estudiar la ruptura de la simetría de traslación temporal en el límite termodinámico. Para eso seempleó el método de TEBD (Time-Evolving Block Decimation) que es un algoritmo eficiente para simular la evolución temporal de sistemas cuánticos de muchos cuerpos representados como redes tensoriales, especialmente en una dimensión. Este método se basa en la idea de truncar el espacio de Hilbert manteniendo solo los estados más relevantes, lo que permite simular sistemas más grandes sin sacrificar en un costo computacional excesivo. 
+## Evolución de Estados Producto de Matriz (MPS) con TEBD
 
-#### Diagonalización Exacta (ED)
-  * **Estrategia de eficiencia:** 
-     -Uso de *csc_matrix* para definir las matrices de Pauli ($\sigma^x$,$\sigma^z$) y la identidad. esto permite realizar operaciones matriciales de manera eficiente sin almacenar elementos nulos.
-
-  * **Construcción del espacio de muchos cuerpos:**
-     -Uso de la función *kron* para expandir los operadores locales a la dimensión total del sistema $2^L$.
-      Por ejemplo, para un término $\sigma_i^z \sigma_{i+1}^z$ se construye una matriz que es la identidad en toso dlos sitios excepto en $i$ e $i+1$, donde se coloca el producto de las matrices de Pauli correspondientes.
-
-  * **Implementación del Hamiltoniano desordenado:**
-     -El hamiltoniano se construye sumando los términos de interacción, campo longitudinal y campo transverso.
-     -Para la generación de desorden se utilizan generadores de números aleatorios que asignan valores únicos a $J_i$ y $h_i^z$ en cada sitio de la cadena.
-     -Cada término se contsruye como una matriz dispersa y se suma para obtener la matriz final de $H_{MBL}$.
-
-  * **Construcción del operador de evolución de Floquet:**
-     -Se utiliza *scipy.sparse.linalg.expm* para calcular los operadores de evolución $e^{-it_0 H_{MBL}}$ y la rotación global $e^{it_1 \sum \sigma_i^x}$
-     -El operador de Floquet total se obtiene multiplicando estas dos matrices en el orden correcto: $U_f = U_{int} \cdot U_{rot}$.
-  
-  * **Dinámica y evolución temporal:**
-     -En lugar de una evolución continua, el sistema se observa en pasos discretos de tiempo $T$.
-     -El estado inicial $|\psi(0)\rangle$ se multipilica sucesivamente por la matriz de Floquet en un ciclo *for*.
-     -$|\psi(0) (nT)\rangle = (U_f)^n |\psi(0)\rangle$
-  
-  * **Extracción de observables y análisis:**
-     -Para detectar la fase de del cristal de tiempo, se mide la magnegtización en cada paso.
-     -En cada periodo $n$, se calcula $\langle \sigma_i^z \rangle$ mediante la proyección del estado actual sobre el operador de magnetización: $\langle \sigma_i^z \rangle = \langle \psi(nT) | \sigma_i^z | \psi(nT) \rangle$
-     -El programa registra los valores para graficarlos y verificar si la magnetización oscila entre 1 y -1 con un periodo $2T, que es la firma definitiva de la *dTTSB*
+Para el segundo código se utilizó la librería `Quimb`, diseñada para cálculos de información cuántica especializados en redes tensoriales. Con esto se pudo simular cadenas de longitud $L=100$ para estudiar la ruptura de simetría en el límite termodinámico. Se empleó el método de TEBD (*Time-Evolving Block Decimation*), un algoritmo eficiente que trunca el espacio de Hilbert manteniendo solo los estados más relevantes, evitando un costo computacional excesivo.
 
 
-#### Evolución de Estados Producto de Matriz (MPS) con TEBD
-  * **Representación de estados como MPS:**
-     -A diferencia de la diagonalización exacta, este no construye matrices de tamaño $2^{100} \times 2^{100}$, lo cual sería imposible. Utiliza la librería *Quimb* para representar el estado cuántico como un MPS.
-     -Se define un estado producto inical donde cada sitio en una superposición local: $cos(\theta)|0\rangle + sin(\theta)|1\rangle$.
-     -Esta representación permite manejar cadenas de 100 sitios o más de manera eficiente, limitando el entrelazamiento mediante la dimensión de enlace $\chi$.
-
-  * **Implementación del Hamiltoniano MBL unidimensional:**
-     -El código define el Hamiltoniano de interaciión y campo desordenado de forma simbólica para que sea compatible con los algoritmos de evolución de tensores.
-     -Se utiliza la función *qtn.LocalHam1D* para espeecificar las interacciones de dos cuerpos $(Z \otimes Z)$ y los campos locales $(Z)$ con coeficientes aleatorios generados uniformemente.
-
-  * **Fase 1 de Floquet, Aplicación de compuertas globales:**
-     -En cada ciclo, se aplica el impulso de rotación en el eje $X$ a cada espín.
-     -Se utiliza el método *.gate_()* con la opción *contract='swap+split'*. esto aplica el operador unitario $U_x$ de forma local a cada tensor de la cadena.
-     -Inmediatamente después del pulso, se ejecuta *psi.compress()*. Esta es la parte más crítica, ya que trunca los valores singulares (coeficientes de Schmidt) para mantener la dimensión de enlace en $\chi=50$, evitando que el costo computacional crezca exponencialmente. 
- 
-  * **Fase 2 de Floquet, Algoritmo TEBD (Time-Evolving Block Decimation):**
-     -Se instancia *qtn.TEBD* sobre el estado actual y el Hamiltoniano. La evolución se realiza en pasos de tiempo discretos $dt = 0.01$ hasta alcanzar $t_0 = 1.0$.  
-     -El algoritmo descompone el operador de evolución global en una serie de compuertas de dos sitios (Suzuki-Trotter), actualizando el MPS sitio por sitio.
-
-  * **Extracción de observables y entropía:**
-
-     -Se calcula $\langle \sigma^z \rangle$ en el sitio central ($L/2$) mediante el producto interno entre el estado conjugado y el estado gateado: *psi.H @ psi.gate(qu.pauli('Z'), L // 2)*
-     -Se utiliza el método *psi.entropy(L // 2)* para calcular la entropía de Von Neumann en la mitad de la cadena. Esto permite verificar si el sistema está en la fase MBL (crecimiento logarítmico) o si se está termalizando (crecimiento lineal).
-     
-     
+* **Representación de estados como MPS:** A diferencia de la diagonalización exacta, este método no construye matrices gigantes. Se define un estado producto inicial donde cada sitio está en una superposición: $\cos(\theta)|0\rangle + \sin(\theta)|1\rangle$. Esta representación maneja cadenas de 100 sitios eficientemente limitando el entrelazamiento mediante la dimensión de enlace $\chi$.
+* **Implementación del Hamiltoniano MBL:** El código define el Hamiltoniano de interacción y campo desordenado de forma simbólica. Se utiliza `qtn.LocalHam1D` para especificar interacciones de dos cuerpos ($Z \otimes Z$) y campos locales ($Z$) con coeficientes aleatorios.
+* **Fase 1 de Floquet (Compuertas globales):** Se aplica el impulso de rotación en el eje $X$ a cada espín utilizando el método `.gate_()` con la opción `contract='swap+split'`. Inmediatamente después del pulso, se ejecuta `psi.compress()`. Esta compresión es crítica, ya que trunca los coeficientes de Schmidt mediante SVD para mantener la dimensión de enlace en $\chi=50$.
+* **Fase 2 de Floquet (Algoritmo TEBD):** Se instancia `qtn.TEBD` sobre el estado actual y el Hamiltoniano. La evolución se realiza en pasos de tiempo discretos $dt = 0.01$ hasta $t_0 = 1.0$. El algoritmo descompone el operador de evolución en compuertas de dos sitios mediante Suzuki-Trotter.
+* **Extracción de observables y entropía:** * Se calcula $\langle \sigma^z \rangle$ en el sitio central ($L/2$) mediante el producto interno: `psi.H @ psi.gate(qu.pauli('Z'), L // 2)`.
+  * Se utiliza `psi.entropy(L // 2)` para calcular la entropía de Von Neumann en la mitad de la cadena, permitiendo verificar si el sistema está en la fase MBL (crecimiento logarítmico) o si se está termalizando (crecimiento lineal).
